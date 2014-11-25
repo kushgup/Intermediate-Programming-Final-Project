@@ -9,7 +9,10 @@
 #include "Card.h"
 #include <stdio.h>
 #include <iostream>
-using namespace std;
+
+using std::cout;
+using std::cin;
+using std::endl;
 
 Card::Card()
 {
@@ -22,7 +25,7 @@ Card::Card()
         isCamel = true;
     else
         isCamel = false;
-    
+
     if(Id == "Gold" || Id == "Silver" || Id == "Diamonds")
         isPrecious = true;
     else
@@ -33,12 +36,12 @@ Card::Card(string Id)
 {
     identifier = Id;
     PandaCamel = false;
-    
+
     if(Id == "Camel")
         isCamel = true;
     else
         isCamel = false;
-    
+
     if(Id == "Gold" || Id == "Silver" || Id == "Diamonds")
         isPrecious = true;
     else
