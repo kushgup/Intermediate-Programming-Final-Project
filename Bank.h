@@ -11,12 +11,21 @@
 
 #include <stdio.h>
 #include "Token.h"
+#include <array>
+#include <vector>
+#include <map>
 using namespace std;
 
 class Bank
 {
-    Token bank [6][9];
-    Token bonuses [3][7];
+    std::array<std::vector<Token>, 6> bank{{std::vector<Token>(9), std::vector<Token>(7), std::vector<Token>(7), std::vector<Token>(5), std::vector<Token>(5), std::vector<Token>(5)}};
+    
+    std::array<std::vector<Token>, 3> bonuses{{std::vector<Token>(7), std::vector<Token>(6), std::vector<Token>(5)}};
+    
+   // vector<Token> seals;
+    
+    //Token bank [6][9];
+    //Token bonuses [3][7];
     Token seals [3];
     Token camelToken;
     

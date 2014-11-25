@@ -133,7 +133,7 @@ Bank::Bank()
     
     for (int i = 0; i < 3; i++)
     {
-        seals[i] = *new Token ();
+        seals[i] = *new Token();
         seals[i].Token::setType("Seal");
         seals[i].Token::setValue(100);
     }
@@ -214,7 +214,7 @@ void Bank::printBank()
     cout << "Bank **********************************************" << endl;
     for(int i=0; i< 6 ;i++)
     {
-        int num_elements = sizeof( bank[i] ) / sizeof( bank[i][0] );
+        int num_elements = (int) bank[i].size();
         if(bank[i][0].getType() == "Diamonds")
             cout << bank[i][0].getType() << " Tokens: \t";
         else
@@ -230,7 +230,7 @@ void Bank::printBank()
     
     for(int i=0; i< 3 ;i++)
     {
-        int num_elements = sizeof( bonuses[i] ) / sizeof( bonuses[i][0] );
+        int num_elements = (int) bank[i].size();
         cout << bonuses[i][0].getType() << " Tokens: \t\t";
         for (int k = 0; k< num_elements; k++)
         {
