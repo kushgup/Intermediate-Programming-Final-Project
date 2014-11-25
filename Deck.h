@@ -11,13 +11,12 @@
 
 #include <stdio.h>
 #include "Card.h"
-using namespace std;
 
 class Deck
 {
     Card deck [52];
     Card startCamels[3];
-    
+
 public:
     Deck();
     Deck(Deck &);
@@ -26,7 +25,7 @@ public:
     void printDeck();
     void shuffle();
     void swap (int *, int *);
-    
+
 };
 
 #endif /* defined(__pg7b__Deck__) */
