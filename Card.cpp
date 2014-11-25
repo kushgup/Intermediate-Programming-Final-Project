@@ -9,40 +9,26 @@
 #include "Card.h"
 #include <stdio.h>
 #include <iostream>
-
-using std::cout;
-using std::cin;
-using std::endl;
-using std::string;
+using namespace std;
 
 Card::Card()
 {
-    cout << "Enter a string: ";
-    string Id;
-    cin >> Id;
-    identifier = Id;
+    isCamel = false;
+    isPrecious = false;
     PandaCamel = false;
-    if(Id == "Camel")
-        isCamel = true;
-    else
-        isCamel = false;
-
-    if(Id == "Gold" || Id == "Silver" || Id == "Diamonds")
-        isPrecious = true;
-    else
-        isPrecious = false;
+    identifier = "NA";
 }
 
 Card::Card(string Id)
 {
     identifier = Id;
     PandaCamel = false;
-
+    
     if(Id == "Camel")
         isCamel = true;
     else
         isCamel = false;
-
+    
     if(Id == "Gold" || Id == "Silver" || Id == "Diamonds")
         isPrecious = true;
     else
@@ -56,11 +42,11 @@ Card::Card(Card & other)
     PandaCamel = other.PandaCamel;
 }
 
-Card::~Card()
+/*Card::~Card()
 {
     delete this;
 }
-
+*/
 string Card::getIdentifier() const
 {
     return this->identifier;

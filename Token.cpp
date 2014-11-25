@@ -12,6 +12,12 @@
 
 using namespace std;
 
+Token::Token()
+{
+    value = 0;
+    TypeOfToken = "NoType";
+}
+
 Token::Token(int v, string k)
 {
     value = v;
@@ -24,28 +30,30 @@ Token::Token(Token & other)
     TypeOfToken = other.getType();
 }
 
-Token::~Token()
+void Token::setType(string y)
 {
-    delete this;
+    TypeOfToken = y;
 }
 
 void Token::setValue(int x)
 {
-    this->value = x;
+    value = x;
 }
 
 int Token::getValue() const
 {
-    return this->value;
+    return value;
 }
 
 string Token::getType() const
 {
-    return this->TypeOfToken;
+    return TypeOfToken;
 }
 
 void Token::printToken() const
 {
     cout << TypeOfToken << ":" << value;
 }
+
+
 

@@ -12,22 +12,24 @@
 #include <stdio.h>
 #include <iostream>
 
-using std::string;
+using namespace std;
 
 class Token
 {
     int value;
     string TypeOfToken;
-
+    
 public:
+    Token();
     Token(int, string);
     Token(Token &);
-    ~Token();
+    //~Token();
     void setValue(int);
+    void setType(string);
     int getValue() const;
     string getType() const;
     void printToken() const;
-
+    
 };
 
 #endif /* defined(__pg7b__Token__) */

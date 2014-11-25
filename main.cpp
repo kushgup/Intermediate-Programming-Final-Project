@@ -8,10 +8,13 @@
 
 #include <iostream>
 #include "Bank.h"
+#include "Deck.h"
 
 int main(int argc, const char * argv[]) {
    
-    Bank one = *new Bank();
-    one.Bank::printBank();
+    //Bank one = *new Bank();
+    //one.Bank::printBank();
+    Deck two = *new Deck();
+    two.Deck::printDeck();
     return 0;
 }

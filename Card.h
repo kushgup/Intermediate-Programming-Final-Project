@@ -11,9 +11,7 @@
 
 #include <stdio.h>
 #include <iostream>
-
-
-using std::string;
+using namespace std;
 
 class Card
 {
@@ -21,13 +19,14 @@ class Card
     bool isCamel;
     bool PandaCamel;
     bool isPrecious;
-
+    
 public:
     Card();
     Card(string);
     Card(Card &);
-    ~Card();
+    //~Card();
     string getIdentifier() const;
+    void setIdentifier(string);
     bool getIsCamel() const;
     void setPandaCamel();
     bool getIsPandaCamel() const;

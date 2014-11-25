@@ -37,8 +37,13 @@ public:
     Token takeBonus(int); //Pop Top
     Token takeSeal();
     Token getCamelToken();
-    
     void printBank();
+    
+private:
+    void shuffleBonus();
+    void swap3(int, int);
+    void swap4(int, int);
+    void swap5(int, int);
     
 };
 
