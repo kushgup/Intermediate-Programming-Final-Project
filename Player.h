@@ -12,8 +12,8 @@ class Player {
 protected:
 
 	String name; //store the name of the player
-	OList<Card> hand; //separate linked list of resource cards for the hand
-	OList<Card> camels; //separate linked list of camels
+	OList<Card *> hand; //separate linked list of resource cards for the hand
+	OList<Card *> camels; //separate linked list of camels
 	int points; //keep track of points, don't have a container to store tokens since we don't have a class for that
 	int seals; //keep track of how many seals the player has
 
