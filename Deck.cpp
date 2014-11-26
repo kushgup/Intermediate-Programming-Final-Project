@@ -17,46 +17,57 @@ Deck::Deck()
 {
     for(int i = 0; i < 11; i++)
     {
-        deck[i] = *new Card("Camel");
+        deckTobeshuffled[i] = *new Card("Camel");
         //deck[i].setIdentifier("Camel");
     }
     for(int i = 11; i< 21; i++)
     {
-        deck[i] = *new Card("Paper");
+        deckTobeshuffled[i] = *new Card("Paper");
         //deck[i].setIdentifier("Paper");
     }
     for(int i = 21; i< 29; i++)
     {
-        deck[i] = *new Card("Spice");
+        deckTobeshuffled[i] = *new Card("Spice");
         //deck[i].setIdentifier("Spice");
     }
     for(int i = 29; i< 37; i++)
     {
-        deck[i] = *new Card("Cloth");
+        deckTobeshuffled[i] = *new Card("Cloth");
         //deck[i].setIdentifier("Cloth");
     }
     for(int i = 37; i< 43; i++)
     {
-        deck[i] = *new Card("Silver");
+        deckTobeshuffled[i] = *new Card("Silver");
     }
     for(int i = 43; i< 49; i++)
     {
-        deck[i] = *new Card("Gold");
+        deckTobeshuffled[i] = *new Card("Gold");
     }
     for(int i = 49; i<= 52; i++)
     {
-        deck[i] = *new Card("Diamonds");
+        deckTobeshuffled[i] = *new Card("Diamonds");
     }
     for(int i =0; i<3; i++)
     {
         startCamels[i] = *new Card ("Camel");
     }
     shuffle();
+    
+    for(int j = 0; j<3; j++)
+    {
+        deckForGame[j] = startCamels[j];
+    }
+    for(int j =3; j<55; j++)
+    {
+        deckForGame[j] = deckTobeshuffled[j];
+    }
+    
+    placeinDeck = 0;
 }
 
 Card Deck::getCardatIndex(int a)
 {
-    return deck[a];
+    return deckTobeshuffled[a];
 }
 
 void Deck::shuffle()
@@ -70,14 +81,14 @@ void Deck::shuffle()
 
 void Deck::swap(int a, int b)
 {
-    Card temp = deck[a];
-    deck[a]=deck[b];
-    deck[b] = temp;
+    Card temp = deckTobeshuffled[a];
+    deckTobeshuffled[a]=deckTobeshuffled[b];
+    deckTobeshuffled[b] = temp;
 }
 
 void Deck::printDeck()
 {
-    int cardsInDeck = sizeof(deck)/sizeof(deck[0]);
+    int cardsInDeck = sizeof(deckForGame)/sizeof(deckForGame[0]);
     cout << "Deck:\t";
     for (int i = 1; i<=cardsInDeck; i++)
     {
@@ -92,7 +103,12 @@ void Deck::printDeck()
     cout << endl;
 }
 
-
+Card * Deck::dealCard()
+{
+    Card * temp = &deckForGame[placeinDeck];
+    placeinDeck++;
+    return temp;
+}
 
 
 

@@ -9,12 +9,13 @@
 #include <iostream>
 #include "Bank.h"
 #include "Deck.h"
+#include "Field.h"
 
 int main(int argc, const char * argv[]) {
    
-    //Bank one = *new Bank();
-    //one.Bank::printBank();
-    Deck two = *new Deck();
-    two.Deck::printDeck();
+    Bank one = *new Bank();
+    one.Bank::printBank();
+    Field two = *new Field();
+    two.Field::printField();
     return 0;
 }

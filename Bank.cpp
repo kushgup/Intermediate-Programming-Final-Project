@@ -22,77 +22,78 @@ using namespace std;
 #define NUM3S 7
 #define NUM4S 6
 #define NUM5S 5
+#define NUMSEALS 3
 
 Bank::Bank()
 {
     
     for (int i = 0; i < NUMPAPER; i++)
     {
-        bank[0][i] = *new Token ();
-        bank[0][i].Token::setType("Paper");
-        bank[0][i].Token::setValue(1);
+        goodsTs[0][i] = *new Token ();
+        goodsTs[0][i].Token::setType("Paper");
+        goodsTs[0][i].Token::setValue(1);
         if(i == 8)
-            bank[0][i].Token::setValue(4);
+            goodsTs[0][i].Token::setValue(4);
         if(i == 7)
-            bank[0][i].Token::setValue(3);
+            goodsTs[0][i].Token::setValue(3);
         if(i == 6)
-            bank[0][i].Token::setValue(2);
+            goodsTs[0][i].Token::setValue(2);
         
     }
     
     for (int i = 0; i < NUMSPICE; i++)
     {
-        bank[1][i] = *new Token ();
-        bank[1][i].Token::setType("Spice");
+        goodsTs[1][i] = *new Token ();
+        goodsTs[1][i].Token::setType("Spice");
         if(i == 6)
-            bank[1][6].Token::setValue(5);
+            goodsTs[1][6].Token::setValue(5);
         else if(i == 5 || i == 4)
-            bank[1][i].Token::setValue(3);
+            goodsTs[1][i].Token::setValue(3);
         else if(i == 3 || i == 2)
-            bank[1][i].Token::setValue(2);
+            goodsTs[1][i].Token::setValue(2);
         else
-            bank[1][i].setValue(1);
+            goodsTs[1][i].setValue(1);
     }
     
     for (int i = 0; i < NUMCLOTH; i++)
     {
-        bank[2][i] = *new Token ();
-        bank[2][i].Token::setType("Cloth");
+        goodsTs[2][i] = *new Token ();
+        goodsTs[2][i].Token::setType("Cloth");
         if(i == 6)
-            bank[2][6].Token::setValue(5);
+            goodsTs[2][6].Token::setValue(5);
         else if(i == 5 || i == 4)
-            bank[2][i].Token::setValue(3);
+            goodsTs[2][i].Token::setValue(3);
         else if(i == 3 || i == 2)
-            bank[2][i].setValue(2);
+            goodsTs[2][i].setValue(2);
         else
-            bank[2][i].Token::setValue(1);
+            goodsTs[2][i].Token::setValue(1);
     }
     
     for (int i = 0; i < NUMSILVER; i++)
     {
-        bank[3][i] = *new Token ();
-        bank[3][i].Token::setValue(5);
-        bank[3][i].Token::setType("Silver");
+        goodsTs[3][i] = *new Token ();
+        goodsTs[3][i].Token::setValue(5);
+        goodsTs[3][i].Token::setType("Silver");
     }
     
     for (int i = 0; i < NUMGOLD; i++)
     {
-        bank[4][i] = *new Token ();
-        bank[4][i].Token::setType("Gold");
+        goodsTs[4][i] = *new Token ();
+        goodsTs[4][i].Token::setType("Gold");
         if(i <= 2)
-            bank[4][i].Token::setValue(5);
+            goodsTs[4][i].Token::setValue(5);
         else
-            bank[4][i].Token::setValue(6);
+            goodsTs[4][i].Token::setValue(6);
     }
     
     for (int i = 0; i < NUMDIAMONDS; i++)
     {
-        bank[5][i] = *new Token ();
-        bank[5][i].Token::setType("Diamonds");
+        goodsTs[5][i] = *new Token ();
+        goodsTs[5][i].Token::setType("Diamonds");
         if(i <= 2)
-            bank[5][i].Token::setValue(5);
+            goodsTs[5][i].Token::setValue(5);
         else
-            bank[5][i].Token::setValue(7);
+            goodsTs[5][i].Token::setValue(7);
     }
     
     for (int i = 0; i < NUM3S; i++)
@@ -137,10 +138,22 @@ Bank::Bank()
         seals[i].Token::setType("Seal");
         seals[i].Token::setValue(100);
     }
+    numofSealsLeft = NUMSEALS;
     
     camelToken = *new Token ();
     camelToken.Token::setType("Camel");
     camelToken.Token::setValue(5);
+    
+    MaxTokensForGoodsTs["Paper"] = NUMPAPER;
+    MaxTokensForGoodsTs["Spice"] = NUMSPICE;
+    MaxTokensForGoodsTs["Cloth"] = NUMCLOTH;
+    MaxTokensForGoodsTs["Silver"] = NUMSILVER;
+    MaxTokensForGoodsTs["Gold"] = NUMGOLD;
+    MaxTokensForGoodsTs["Diamonds"] = NUMDIAMONDS;
+
+    MaxTokensForBonuses[3] = NUM3S;
+    MaxTokensForBonuses[4] = NUM4S;
+    MaxTokensForBonuses[5] = NUM5S;
     
     this->shuffleBonus();
 }
@@ -149,14 +162,14 @@ Bank::Bank(Bank & other)
 {
     for(int i = 0; i< 6; i++)
     {
-        for(int j = 0; j< 9; j++)
+        for(int j = 0; j< goodsTs[i].size(); j++)
         {
-            bank[i][j] = other.bank[i][j];
+            goodsTs[i][j] = other.goodsTs[i][j];
         }
     }
     for(int i = 0; i< 3; i++)
     {
-        for(int j = 0; j< 7; j++)
+        for(int j = 0; j< bonuses[i].size(); j++)
         {
             bonuses[i][j] = other.bonuses[i][j];
         }
@@ -165,7 +178,20 @@ Bank::Bank(Bank & other)
     {
         seals[i] = other.seals[i];
     }
+    numofSealsLeft = NUMSEALS;
+
     camelToken = other.camelToken;
+    
+    MaxTokensForGoodsTs["Paper"] = NUMPAPER;
+    MaxTokensForGoodsTs["Spice"] = NUMSPICE;
+    MaxTokensForGoodsTs["Cloth"] = NUMCLOTH;
+    MaxTokensForGoodsTs["Silver"] = NUMSILVER;
+    MaxTokensForGoodsTs["Gold"] = NUMGOLD;
+    MaxTokensForGoodsTs["Diamonds"] = NUMDIAMONDS;
+    
+    MaxTokensForBonuses[3] = NUM3S;
+    MaxTokensForBonuses[4] = NUM4S;
+    MaxTokensForBonuses[5] = NUM5S;
 }
 
 /*
@@ -178,35 +204,50 @@ Bank::~Bank()
 }
 */
 
-Token Bank::takeFromBank(int good) //Pop Top
+Token * Bank::takeTokenFromGoodTs(string goodYourTaking) //Pop Top
 {
     //error catching
-    int size = sizeof(bank[good]);
-    Token temp = bank[good][size];
-    //bank[good][size] = NULL; why doesn't this work???? trying to pop top off
+    int kindofGoodYourTaking = 0; //inital is paper
+    if(goodYourTaking == "Spice")
+        kindofGoodYourTaking = 1;
+    if(goodYourTaking == "Cloth")
+        kindofGoodYourTaking = 2;
+    if(goodYourTaking == "Silver")
+        kindofGoodYourTaking = 3;
+    if(goodYourTaking == "Gold")
+        kindofGoodYourTaking = 4;
+    if(goodYourTaking == "Diamonds")
+        kindofGoodYourTaking = 5;
+    
+    int placeTakingFrom = MaxTokensForGoodsTs[goodYourTaking];
+    Token * temp = &goodsTs[kindofGoodYourTaking][placeTakingFrom];
+    
+    MaxTokensForGoodsTs[goodYourTaking]--;
+    
     return temp;
     
 }
 
-Token Bank::takeBonus(int kind) //Pop Top
+Token * Bank::takeBonus(int BonusTaking) //Pop Top
 {
-    int size = sizeof(bonuses[kind]);
-    Token temp = bank[kind][size];
-    //bonuses[kind][size] = NULL; why doesn't this work???? trying to pop top off
+    int placeTakingFrom = MaxTokensForBonuses[BonusTaking];
+    Token * temp = &bonuses[BonusTaking-3][placeTakingFrom];
+    MaxTokensForBonuses[BonusTaking]--;
     return temp;
 }
 
-Token Bank::takeSeal()
+Token * Bank::takeSeal()
 {
     int size = sizeof(seals);
-    Token temp = seals[size];
-    //seals[size] = NULL; why doesn't this work???? trying to pop top off
+    Token *temp = &seals[size];
+    numofSealsLeft--;
     return temp;
 }
 
-Token Bank::getCamelToken()
+Token * Bank::getCamelToken()
 {
-    return camelToken;
+    Token * temp = &camelToken;
+    return temp;
 }
 
 void Bank::printBank()
@@ -214,14 +255,14 @@ void Bank::printBank()
     cout << "Bank **********************************************" << endl;
     for(int i=0; i< 6 ;i++)
     {
-        int num_elements = (int) bank[i].size();
-        if(bank[i][0].getType() == "Diamonds")
-            cout << bank[i][0].getType() << " Tokens: \t";
+        int num_elements = (int) goodsTs[i].size();
+        if(goodsTs[i][0].getType() == "Diamonds")
+            cout << goodsTs[i][0].getType() << " Tokens: \t";
         else
-            cout << bank[i][0].getType() << " Tokens: \t\t";
+            cout << goodsTs[i][0].getType() << " Tokens: \t\t";
         for (int k = 0; k< num_elements; k++)
         {
-            int toBePrinted = bank[i][k].getValue();
+            int toBePrinted = goodsTs[i][k].getValue();
             if(toBePrinted)
                 cout << toBePrinted << " ";
         }
@@ -230,7 +271,7 @@ void Bank::printBank()
     
     for(int i=0; i< 3 ;i++)
     {
-        int num_elements = (int) bank[i].size();
+        int num_elements = (int) goodsTs[i].size();
         cout << bonuses[i][0].getType() << " Tokens: \t\t";
         for (int k = 0; k< num_elements; k++)
         {
@@ -299,7 +340,21 @@ void Bank::swap5 (int a, int b)
     
 }
 
-
+void Bank::refillBank()
+{
+    MaxTokensForGoodsTs["Paper"] = NUMPAPER;
+    MaxTokensForGoodsTs["Spice"] = NUMSPICE;
+    MaxTokensForGoodsTs["Cloth"] = NUMCLOTH;
+    MaxTokensForGoodsTs["Silver"] = NUMSILVER;
+    MaxTokensForGoodsTs["Gold"] = NUMGOLD;
+    MaxTokensForGoodsTs["Diamonds"] = NUMDIAMONDS;
+    
+    MaxTokensForBonuses[3] = NUM3S;
+    MaxTokensForBonuses[4] = NUM4S;
+    MaxTokensForBonuses[5] = NUM5S;
+    
+    numofSealsLeft = NUMSEALS;
+}
 
 
 

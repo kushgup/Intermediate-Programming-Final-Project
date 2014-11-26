@@ -15,8 +15,10 @@ using namespace std;
 
 class Deck
 {
-    Card deck [52];
+    Card deckTobeshuffled [52];
     Card startCamels[3];
+    Card deckForGame [55];
+    int placeinDeck;
     
 public:
     Deck();
@@ -25,6 +27,10 @@ public:
     Card getCardatIndex(int);
     void printDeck();
     void shuffle();
+    //void dealRound; //not sure how this will work in the overall game
+    void restoreDeck(){placeinDeck = 0;};
+    void increasePlaceinDeck(){placeinDeck++;};
+    Card * dealCard();
     
 private:
     void swap (int, int);
