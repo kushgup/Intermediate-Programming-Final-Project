@@ -3,12 +3,11 @@
 
 #include <iostream>
 
-using std::cout; using std::endl;
-
 template <class T> class OList;
 
 template <class T>
 class Node {
+
     friend class OList<T>;
 
 private:
@@ -18,10 +17,10 @@ private:
 public:
     Node(): next(NULL) { } 
     Node(T val): value(val), next(NULL) { }
-    Node(T val, Node<T> *other): value(val), next(other) {}
+    Node(T val, Node<T> *other): value(val), next(other) { }
 
     T getValue() const { return value; }
-    Node* getNext() const { return next; }
+    Node<T> * getNext() const { return next; }
 };
 
 template <class T>
@@ -31,7 +30,7 @@ private:
     Node<T> * head;
     
 public:
-    OList() { head = NULL; }; //default constructor
+    OList(): head(NULL) { } //default constructor
     OList(const OList<T> & other); //copy constructor
     ~OList(); //destructor
 
