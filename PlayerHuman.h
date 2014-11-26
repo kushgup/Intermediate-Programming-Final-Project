@@ -12,14 +12,7 @@ class HumanPlayer: public Player {
 
 public:
 	
-	void makeMove(); //called from Game, decides which action to take on the turn
-
-private: //these are only called from makeMove
-
-	void takeCard(); //option 1, take a single card from market
-	void exchange(); //option 2, take multiple cards from market and exchange from hand and/or camels
-	void sellCards(); //option 3, sell cards from the hand
-	//note that all input and output from player will be implemented within these functions
+	void makeMove(); //decides which action to take on the turn
 };
 
 #endif

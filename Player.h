@@ -22,16 +22,14 @@ public:
 	string getName() { return name; };
 	int handSize() { return hand.size(); };
 	int numCamels() { return camels.size(); };
-	virtual void makeMove() = 0; //called from Game, decides which action to take on the turn
+	virtual void makeMove() = 0; //decides which action to take on the turn, should be overwritten for human and AI players
 	
 protected:
 
-	void takeCamels(); //this method can be defined within Player itself since it will be the same for both human and ai players
+	void takeCamels(); //option 1, take all the camels in the market
 	void takeCard(); //option 1, take a single card from market
 	void exchange(); //option 2, take multiple cards from market and exchange from hand and/or camels
 	void sellCards(); //option 3, sell cards from the hand
 };
-
-//exchange, take, sell and takecamels are all the same for humans and computers, just the "decision" in "move" is different
 
 #endif
