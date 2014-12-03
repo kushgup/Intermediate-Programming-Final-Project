@@ -29,11 +29,11 @@ public:
 	
 	Player(string nm): name(nm) { }
 
-	string getName() const { return name; }
-	int handSize() const { return hand.size(); }
-	int numCamels() const { return camels.size(); }
+	string & getName() const { return name; };
+	int handSize() const { return hand.size(); };
+	int numCamels() const { return camels.size(); };
 	int countPts() const;
-	int countSeals() const { return seals.size(); }
+	int countSeals() const { return seals.size(); };
 	virtual void makeMove() = 0; //decides which action to take on the turn, should be overwritten for human and AI players
 	
 protected:
@@ -44,6 +44,6 @@ protected:
 	void sellCards(); //option 3, sell cards from the hand
 };
 
-//need overloaded operators, exception handling, and test cases
+//need overloaded operators (typecast, >> <<, all the == stuff), exception handling, and test cases
 
 #endif
