@@ -1,6 +1,11 @@
+/*
+This file contains all the function definitions for the Human Player
+*/
+
 #include "PlayerHuman.h"
 
-void HumanPlayer::makeMove() {
+void PlayerHuman::makeMove() {
+
 
 
 }

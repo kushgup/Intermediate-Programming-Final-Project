@@ -7,6 +7,9 @@ This class will be inherited by HumanPlayer and AIPlayer
 #ifndef _PLAYER_H
 #define _PLAYER_H
 
+#include "OList.h"
+#include "Token.h"
+#include "Card.h"
 #include <string>
 #include <vector>
 
@@ -20,17 +23,17 @@ protected:
 	OList<Card *> hand; //separate linked list of resource cards for the hand
 	vector<Card*> camels; //separate linked list of camels
 	vector<Token *> seals; //keep track of how many seals the player has
-	vector<Token *> tokens;
+	vector<Token *> tokens; //keep track of tokens collected
 
 public:
 	
 	Player(string nm): name(nm) { }
 
-	string getName() { return name; }
-	int handSize() { return hand.size(); }
-	int numCamels() { return camels.size(); }
-	int countPts();
-	int countSeals() { return seals.size(); }
+	string getName() const { return name; }
+	int handSize() const { return hand.size(); }
+	int numCamels() const { return camels.size(); }
+	int countPts() const;
+	int countSeals() const { return seals.size(); }
 	virtual void makeMove() = 0; //decides which action to take on the turn, should be overwritten for human and AI players
 	
 protected:
@@ -40,5 +43,7 @@ protected:
 	void exchange(); //option 2, take multiple cards from market and exchange from hand and/or camels
 	void sellCards(); //option 3, sell cards from the hand
 };
+
+//need overloaded operators, exception handling, and test cases
 
 #endif
