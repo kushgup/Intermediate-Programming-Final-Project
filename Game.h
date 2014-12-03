@@ -1,6 +1,26 @@
-#ifndef GAME_H_INCLUDED
-#define GAME_H_INCLUDED
+#ifndef _GAME_H
+#define _GAME_H
 
+class Game {
 
+private:
 
-#endif // GAME_H_INCLUDED
+	Player players[2];
+	int roundNum;
+	Board board;
+	State gameState;
+	
+public:
+
+	void printBoard();
+	int roundNum();
+	Player & getWinner();
+	void initPlayers();
+	bool isOver();
+	void createDeck();
+	void shuffleDeck();
+	void deal();
+
+};
+
+#endif

@@ -1,5 +1,5 @@
-#ifndef OLIST_H
-#define OLIST_H
+#ifndef _OLIST_H
+#define _OLIST_H
 
 #include <iostream>
 

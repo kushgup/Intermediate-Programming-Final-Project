@@ -7,21 +7,30 @@ This class will be inherited by HumanPlayer and AIPlayer
 #ifndef _PLAYER_H
 #define _PLAYER_H
 
+#include <string>
+#include <vector>
+
+using std::vector; using std::string;
+
 class Player {
 
 protected:
 
 	String name; //store the name of the player
 	OList<Card *> hand; //separate linked list of resource cards for the hand
-	OList<Card *> camels; //separate linked list of camels
-	int points; //keep track of points, don't have a container to store tokens since we don't have a class for that
-	int seals; //keep track of how many seals the player has
+	vector<Card*> camels; //separate linked list of camels
+	vector<Token *> seals; //keep track of how many seals the player has
+	vector<Token *> tokens;
 
 public:
 	
-	string getName() { return name; };
-	int handSize() { return hand.size(); };
-	int numCamels() { return camels.size(); };
+	Player(string nm): name(nm) { }
+
+	string getName() { return name; }
+	int handSize() { return hand.size(); }
+	int numCamels() { return camels.size(); }
+	int countPts();
+	int countSeals() { return seals.size(); }
 	virtual void makeMove() = 0; //decides which action to take on the turn, should be overwritten for human and AI players
 	
 protected:
