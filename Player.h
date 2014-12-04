@@ -18,13 +18,11 @@ using std::string;
 
 class Player {
 
-	friend class Move; // needed so that Move can look into Player hand / herd
-
 protected:
 
 	string name; //store the name of the player
 	OList<Card *> hand; //separate linked list of resource cards for the hand
-	vector<Card *> herd; //separate linked list of camels
+	vector<Card*> camels; //separate linked list of camels
 	vector<Token *> seals; //keep track of how many seals the player has
 	vector<Token *> tokens; //keep track of tokens collected
 
