@@ -25,7 +25,7 @@
 	<stdio.h>
 	<iostream>
 
-1417729222 s:\mnmstorage\documents\michael\jhu\14'15_sophmore\2014fall\intermediateprogramming\c++\final\final\card.h
+1417736770 s:\mnmstorage\documents\michael\jhu\14'15_sophmore\2014fall\intermediateprogramming\c++\final\final\card.h
 	<stdio.h>
 	<iostream>
 
@@ -37,7 +37,7 @@
 	"Card.h"
 	<array>
 
-1417729222 s:\mnmstorage\documents\michael\jhu\14'15_sophmore\2014fall\intermediateprogramming\c++\final\final\deck.h
+1417736770 s:\mnmstorage\documents\michael\jhu\14'15_sophmore\2014fall\intermediateprogramming\c++\final\final\deck.h
 	<stdio.h>
 	"Card.h"
 
@@ -48,7 +48,7 @@
 	"Deck.h"
 	"Card.h"
 
-1417729222 s:\mnmstorage\documents\michael\jhu\14'15_sophmore\2014fall\intermediateprogramming\c++\final\final\field.h
+1417736770 s:\mnmstorage\documents\michael\jhu\14'15_sophmore\2014fall\intermediateprogramming\c++\final\final\field.h
 	<stdio.h>
 	"Deck.h"
 	"Card.h"
