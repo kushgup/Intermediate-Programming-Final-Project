@@ -15,7 +15,7 @@ int Player::countPts() const {
 }
 
 void Player::takeCamels() {
-	
+
 
 }
 

@@ -13,29 +13,30 @@ This class will be inherited by HumanPlayer and AIPlayer
 #include <string>
 #include <vector>
 
-using std::vector; using std::string;
+using std::vector;
+using std::string;
 
 class Player {
 
 protected:
 
-	String name; //store the name of the player
+	string name; //store the name of the player
 	OList<Card *> hand; //separate linked list of resource cards for the hand
 	vector<Card*> camels; //separate linked list of camels
 	vector<Token *> seals; //keep track of how many seals the player has
 	vector<Token *> tokens; //keep track of tokens collected
 
 public:
-	
+
 	Player(string nm): name(nm) { }
 
-	string & getName() const { return name; };
+	string getName() const { return name; };
 	int handSize() const { return hand.size(); };
 	int numCamels() const { return camels.size(); };
 	int countPts() const;
 	int countSeals() const { return seals.size(); };
 	virtual void makeMove() = 0; //decides which action to take on the turn, should be overwritten for human and AI players
-	
+
 protected:
 
 	void takeCamels(); //option 1, take all the camels in the market
