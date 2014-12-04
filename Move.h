@@ -8,8 +8,8 @@ class Move
 {
 
 private:
-	Game * game;
-test	
+	Game * game; // how we'll access Game's Field, and thus see if moves are valid
+	Player * player // how we'll access Player's hand / herd, see if moves are valid
 
 };
 

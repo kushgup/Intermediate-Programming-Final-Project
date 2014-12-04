@@ -19,6 +19,13 @@ using namespace std;
 
 class Field
 {
+	friend class Move; // needed so that Move can access Field's market
+	friend class Player; // needed so that Player can look into Field's market to move stuff
+
+
+
+// private members
+
     vector<Card*> market;
     vector<Card*> goodsToBeTaken;
     vector<Card*> goodsToBeGiven;
