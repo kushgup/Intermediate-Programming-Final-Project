@@ -1,3 +1,4 @@
+//MICHAEL!!!
 //
 //  Card.cpp
 //  pg7b
@@ -23,12 +24,12 @@ Card::Card(string Id)
 {
     identifier = Id;
     PandaCamel = false;
-    
+
     if(Id == "Camel")
         isCamel = true;
     else
         isCamel = false;
-    
+
     if(Id == "Gold" || Id == "Silver" || Id == "Diamonds")
         isPrecious = true;
     else
