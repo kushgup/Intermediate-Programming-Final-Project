@@ -9,7 +9,7 @@ class Move
 
 private:
 	Game * game;
-test	
+	
 
 };
 
