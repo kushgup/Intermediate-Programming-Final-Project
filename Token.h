@@ -16,6 +16,8 @@ using namespace std;
 
 class Token
 {
+    friend class Player;
+
     int value;
     string TypeOfToken;
     

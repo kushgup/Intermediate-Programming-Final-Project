@@ -22,7 +22,7 @@ class Field
     vector<Card*> market;
     vector<Card*> goodsToBeTaken;
     vector<Card*> goodsToBeGiven;
-    Deck deck = *new Deck();
+    Deck deck;
     
 public:
     Field();

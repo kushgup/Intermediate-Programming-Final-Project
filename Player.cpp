@@ -9,13 +9,13 @@ int Player::countPts() const {
 
 	int points = 0;
 	vector<Token *>::const_iterator iter;
-	for (iter = tokens.begin(); iter!= tokens.end(); iter++)
-		points += (*iter)->value;
+	for (iter = tokens.begin(); iter != tokens.end(); iter++)
+		points += **iter.getValue();
 	return points;
 }
 
 void Player::takeCamels() {
-
+	
 
 }
 
