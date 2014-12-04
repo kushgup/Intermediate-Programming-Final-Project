@@ -4,6 +4,7 @@ It has a bunch of instance data that a player has, and functions pertaining to d
 This class will be inherited by HumanPlayer and AIPlayer
 */
 
+/*
 #ifndef _PLAYER_H
 #define _PLAYER_H
 
@@ -48,3 +49,4 @@ protected:
 //need overloaded operators (typecast, >> <<, all the == stuff), exception handling, and test cases
 
 #endif
+*/

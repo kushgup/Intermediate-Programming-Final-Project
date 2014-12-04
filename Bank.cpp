@@ -223,12 +223,6 @@ Token * Bank::takeTokenFromGoodTs(string goodYourTaking) //Pop Top
     MaxTokensForGoodsTs[goodYourTaking]--;
 
     return &goodsTs[kindofGoodYourTaking][placeTakingFrom];
-
-
-
-
-
-
 }
 
 Token * Bank::takeBonusToken(int BonusTaking) //Pop Top

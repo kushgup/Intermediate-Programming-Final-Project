@@ -5,16 +5,16 @@ The only definitions in this file are overriding the virtual functions defined i
 
 #ifndef _PLAYERHUMAN_H
 #define _PLAYERHUMAN_H
-
+/*
 #include "Player.h"
 
 class PlayerHuman: public Player {
 
 public:
-	
+
 	PlayerHuman(string nm): Player:: {}
 
 	void makeMove(); //decides which action to take on the turn
 };
-
+*/
 #endif

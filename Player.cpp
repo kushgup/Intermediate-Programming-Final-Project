@@ -1,7 +1,7 @@
 /*
 This file contains all the function definitions for Player
 */
-
+/*
 #include "Player.h"
 #include "Field.h"
 
@@ -33,3 +33,4 @@ void Player::sellCards() {
 
 
 }
+*/
