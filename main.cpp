@@ -12,10 +12,6 @@
 #include "Field.h"
 
 int main(int argc, const char * argv[]) {
-   
-    Bank one = *new Bank();
-    one.Bank::printBank();
-    Field two = *new Field();
-    two.Field::printField();
+
     return 0;
 }

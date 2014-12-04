@@ -1,14 +1,19 @@
 #ifndef _GAME_H
 #define _GAME_H
 
+#include "Field.h"
+
 class Game {
+
+	friend class Move; // needed so that Move can access Game's field
+	friend class Player; // needed so that Player can look into Game's field to move stuff
 
 private:
 
 	Player players[2];
 	int roundNum;
-	Board board;
 	State gameState;
+	Field field;
 	
 public:
 
