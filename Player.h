@@ -17,11 +17,13 @@ using std::vector; using std::string;
 
 class Player {
 
+	friend class Move; //so Move can look at player's hand and herd
+
 protected:
 
 	String name; //store the name of the player
 	OList<Card *> hand; //separate linked list of resource cards for the hand
-	vector<Card*> camels; //separate linked list of camels
+	vector<Card*> herd; //separate linked list of camels
 	vector<Token *> seals; //keep track of how many seals the player has
 	vector<Token *> tokens; //keep track of tokens collected
 
@@ -39,11 +41,11 @@ public:
 protected:
 
 	void takeCamels(); //option 1, take all the camels in the market
-	void takeCard(); //option 1, take a single card from market
-	void exchange(); //option 2, take multiple cards from market and exchange from hand and/or camels
-	void sellCards(); //option 3, sell cards from the hand
+	void takeCard(Card * to_take); //option 1, take a single card from market
+	void exchange(vector<Card *> take, vector<Card *> give); //option 2, take multiple cards from market and exchange from hand and/or camels
+	void sellCards(vector<Card *> sell) ; //option 3, sell cards from the hand
 };
 
-//need overloaded operators (typecast, >> <<, all the == stuff), exception handling, and test cases
+//need overloaded operators (typecast, >> << for input/output, all the == stuff), exception handling, and test cases
 
 #endif

@@ -31,6 +31,8 @@ public:
     //void cleanGoodsToBeTaken();
     //The the field can do right now is be printed it will eventually be able to work with move for game play
     
+    //need a function to take a card from the deck into the market
+
 };
 
 #endif /* defined(__pg7b__Field__) */

@@ -15,21 +15,41 @@ int Player::countPts() const {
 }
 
 void Player::takeCamels() {
-	
 
+	//assumes that the field has been checked by "move" object already
+	vector<Token *>::const_iterator iter;
+	for (iter = market.begin(); iter != market.end(); iter++)
+		if(**iter.getIsCamel()) {
+			herd.push_back(*iter); //add to hand
+			//delete from market
+			//add card to market from deck
+		}
 }
 
 void Player::takeCard(Card * to_take) {
 
+	//assumes that the field has been checked by "move" object already
+	vector<Token *>::const_iterator iter;
+	for (iter = market.begin(); iter != market.end(); iter++)
+		if(*iter == to_take) {
+			//add to hand
+			//delete from market/
+			//add card to market from deck
+		}
+}
+
+void Player::exchange(vector<Card *> take, vector<Card *> give) {
+
+	//assumes that the field has been checked by "move" object already
+	//
 
 }
 
-void Player::exchange(Card ) {
+void Player::sellCards(vector<Card *> sell) {
 
-
-}
-
-void Player::sellCards() {
-
+	//assumes that the field has been checked by "move" object already
+	//iterate through the hand to find the cards to sell
+	//delete them from the hand but not from the deck
+	//add tokens to the player hand
 
 }
