@@ -10,20 +10,6 @@
 #include <stdio.h>
 #include <iostream>
 
-using namespace std;
-
-Token::Token()
-{
-    value = 0;
-    TypeOfToken = "NoType";
-}
-
-Token::Token(int v, string k)
-{
-    value = v;
-    TypeOfToken = k;
-}
-
 void Token::setType(string y)
 {
     TypeOfToken = y;

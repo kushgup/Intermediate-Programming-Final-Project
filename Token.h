@@ -13,8 +13,9 @@ class Token
     string TypeOfToken;
 
 public:
-    Token();
-    Token(int, string);
+    Token(): value(0), TypeOfToken("NoType") {};
+    Token(string str): TypeOfToken(str) {};
+    Token(int v, string str): value(v), TypeOfToken(str) {};
     //~Token();
     void setValue(int);
     void setType(string);

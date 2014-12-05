@@ -17,16 +17,16 @@ class Game {
 private:
 
 	Field field; // default constructor gets called automatically upon game objection creation
+	Bank bank; // default constructor gets called automatically upon game objection creation
 
 	Player* playersInGame[2];
 	int roundNum;
 	State gameState;
-	Bank bank;
 	int playerWinnerIndex;
 
 public:
 
-    Game();
+    Game(); // requires immediate attention
     Game(Game &);
     ~Game();
 

@@ -1,9 +1,7 @@
 #include "Bank.h"
-#include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
 #include "Token.h"
-#include <array>
 using namespace std;
 #define NUMPAPER 9
 #define NUMSPICE 7
@@ -20,137 +18,124 @@ Bank::Bank()
 {
     goodsTs =
     {{
-        std::vector<Token>(NUMPAPER),
-        std::vector<Token>(NUMSPICE),
-        std::vector<Token>(NUMCLOTH),
-        std::vector<Token>(NUMSILVER),
-        std::vector<Token>(NUMGOLD),
-        std::vector<Token>(NUMDIAMONDS)
+        vector<Token>(NUMPAPER),
+        vector<Token>(NUMSPICE),
+        vector<Token>(NUMCLOTH),
+        vector<Token>(NUMSILVER),
+        vector<Token>(NUMGOLD),
+        vector<Token>(NUMDIAMONDS)
     }};
 
     bonuses =
     {{
-        std::vector<Token>(NUM3S),
-        std::vector<Token>(NUM4S),
-        std::vector<Token>(NUM5S)
+        vector<Token>(NUM3S),
+        vector<Token>(NUM4S),
+        vector<Token>(NUM5S)
     }};
 
     for (int i = 0; i < NUMPAPER; i++)
     {
-        goodsTs[0][i] = *new Token ();
-        goodsTs[0][i].Token::setType("Paper");
-        goodsTs[0][i].Token::setValue(1);
+        goodsTs[0][i] = Token (1, "Paper");
         if(i == 8)
-            goodsTs[0][i].Token::setValue(4);
+            goodsTs[0][i].setValue(4);
         if(i == 7)
-            goodsTs[0][i].Token::setValue(3);
+            goodsTs[0][i].setValue(3);
         if(i == 6)
-            goodsTs[0][i].Token::setValue(2);
+            goodsTs[0][i].setValue(2);
 
     }
 
     for (int i = 0; i < NUMSPICE; i++)
     {
-        goodsTs[1][i] = *new Token ();
-        goodsTs[1][i].Token::setType("Spice");
+        goodsTs[1][i] = Token ("Spice");
         if(i == 6)
-            goodsTs[1][6].Token::setValue(5);
+            goodsTs[1][6].setValue(5);
         else if(i == 5 || i == 4)
-            goodsTs[1][i].Token::setValue(3);
+            goodsTs[1][i].setValue(3);
         else if(i == 3 || i == 2)
-            goodsTs[1][i].Token::setValue(2);
+            goodsTs[1][i].setValue(2);
         else
             goodsTs[1][i].setValue(1);
     }
 
     for (int i = 0; i < NUMCLOTH; i++)
     {
-        goodsTs[2][i] = *new Token ();
-        goodsTs[2][i].Token::setType("Cloth");
+        goodsTs[2][i] = Token ("Cloth");
         if(i == 6)
-            goodsTs[2][6].Token::setValue(5);
+            goodsTs[2][6].setValue(5);
         else if(i == 5 || i == 4)
-            goodsTs[2][i].Token::setValue(3);
+            goodsTs[2][i].setValue(3);
         else if(i == 3 || i == 2)
             goodsTs[2][i].setValue(2);
         else
-            goodsTs[2][i].Token::setValue(1);
+            goodsTs[2][i].setValue(1);
     }
 
     for (int i = 0; i < NUMSILVER; i++)
     {
-        goodsTs[3][i] = *new Token ();
-        goodsTs[3][i].Token::setValue(5);
-        goodsTs[3][i].Token::setType("Silver");
+        goodsTs[3][i] = Token (5, "Silver");
+
     }
 
     for (int i = 0; i < NUMGOLD; i++)
     {
-        goodsTs[4][i] = *new Token ();
-        goodsTs[4][i].Token::setType("Gold");
+        goodsTs[4][i] = Token ("Gold");
         if(i <= 2)
-            goodsTs[4][i].Token::setValue(5);
+            goodsTs[4][i].setValue(5);
         else
-            goodsTs[4][i].Token::setValue(6);
+            goodsTs[4][i].setValue(6);
     }
 
     for (int i = 0; i < NUMDIAMONDS; i++)
     {
-        goodsTs[5][i] = *new Token ();
-        goodsTs[5][i].Token::setType("Diamonds");
+        goodsTs[5][i] = Token ("Diamonds");
         if(i <= 2)
-            goodsTs[5][i].Token::setValue(5);
+            goodsTs[5][i].setValue(5);
         else
-            goodsTs[5][i].Token::setValue(7);
+            goodsTs[5][i].setValue(7);
     }
 
     for (int i = 0; i < NUM3S; i++)
     {
-        bonuses[0][i] = *new Token ();
-        bonuses[0][i].Token::setType("Bonus3");
+        bonuses[0][i] = Token ("Bonus3");
         if (i < 2)
-            bonuses[0][i].Token::setValue(1);
+            bonuses[0][i].setValue(1);
         else if (i > 4)
-            bonuses[0][i].Token::setValue(3);
+            bonuses[0][i].setValue(3);
         else
-            bonuses[0][i].Token::setValue(2);
+            bonuses[0][i].setValue(2);
     }
 
     for (int i = 0; i < NUM4S; i++)
     {
-        bonuses[1][i] = *new Token ();
-        bonuses[1][i].Token::setType("Bonus4");
+        bonuses[1][i] = Token ("Bonus4");
         if (i < 2)
-            bonuses[1][i].Token::setValue(4);
+            bonuses[1][i].setValue(4);
         else if (i > 3)
-            bonuses[1][i].Token::setValue(6);
+            bonuses[1][i].setValue(6);
         else
-            bonuses[1][i].Token::setValue(5);
+            bonuses[1][i].setValue(5);
     }
 
     for (int i = 0; i < NUM5S; i++)
     {
-        bonuses[2][i] = *new Token ();
-        bonuses[2][i].Token::setType("Bonus5");
+        bonuses[2][i] = Token ("Bonus5");
         if (i < 2)
-            bonuses[2][i].Token::setValue(8);
+            bonuses[2][i].setValue(8);
         else if (i > 2)
-            bonuses[2][i].Token::setValue(10);
+            bonuses[2][i].setValue(10);
         else
-            bonuses[2][i].Token::setValue(9);
+            bonuses[2][i].setValue(9);
     }
 
     for (int i = 0; i < 3; i++)
     {
-        seals[i] = *new Token();
-        seals[i].Token::setType("Seal");
-        seals[i].Token::setValue(100);
+        seals[i] = Token(100, "Seal");
+
     }
     numofSealsLeft = NUMSEALS;
 
-    camelToken = *new Token ();
-    camelToken.Token::setType("Camel");
-    camelToken.Token::setValue(5);
+    camelToken = Token (5, "Camel");
 
     MaxTokensForGoodsTs["Paper"] = NUMPAPER;
     MaxTokensForGoodsTs["Spice"] = NUMSPICE;
@@ -170,19 +155,19 @@ Bank::Bank(Bank & other)
 {
     goodsTs =
     {{
-        std::vector<Token>(NUMPAPER),
-        std::vector<Token>(NUMSPICE),
-        std::vector<Token>(NUMCLOTH),
-        std::vector<Token>(NUMSILVER),
-        std::vector<Token>(NUMGOLD),
-        std::vector<Token>(NUMDIAMONDS)
+        vector<Token>(NUMPAPER),
+        vector<Token>(NUMSPICE),
+        vector<Token>(NUMCLOTH),
+        vector<Token>(NUMSILVER),
+        vector<Token>(NUMGOLD),
+        vector<Token>(NUMDIAMONDS)
     }};
 
     bonuses =
     {{
-        std::vector<Token>(NUM3S),
-        std::vector<Token>(NUM4S),
-        std::vector<Token>(NUM5S)
+        vector<Token>(NUM3S),
+        vector<Token>(NUM4S),
+        vector<Token>(NUM5S)
     }};
 
     for(int i = 0; i< 6; i++)

@@ -16,13 +16,14 @@
 #define NUM4S 6
 #define NUM5S 5
 
-using namespace std;
+using std::array;
+using std::vector;
 
 class Bank
 {
-    std::array<std::vector<Token>, 6> goodsTs;
+    array <vector<Token>, 6> goodsTs;
 
-    std::array<std::vector<Token>, 3> bonuses;
+    array <vector<Token>, 3> bonuses;
 
     Token seals [3];
     int numofSealsLeft;
