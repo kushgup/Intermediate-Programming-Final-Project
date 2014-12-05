@@ -5,6 +5,9 @@
 #include "State.h"
 #include "Player.h"
 
+class Player;
+class Move;
+
 class Game {
 
 	friend class Move; // needed so that Move can access Game's field
