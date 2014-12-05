@@ -61,7 +61,10 @@ void Player::exchange(Move to_make) {
 		hand.remove(**returnIter); //delete from hand
 		returnIter++; //update the iterator through the vector of iterators
 	}
-	
+	for(int i = 0; i < to_make.num_camels_exchanged; i++) { //refill with camels if necessary
+		game_field->market.push_back(herd.front()); //add camel to market
+		herd.pop_back(); //delete last element in herd since they are all the same
+	}
 }
 
 void Player::sellCards(Move to_make) {

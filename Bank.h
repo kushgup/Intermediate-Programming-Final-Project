@@ -15,26 +15,14 @@
 #define NUM3S 7
 #define NUM4S 6
 #define NUM5S 5
+
 using namespace std;
 
 class Bank
 {
-    std::array<std::vector<Token>, 6> goodsTs
-    {{
-        std::vector<Token>(NUMPAPER),
-        std::vector<Token>(NUMSPICE),
-        std::vector<Token>(NUMCLOTH),
-        std::vector<Token>(NUMSILVER),
-        std::vector<Token>(NUMGOLD),
-        std::vector<Token>(NUMDIAMONDS)
-    }};
+    std::array<std::vector<Token>, 6> goodsTs;
 
-    std::array<std::vector<Token>, 3> bonuses
-    {{
-        std::vector<Token>(NUM3S),
-        std::vector<Token>(NUM4S),
-        std::vector<Token>(NUM5S)
-    }};
+    std::array<std::vector<Token>, 3> bonuses;
 
     Token seals [3];
     int numofSealsLeft;

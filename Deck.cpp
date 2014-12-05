@@ -5,6 +5,9 @@
 #include "Card.h"
 #include <array>
 #include <time.h>
+#include <string>
+
+using std::string;
 
 Deck::Deck()
 {
@@ -103,7 +106,7 @@ void Deck::swap(int a, int b)
 void Deck::printDeck()
 {
     cout << "Deck:\t\t";
-    char blackSquare = '\u25A0';
+    string blackSquare = "\u25A0";
     for (int i = 1; i<=MAXCARDSINDECK-placeinDeck; i++)
     {
         cout << "# ";

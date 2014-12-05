@@ -7,15 +7,13 @@ This class will be inherited by HumanPlayer and AIPlayer
 #ifndef _PLAYER_H
 #define _PLAYER_H
 
-#include "Token.h"
-#include "Card.h"
 #include "Bank.h"
 #include "Move.h"
 #include <string>
 #include <vector>
 #include <iostream>
 
-using std::cout; using std::endl;
+using std::cout; using std::cin; using std::endl;
 using std::vector; using std::string;
 
 class Move; //??? maybe causes other issues

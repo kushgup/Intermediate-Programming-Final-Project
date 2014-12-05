@@ -18,6 +18,22 @@ using namespace std;
 
 Bank::Bank()
 {
+    goodsTs =
+    {{
+        std::vector<Token>(NUMPAPER),
+        std::vector<Token>(NUMSPICE),
+        std::vector<Token>(NUMCLOTH),
+        std::vector<Token>(NUMSILVER),
+        std::vector<Token>(NUMGOLD),
+        std::vector<Token>(NUMDIAMONDS)
+    }};
+
+    bonuses =
+    {{
+        std::vector<Token>(NUM3S),
+        std::vector<Token>(NUM4S),
+        std::vector<Token>(NUM5S)
+    }};
 
     for (int i = 0; i < NUMPAPER; i++)
     {
@@ -152,6 +168,23 @@ Bank::Bank()
 
 Bank::Bank(Bank & other)
 {
+    goodsTs =
+    {{
+        std::vector<Token>(NUMPAPER),
+        std::vector<Token>(NUMSPICE),
+        std::vector<Token>(NUMCLOTH),
+        std::vector<Token>(NUMSILVER),
+        std::vector<Token>(NUMGOLD),
+        std::vector<Token>(NUMDIAMONDS)
+    }};
+
+    bonuses =
+    {{
+        std::vector<Token>(NUM3S),
+        std::vector<Token>(NUM4S),
+        std::vector<Token>(NUM5S)
+    }};
+
     for(int i = 0; i< 6; i++)
     {
         for(int j = 0; j < (int) goodsTs[i].size(); j++)
