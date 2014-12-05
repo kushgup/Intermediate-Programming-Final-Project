@@ -4,6 +4,7 @@
 #include "Field.h"
 #include "State.h"
 #include "Player.h"
+#include "Bank.h"
 
 class Player;
 class Move;
@@ -19,6 +20,7 @@ private:
 	int roundNum;
 	State gameState;
 	Field field;
+	Bank bank;
 
 public:
 
