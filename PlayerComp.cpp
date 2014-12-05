@@ -15,12 +15,14 @@ void PlayerComp::makeMove() {
 	vector<int> c;
 	c.push_back(1);
 	Move next4(game_field, hand, c); //sell first card in hand
-	if()
-
-	else if ()
-	else if ()
-	else if(next1.isValid())
-
+	if(next2.isValid()) //take
+		takeCard(next2);
+	else if(next3.isValid()) //exchange
+		exchange(next3);
+	else if(next4.isValid()) //sell
+		sellCards(next4);
+	else
+		takeCamels(next1);
 
 	return 0;
 }
