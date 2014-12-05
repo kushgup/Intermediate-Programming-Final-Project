@@ -36,5 +36,14 @@ void Field::printField()
     cout << " ";
     market[4]->Card::printCard();
     cout << endl;
+    char let = 'a';
+    cout << "  ";
+    for (int i= 0; i<5; i++)
+    {
+        cout<< let << "     ";
+        let++;
+    }
+    cout << endl;
+    cout << endl;
 
 }

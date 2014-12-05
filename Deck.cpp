@@ -57,7 +57,24 @@ Deck::Deck()
 
     placeinDeck = 0;
 }
-
+/*
+Deck::~Deck()
+{
+    for(int i = 0; i< 55; i++)
+    {
+        delete deckForGame[i];
+    }
+    delete [] deckForGame;
+    for(int i = 0; i< 52; i++)
+    {
+        delete deckTobeshuffled[i];
+    }
+    for(int i = 0; i< 3; i++)
+    {
+        delete startCamels[i];
+    }
+}
+*/
 void Deck::shuffle()
 {
     /** SEED TIME **/
@@ -94,6 +111,8 @@ void Deck::printDeck()
 
 Card * Deck::dealCard()
 {
+    if (placeinDeck == 55)
+        return nullptr;
     Card * temp = &deckForGame[placeinDeck];
     placeinDeck++;
     return temp;

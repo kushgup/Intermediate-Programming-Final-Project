@@ -23,6 +23,7 @@ class Deck
     
 public:
     Deck();
+    //~Deck();
     void printDeck();
     void shuffle();
     void restoreDeck(){placeinDeck = 0;};

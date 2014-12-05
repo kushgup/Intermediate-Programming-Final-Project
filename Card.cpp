@@ -33,8 +33,8 @@ Card::Card(Card & other)
     isCamel = other.isCamel;
     PandaCamel = other.PandaCamel;
 }
-
-/*Card::~Card()
+/*
+Card::~Card()
 {
     delete this;
 }
