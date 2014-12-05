@@ -7,6 +7,7 @@ The only definitions in this file are overriding the virtual functions defined i
 #define _PLAYERHUMAN_H
 
 #include "Player.h"
+#include <cctype>
 
 class PlayerHuman: public Player {
 
