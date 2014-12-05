@@ -16,11 +16,10 @@ using namespace std;
 
 class Token
 {
-    friend class Player;
 
     int value;
     string TypeOfToken;
-    
+
 public:
     Token();
     Token(int, string);
@@ -31,7 +30,7 @@ public:
     int getValue() const;
     string getType() const;
     void printToken() const;
-    
+
 };
 
 #endif /* defined(__pg7b__Token__) */
