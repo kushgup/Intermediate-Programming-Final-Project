@@ -1,12 +1,13 @@
 #include "PlayerHuman.h"
+#include "Game.h"
 
 int main() {
 
-	cout << "lolol" << endl;
-
-	char ch = 4;
-	int i = (int) ch;
-	cout << i << endl;
+	Game new_game;
+	field.printField();
+	Andrew.makeMove();
+	Andrew.printHand();
+	field.printField();
 
 	return 0;
 }
