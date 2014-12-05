@@ -96,8 +96,7 @@ void Game::playGame()
         // empty player hands and reset
         for(int i = 0; i < 2; i++)
         {
-            players[i]->OList.clear();
-
+            players[i]->resetForRound();
         }
     }
 
