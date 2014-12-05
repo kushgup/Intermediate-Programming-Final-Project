@@ -4,6 +4,7 @@
 #include <time.h>
 #include "Card.h"
 #include <array>
+#include <time.h>
 
 Deck::Deck()
 {
@@ -77,7 +78,14 @@ Deck::~Deck()
 */
 void Deck::shuffle()
 {
-    /** SEED TIME **/
+    int seed;
+    
+    time_t t;
+    seed = (int) time(&t);
+    
+    srand((unsigned) seed);
+    
+    
     for(int i = 0; i< 52; i++)
     {
         int s = rand() % 52;
@@ -94,9 +102,8 @@ void Deck::swap(int a, int b)
 
 void Deck::printDeck()
 {
-    int cardsInDeck = sizeof(deckForGame)/sizeof(deckForGame[0]);
     cout << "Deck:\t";
-    for (int i = 1; i<=cardsInDeck; i++)
+    for (int i = 1; i<=MAXCARDSINDECK-placeinDeck; i++)
     {
         cout << "• ";
         if (i % 15 == 0)
