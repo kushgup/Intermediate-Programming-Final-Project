@@ -79,13 +79,13 @@ Deck::~Deck()
 void Deck::shuffle()
 {
     int seed;
-    
+
     time_t t;
     seed = (int) time(&t);
-    
+
     srand((unsigned) seed);
-    
-    
+
+
     for(int i = 0; i< 52; i++)
     {
         int s = rand() % 52;
@@ -102,10 +102,11 @@ void Deck::swap(int a, int b)
 
 void Deck::printDeck()
 {
-    cout << "Deck:\t";
+    cout << "Deck:\t\t";
+    char blackSquare = '\u25A0';
     for (int i = 1; i<=MAXCARDSINDECK-placeinDeck; i++)
     {
-        cout << "• ";
+        cout << "# ";
         if (i % 15 == 0)
         {
             cout << endl;

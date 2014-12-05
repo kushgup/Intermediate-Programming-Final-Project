@@ -31,14 +31,15 @@ public:
     bool getIsCamel() const;
     int getRank() const {return rank;};
     void setPandaCamel();
+    bool getPrecious(){return isPrecious;};
     bool getIsPandaCamel() const;
     void printCard() const;
-    bool operator== (Card&);
-    bool operator> (Card&);
-    bool operator>= (Card&);
-    bool operator< (Card&);
-    bool operator<= (Card&);
-    bool operator!= (Card&);
+    bool operator== (const Card&);
+    bool operator> (const Card&);
+    bool operator>= (const Card&);
+    bool operator< (const Card&);
+    bool operator<= (const Card&);
+    bool operator!= (const Card&);
 
 };
 
