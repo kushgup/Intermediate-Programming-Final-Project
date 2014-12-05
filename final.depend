@@ -20,35 +20,36 @@
 	<stdio.h>
 	<iostream>
 
-1417745490 source:s:\mnmstorage\documents\michael\jhu\14'15_sophmore\2014fall\intermediateprogramming\c++\final\final\card.cpp
+1417757603 source:s:\mnmstorage\documents\michael\jhu\14'15_sophmore\2014fall\intermediateprogramming\c++\final\final\card.cpp
 	"Card.h"
 	<stdio.h>
 	<iostream>
 
-1417744259 s:\mnmstorage\documents\michael\jhu\14'15_sophmore\2014fall\intermediateprogramming\c++\final\final\card.h
+1417757603 s:\mnmstorage\documents\michael\jhu\14'15_sophmore\2014fall\intermediateprogramming\c++\final\final\card.h
 	<stdio.h>
 	<iostream>
 
-1417745490 source:s:\mnmstorage\documents\michael\jhu\14'15_sophmore\2014fall\intermediateprogramming\c++\final\final\deck.cpp
+1417754104 source:s:\mnmstorage\documents\michael\jhu\14'15_sophmore\2014fall\intermediateprogramming\c++\final\final\deck.cpp
 	"Deck.h"
 	<stdio.h>
 	<stdlib.h>
 	<time.h>
 	"Card.h"
 	<array>
+	<time.h>
 
-1417745490 s:\mnmstorage\documents\michael\jhu\14'15_sophmore\2014fall\intermediateprogramming\c++\final\final\deck.h
+1417758411 s:\mnmstorage\documents\michael\jhu\14'15_sophmore\2014fall\intermediateprogramming\c++\final\final\deck.h
 	<stdio.h>
 	"Card.h"
 
-1417740565 source:s:\mnmstorage\documents\michael\jhu\14'15_sophmore\2014fall\intermediateprogramming\c++\final\final\field.cpp
+1417748216 source:s:\mnmstorage\documents\michael\jhu\14'15_sophmore\2014fall\intermediateprogramming\c++\final\final\field.cpp
 	"Field.h"
 	<stdio.h>
 	<iostream>
 	"Deck.h"
 	"Card.h"
 
-1417743077 s:\mnmstorage\documents\michael\jhu\14'15_sophmore\2014fall\intermediateprogramming\c++\final\final\field.h
+1417758726 s:\mnmstorage\documents\michael\jhu\14'15_sophmore\2014fall\intermediateprogramming\c++\final\final\field.h
 	<stdio.h>
 	"Deck.h"
 	"Card.h"
