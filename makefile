@@ -33,10 +33,10 @@ Move.o: Move.cpp Move.h Card.h Field.h Deck.h OListIterator.h OList.h
 Player.o: Player.cpp Player.h Token.h Card.h Bank.h Move.h Field.h Deck.h OList.h OListIterator.h
 	$(CC) $(CFLAGS) -c Player.cpp
 
-PlayerHuman: PlayerHuman.cpp PlayerHuman.h Player.h Token.h Card.h Bank.h Move.h Field.h Deck.h OList.h OListIterator.h
+PlayerHuman.o: PlayerHuman.cpp PlayerHuman.h Player.h Token.h Card.h Bank.h Move.h Field.h Deck.h OList.h OListIterator.h
 	$(CC) $(CFLAGS) -c PlayerHuman.cpp
 
-PlayerComp: PlayerComp.cpp PlayerComp.h Player.h Token.h Card.h Bank.h Move.h Field.h Deck.h OList.h OListIterator.h
+PlayerComp.o: PlayerComp.cpp PlayerComp.h Player.h Token.h Card.h Bank.h Move.h Field.h Deck.h OList.h OListIterator.h
 	$(CC) $(CFLAGS) -c PlayerComp.cpp
 
 State.o: State.cpp State.h
@@ -51,3 +51,5 @@ Driver.o: Driver.cpp Bank.h Card.h Deck.h Field.h Game.h Move.h OList.h OListIte
 clean:
 	rm -rf *gch *o Driver BankTest
 
+zip:
+	zip -l pg7.zip makefile README *.h *.cpp

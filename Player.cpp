@@ -74,8 +74,8 @@ void Player::sellCards(Move to_make) {
 		tokens.push_back((*game_bank).takeBonusToken(how_many)); //award the bonus token first, temporal order shouldn't matter
 	while(iter != iter_end) {
 		if(!(*game_bank).isGoodDepleted(type_sell)) //only award tokens while there are still tokens left
-			tokens.push_back((*game_bank).takeTokenFromGoodTs(type_sell)); //award
-		hand.remove(**iter); //delete token
+			tokens.push_back((*game_bank).takeTokenFromGoodTs(type_sell)); //award tokens
+		hand.remove(**iter); //"sell card" by deleting from hand
 		iter++;
 	}
 }
