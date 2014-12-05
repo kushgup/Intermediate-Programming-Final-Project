@@ -11,7 +11,7 @@ The only definitions in this file are overriding the virtual functions defined i
 class PlayerHuman: public Player {
 
 public:
-	
+
 	PlayerHuman(string nm): Player:: {}
 
 	void makeMove(); //decides which action to take on the turn

@@ -13,8 +13,7 @@ This class will be inherited by HumanPlayer and AIPlayer
 #include <string>
 #include <vector>
 
-using std::vector;
-using std::string;
+using std::vector; using std::string;
 
 class Player {
 
@@ -24,7 +23,7 @@ protected:
 
 	string name; //store the name of the player
 	OList<Card *> hand; //separate linked list of resource cards for the hand
-	vector<Card *> herd; //separate linked list of camels
+	vector<Card*> camels; //separate linked list of camels
 	vector<Token *> seals; //keep track of how many seals the player has
 	vector<Token *> tokens; //keep track of tokens collected
 

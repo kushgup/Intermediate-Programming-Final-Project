@@ -20,16 +20,16 @@
 	<stdio.h>
 	<iostream>
 
-1417729222 source:s:\mnmstorage\documents\michael\jhu\14'15_sophmore\2014fall\intermediateprogramming\c++\final\final\card.cpp
+1417736770 source:s:\mnmstorage\documents\michael\jhu\14'15_sophmore\2014fall\intermediateprogramming\c++\final\final\card.cpp
 	"Card.h"
 	<stdio.h>
 	<iostream>
 
-1417729222 s:\mnmstorage\documents\michael\jhu\14'15_sophmore\2014fall\intermediateprogramming\c++\final\final\card.h
+1417736770 s:\mnmstorage\documents\michael\jhu\14'15_sophmore\2014fall\intermediateprogramming\c++\final\final\card.h
 	<stdio.h>
 	<iostream>
 
-1417729222 source:s:\mnmstorage\documents\michael\jhu\14'15_sophmore\2014fall\intermediateprogramming\c++\final\final\deck.cpp
+1417736770 source:s:\mnmstorage\documents\michael\jhu\14'15_sophmore\2014fall\intermediateprogramming\c++\final\final\deck.cpp
 	"Deck.h"
 	<stdio.h>
 	<stdlib.h>
@@ -37,7 +37,7 @@
 	"Card.h"
 	<array>
 
-1417729222 s:\mnmstorage\documents\michael\jhu\14'15_sophmore\2014fall\intermediateprogramming\c++\final\final\deck.h
+1417736770 s:\mnmstorage\documents\michael\jhu\14'15_sophmore\2014fall\intermediateprogramming\c++\final\final\deck.h
 	<stdio.h>
 	"Card.h"
 
@@ -48,7 +48,7 @@
 	"Deck.h"
 	"Card.h"
 
-1417729222 s:\mnmstorage\documents\michael\jhu\14'15_sophmore\2014fall\intermediateprogramming\c++\final\final\field.h
+1417736770 s:\mnmstorage\documents\michael\jhu\14'15_sophmore\2014fall\intermediateprogramming\c++\final\final\field.h
 	<stdio.h>
 	"Deck.h"
 	"Card.h"
@@ -56,20 +56,67 @@
 
 1417728852 source:s:\mnmstorage\documents\michael\jhu\14'15_sophmore\2014fall\intermediateprogramming\c++\final\final\game.cpp
 
-1417729376 source:s:\mnmstorage\documents\michael\jhu\14'15_sophmore\2014fall\intermediateprogramming\c++\final\final\main.cpp
+1417736670 source:s:\mnmstorage\documents\michael\jhu\14'15_sophmore\2014fall\intermediateprogramming\c++\final\final\main.cpp
 	<iostream>
 	"Bank.h"
 	"Deck.h"
 	"Field.h"
 
-1417729222 s:\mnmstorage\documents\michael\jhu\14'15_sophmore\2014fall\intermediateprogramming\c++\final\final\bank.h
+1417737220 s:\mnmstorage\documents\michael\jhu\14'15_sophmore\2014fall\intermediateprogramming\c++\final\final\bank.h
 	<stdio.h>
 	"Token.h"
 	<array>
 	<vector>
 	<map>
 
-1417729222 s:\mnmstorage\documents\michael\jhu\14'15_sophmore\2014fall\intermediateprogramming\c++\final\final\token.h
+1417736770 s:\mnmstorage\documents\michael\jhu\14'15_sophmore\2014fall\intermediateprogramming\c++\final\final\token.h
+	<stdio.h>
+	<iostream>
+
+1417736670 source:s:\mnmstorage\documents\michael\jhu\14'15_sophmore\2014fall\intermediateprogramming\c++\final\final\move.cpp
+	"Move.h"
+
+1417728852 s:\mnmstorage\documents\michael\jhu\14'15_sophmore\2014fall\intermediateprogramming\c++\final\final\move.h
+
+1417737149 source:s:\mnmstorage\documents\michael\jhu\14'15_sophmore\2014fall\intermediateprogramming\c++\final\final\bank.cpp
+	"Bank.h"
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+	"Token.h"
+	<array>
+
+1417736976 source:s:\mnmstorage\documents\michael\jhu\14'15_sophmore\2014fall\intermediateprogramming\c++\final\final\banktest.cpp
+	<iostream>
+	"assert.h"
+	"Bank.h"
+	"Deck.h"
+	"Field.h"
+
+1417737238 source:s:\mnmstorage\documents\michael\jhu\14'15_sophmore\2014fall\intermediateprogramming\c++\final\final\player.cpp
+	"Player.h"
+	"Field.h"
+
+1417737247 s:\mnmstorage\documents\michael\jhu\14'15_sophmore\2014fall\intermediateprogramming\c++\final\final\player.h
+	"OList.h"
+	"Token.h"
+	"Card.h"
+	<string>
+	<vector>
+
+1417736770 s:\mnmstorage\documents\michael\jhu\14'15_sophmore\2014fall\intermediateprogramming\c++\final\final\olist.h
+	<iostream>
+
+1417728852 source:s:\mnmstorage\documents\michael\jhu\14'15_sophmore\2014fall\intermediateprogramming\c++\final\final\playercomp.cpp
+
+1417737328 source:s:\mnmstorage\documents\michael\jhu\14'15_sophmore\2014fall\intermediateprogramming\c++\final\final\playerhuman.cpp
+	"PlayerHuman.h"
+
+1417737319 s:\mnmstorage\documents\michael\jhu\14'15_sophmore\2014fall\intermediateprogramming\c++\final\final\playerhuman.h
+	"Player.h"
+
+1417729222 source:s:\mnmstorage\documents\michael\jhu\14'15_sophmore\2014fall\intermediateprogramming\c++\final\final\token.cpp
+	"Token.h"
 	<stdio.h>
 	<iostream>
 

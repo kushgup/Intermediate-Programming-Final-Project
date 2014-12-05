@@ -1,11 +1,3 @@
-//
-//  Bank.h
-//  pg7b
-//
-//  Created by Edmund Connor on 11/19/14.
-//  Copyright (c) 2014 Edmund Connor. All rights reserved.
-//
-
 #ifndef __pg7b__Bank__
 #define __pg7b__Bank__
 
@@ -28,16 +20,16 @@ using namespace std;
 class Bank
 {
     std::array<std::vector<Token>, 6> goodsTs{{std::vector<Token>(NUMPAPER), std::vector<Token>(NUMSPICE), std::vector<Token>(NUMCLOTH), std::vector<Token>(NUMSILVER), std::vector<Token>(NUMGOLD), std::vector<Token>(NUMDIAMONDS)}};
-    
+
     std::array<std::vector<Token>, 3> bonuses{{std::vector<Token>(NUM3S), std::vector<Token>(NUM4S), std::vector<Token>(NUM5S)}};
-    
+
     Token seals [3];
     int numofSealsLeft;
     Token camelToken;
-    
+
     map <string, int> MaxTokensForGoodsTs;
     map <int, int> MaxTokensForBonuses;
-    
+
     /*  Bank Token Order
      *  Paper   (0)
      *  Spice   (1)
@@ -46,24 +38,24 @@ class Bank
      *  Gold    (4)
      *  Diamonds(5)
      */
-    
+
 public:
     Bank();
     Bank(Bank &);
     //~Bank();
     Token * takeTokenFromGoodTs(string); //Pop Top
-    Token * takeBonus(int); //Pop Top
+    Token * takeBonusToken(int); //Pop Top
     Token * takeSeal();
     Token * getCamelToken();
     void printBank();
     void refillBank();
-    
+
 private:
     void shuffleBonus();
     void swap3(int, int);
     void swap4(int, int);
     void swap5(int, int);
-    
+
 };
 
 #endif /* defined(__pg7b__Bank__) */

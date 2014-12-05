@@ -26,7 +26,7 @@ using namespace std;
 
 Bank::Bank()
 {
-    
+
     for (int i = 0; i < NUMPAPER; i++)
     {
         goodsTs[0][i] = *new Token ();
@@ -38,9 +38,9 @@ Bank::Bank()
             goodsTs[0][i].Token::setValue(3);
         if(i == 6)
             goodsTs[0][i].Token::setValue(2);
-        
+
     }
-    
+
     for (int i = 0; i < NUMSPICE; i++)
     {
         goodsTs[1][i] = *new Token ();
@@ -54,7 +54,7 @@ Bank::Bank()
         else
             goodsTs[1][i].setValue(1);
     }
-    
+
     for (int i = 0; i < NUMCLOTH; i++)
     {
         goodsTs[2][i] = *new Token ();
@@ -68,14 +68,14 @@ Bank::Bank()
         else
             goodsTs[2][i].Token::setValue(1);
     }
-    
+
     for (int i = 0; i < NUMSILVER; i++)
     {
         goodsTs[3][i] = *new Token ();
         goodsTs[3][i].Token::setValue(5);
         goodsTs[3][i].Token::setType("Silver");
     }
-    
+
     for (int i = 0; i < NUMGOLD; i++)
     {
         goodsTs[4][i] = *new Token ();
@@ -85,7 +85,7 @@ Bank::Bank()
         else
             goodsTs[4][i].Token::setValue(6);
     }
-    
+
     for (int i = 0; i < NUMDIAMONDS; i++)
     {
         goodsTs[5][i] = *new Token ();
@@ -95,7 +95,7 @@ Bank::Bank()
         else
             goodsTs[5][i].Token::setValue(7);
     }
-    
+
     for (int i = 0; i < NUM3S; i++)
     {
         bonuses[0][i] = *new Token ();
@@ -107,7 +107,7 @@ Bank::Bank()
         else
             bonuses[0][i].Token::setValue(2);
     }
-    
+
     for (int i = 0; i < NUM4S; i++)
     {
         bonuses[1][i] = *new Token ();
@@ -119,7 +119,7 @@ Bank::Bank()
         else
             bonuses[1][i].Token::setValue(5);
     }
-    
+
     for (int i = 0; i < NUM5S; i++)
     {
         bonuses[2][i] = *new Token ();
@@ -131,7 +131,7 @@ Bank::Bank()
         else
             bonuses[2][i].Token::setValue(9);
     }
-    
+
     for (int i = 0; i < 3; i++)
     {
         seals[i] = *new Token();
@@ -139,11 +139,11 @@ Bank::Bank()
         seals[i].Token::setValue(100);
     }
     numofSealsLeft = NUMSEALS;
-    
+
     camelToken = *new Token ();
     camelToken.Token::setType("Camel");
     camelToken.Token::setValue(5);
-    
+
     MaxTokensForGoodsTs["Paper"] = NUMPAPER;
     MaxTokensForGoodsTs["Spice"] = NUMSPICE;
     MaxTokensForGoodsTs["Cloth"] = NUMCLOTH;
@@ -154,7 +154,7 @@ Bank::Bank()
     MaxTokensForBonuses[3] = NUM3S;
     MaxTokensForBonuses[4] = NUM4S;
     MaxTokensForBonuses[5] = NUM5S;
-    
+
     this->shuffleBonus();
 }
 
@@ -181,14 +181,14 @@ Bank::Bank(Bank & other)
     numofSealsLeft = NUMSEALS;
 
     camelToken = other.camelToken;
-    
+
     MaxTokensForGoodsTs["Paper"] = NUMPAPER;
     MaxTokensForGoodsTs["Spice"] = NUMSPICE;
     MaxTokensForGoodsTs["Cloth"] = NUMCLOTH;
     MaxTokensForGoodsTs["Silver"] = NUMSILVER;
     MaxTokensForGoodsTs["Gold"] = NUMGOLD;
     MaxTokensForGoodsTs["Diamonds"] = NUMDIAMONDS;
-    
+
     MaxTokensForBonuses[3] = NUM3S;
     MaxTokensForBonuses[4] = NUM4S;
     MaxTokensForBonuses[5] = NUM5S;
@@ -218,17 +218,14 @@ Token * Bank::takeTokenFromGoodTs(string goodYourTaking) //Pop Top
         kindofGoodYourTaking = 4;
     if(goodYourTaking == "Diamonds")
         kindofGoodYourTaking = 5;
-    
-    int placeTakingFrom = MaxTokensForGoodsTs[goodYourTaking];
-    Token * temp = &goodsTs[kindofGoodYourTaking][placeTakingFrom];
-    
+
+    int placeTakingFrom = MaxTokensForGoodsTs[goodYourTaking]-1;
     MaxTokensForGoodsTs[goodYourTaking]--;
-    
-    return temp;
-    
+
+    return &goodsTs[kindofGoodYourTaking][placeTakingFrom];
 }
 
-Token * Bank::takeBonus(int BonusTaking) //Pop Top
+Token * Bank::takeBonusToken(int BonusTaking) //Pop Top
 {
     int placeTakingFrom = MaxTokensForBonuses[BonusTaking];
     Token * temp = &bonuses[BonusTaking-3][placeTakingFrom];
@@ -238,10 +235,8 @@ Token * Bank::takeBonus(int BonusTaking) //Pop Top
 
 Token * Bank::takeSeal()
 {
-    int size = sizeof(seals);
-    Token *temp = &seals[size];
     numofSealsLeft--;
-    return temp;
+    return &(seals[1]);
 }
 
 Token * Bank::getCamelToken()
@@ -255,7 +250,20 @@ void Bank::printBank()
     cout << "Bank **********************************************" << endl;
     for(int i=0; i< 6 ;i++)
     {
-        int num_elements = (int) goodsTs[i].size();
+        string mapiter = "Paper";
+        if(i == 1)
+            mapiter = "Spice";
+        if(i == 2)
+            mapiter = "Cloth";
+        if(i == 3)
+            mapiter = "Silver";
+        if(i == 4)
+            mapiter = "Gold";
+        if(i == 5)
+            mapiter = "Diamonds";
+
+        int num_elements = MaxTokensForGoodsTs[mapiter];
+
         if(goodsTs[i][0].getType() == "Diamonds")
             cout << goodsTs[i][0].getType() << " Tokens: \t";
         else
@@ -268,10 +276,10 @@ void Bank::printBank()
         }
         cout << endl;
     }
-    
+
     for(int i=0; i< 3 ;i++)
     {
-        int num_elements = (int) goodsTs[i].size();
+        int num_elements = MaxTokensForBonuses[i+3];
         cout << bonuses[i][0].getType() << " Tokens: \t\t";
         for (int k = 0; k< num_elements; k++)
         {
@@ -282,8 +290,7 @@ void Bank::printBank()
         cout << endl;
     }
     cout << "Seals: \t\t\t\t";
-    int numseals = sizeof( seals ) / sizeof( seals[0] );
-    for(int i = 0; i< numseals; i++)
+    for(int i = 0; i< numofSealsLeft; i++)
     {
         int toBePrinted = seals[i].getValue();
         if(toBePrinted)
@@ -297,7 +304,7 @@ void Bank::printBank()
 void Bank::shuffleBonus()
 {
     //srand(time(NULL));
-    
+
     for (int i = 0; i < 7; i++)
     {
         int b3 = rand() % 7;
@@ -313,7 +320,7 @@ void Bank::shuffleBonus()
         int b5 = rand() % 5;
         swap5(i, b5);
     }
-    
+
 }
 
 void Bank::swap3 (int a, int b)
@@ -321,7 +328,7 @@ void Bank::swap3 (int a, int b)
     Token temp = bonuses[0][a];
     bonuses[0][a]=bonuses[0][b];
     bonuses[0][b] = temp;
-    
+
 }
 
 void Bank::swap4 (int a, int b)
@@ -329,7 +336,7 @@ void Bank::swap4 (int a, int b)
     Token temp = bonuses[1][a];
     bonuses[1][a]=bonuses[1][b];
     bonuses[1][b] = temp;
-    
+
 }
 
 void Bank::swap5 (int a, int b)
@@ -337,7 +344,7 @@ void Bank::swap5 (int a, int b)
     Token temp = bonuses[2][a];
     bonuses[2][a]=bonuses[2][b];
     bonuses[2][b] = temp;
-    
+
 }
 
 void Bank::refillBank()
@@ -348,14 +355,10 @@ void Bank::refillBank()
     MaxTokensForGoodsTs["Silver"] = NUMSILVER;
     MaxTokensForGoodsTs["Gold"] = NUMGOLD;
     MaxTokensForGoodsTs["Diamonds"] = NUMDIAMONDS;
-    
+
     MaxTokensForBonuses[3] = NUM3S;
     MaxTokensForBonuses[4] = NUM4S;
     MaxTokensForBonuses[5] = NUM5S;
-    
+
     numofSealsLeft = NUMSEALS;
 }
-
-
-
-
