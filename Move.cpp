@@ -2,21 +2,21 @@
 #include "Field.h"
 #include "OListIterator.h"
 
-Move::Move(Field * f, OList<Card *> & handRef); // use of this constructor means: "camels"
+Move::Move(Field * f, OList<Card *> & handRef) // use of this constructor means: "camels"
 {
 	field = f;
 
-	vector<Card *>::iterator iterMarket = game.field.market.begin();
+	vector<Card *>::iterator iterMarket = field->market.begin();
 	vector<Card *>::iterator iterCamels = fieldCamels.begin();
 
-	while(iterMarket != game.field.market.end())
+	while(iterMarket != field->market.end())
 	{
-		if(*iterMarket.Card::getIsCamel())
+		if((*(*iterMarket)).Card::getIsCamel())
 		{
 			iterCamels = fieldCamels.insert(iterCamels, *iterMarket);
 			// do I need to increment iterCamels???
 		}
-		iterMarket++;	
+		iterMarket++;
 	}
 
 	type = "camels";
@@ -30,12 +30,12 @@ Move::Move(Field * f, OList<Card *> & handRef); // use of this constructor means
 		validMove = true;
 }
 
-Move::Move(Field * f, OList<Card *> & handRef, vector<int> cardsToSell); // use of this constructor means: "sell"
+Move::Move(Field * f, OList<Card *> & handRef, vector<int> cardsToSell) // use of this constructor means: "sell"
 {
 	field = f;
 	int cardIndex; // pre-declaration
 
-	oListIterator<Card *> iterHand = handRef.begin();
+	OListIterator<Card *> iterHand = handRef.begin();
 	vector<int>::iterator iterSellCards = cardsToSell.begin();
 
 	while(iterSellCards != cardsToSell.end())
@@ -48,7 +48,7 @@ Move::Move(Field * f, OList<Card *> & handRef, vector<int> cardsToSell); // use 
 			cardIndex--;
 		}
 		if(iterHand != handRef.end())
-			sell.insert(*iterHand);
+			sell.push_back(*iterHand);
 		// else throw exception??
 
 		iterHand = handRef.begin(); // reset iterHand to beginning of OList hand
@@ -83,16 +83,15 @@ Move::Move(Field * f, OList<Card *> & handRef, vector<int> cardsToSell); // use 
 
 }
 
-Move::Move(Field * f, OList<Card *> & handRef, vector<int>, vector<char>); // use of this constructor means: "exchange"
+Move::Move(Field * f, OList<Card *> & handRef, vector<int>, vector<char>) // use of this constructor means: "exchange"
 {
-	field = f;
-	player = p;
+
 }
 
-Move::Move(Field * f, OList<Card *> & handRef, char); // use of this constructor means: "take"
+Move::Move(Field * f, OList<Card *> & handRef, char) // use of this constructor means: "take"
 {
-	field = f;
-	player = p;
+
+
 }
 
 bool Move::checkRepeats(vector<Card *> cardList)

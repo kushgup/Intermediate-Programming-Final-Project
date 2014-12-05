@@ -20,7 +20,7 @@ class Card
     bool PandaCamel;
     bool isPrecious;
     int rank;
-    
+
 public:
     Card();
     Card(string);
@@ -29,7 +29,7 @@ public:
     string getIdentifier() const;
     void setIdentifier(string);
     bool getIsCamel() const;
-    int getRank() const;
+    int getRank() const {return rank;};
     void setPandaCamel();
     bool getIsPandaCamel() const;
     void printCard() const;

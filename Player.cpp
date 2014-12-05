@@ -28,19 +28,20 @@ void Player::takeCamels(Move to_make) {
 
 	//assumes that the field has been checked by "move" object already
 	vector<Card *>::const_iterator iter;
-	for(iter = to_make.fieldCamels.begin(); iter != to_make.fieldCamels.end(); iter++) {
+/*	for(iter = to_make.fieldCamels.begin(); iter != to_make.fieldCamels.end(); iter++) {
 		herd.push_back(*iter);
-		Field::market.remove(*iter);
-		Field::market.push_back(Field::deck.dealCard());
+		game_field->market.erase(iter);
+		game_field->market.push_back(Field::deck.dealCard());
 	}
+*/
 }
 
 void Player::takeCard(Move to_make) {
 
 	//assumes that the field has been checked by "move" object already
 	hand.insert(to_make.takeSingle);
-	Field::market.remove(to_make.takeSingle);
-	Field::market.push_back(Field::deck.dealCard());
+	//game_field->market.erase(to_make.takeSingle);
+	game_field->market.push_back(game_field->deck.dealCard());
 }
 
 void Player::exchange(Move to_make) {
@@ -50,9 +51,9 @@ void Player::exchange(Move to_make) {
 	vector<Card *>::const_iterator iter;
 	for(iter = to_make.takeMult.begin(); iter != to_make.takeMult.end(); iter++) {
 		herd.push_back(*iter);
-		Field::market.remove(*iter);
-		Field::market.push_back(to_make.returnMult.);
-	}	
+		//game_field->market.erase(iter);
+		//game_field->market.push_back(to_make.returnMult.);
+	}
 
 }
 
@@ -66,7 +67,7 @@ void Player::sellCards(Move to_make) {
 	//vector<Card *> sell
 	vector<Card *>::const_iterator iter;
 	for(iter = to_make.sell.begin(); iter != to_make.sell.end(); iter++) {
-		herd.remove(*iter);
+		//herd.remove(*iter);
 
 	}
 }
