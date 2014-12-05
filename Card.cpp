@@ -9,6 +9,7 @@ Card::Card()
     isPrecious = false;
     PandaCamel = false;
     identifier = "NA";
+    rank = 0;
 }
 
 Card::Card(string Id)
@@ -25,6 +26,21 @@ Card::Card(string Id)
         isPrecious = true;
     else
         isPrecious = false;
+    
+    
+    if(Id == "Diamonds")
+        rank = 6;
+    if(Id == "Gold")
+        rank = 5;
+    if(Id == "Silver")
+        rank = 4;
+    if(Id == "Cloth")
+        rank = 3;
+    if(Id == "Spice")
+        rank = 2;
+    if(Id == "Paper")
+        rank = 1;
+    
 }
 
 Card::Card(Card & other)
@@ -66,9 +82,29 @@ void Card::printCard() const
 
 bool Card::operator== (Card & other)
 {
-    return this->identifier == other.getIdentifier();
+    return this->rank == other.getRank();
 }
 
+bool Card::operator > (Card & other)
+{
+    return this->rank > other.getRank();
+}
+bool Card::operator >= (Card & other)
+{
+    return this->rank >= other.getRank();
+}
+bool Card::operator <= (Card & other)
+{
+    return this->rank <= other.getRank();
+}
+bool Card::operator < (Card & other)
+{
+    return this->rank < other.getRank();
+}
+bool Card::operator != (Card & other)
+{
+    return this->rank != other.getRank();
+}
 
 
 

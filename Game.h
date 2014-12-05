@@ -28,17 +28,18 @@ public:
     Game(Game &);
     ~Game();
 
-	void printBoard();
-	int getRoundNum() const { return roundNum; };
-	Player & getWinner();
-	void initPlayers();
-	bool isOver();
-	void createDeck();
-	void shuffleDeck();
-	void deal();
+	void playGame();
 
 private:
     void setPlayers();
+    void printBoard();
+	int getRoundNum() const { return roundNum; };
+	Player & getWinner();
+	bool roundIsOver();
+	bool gameOver();
+	void createDeck();
+	void shuffleDeck();
+	void deal();
 
 };
 

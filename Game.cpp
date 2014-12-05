@@ -77,3 +77,10 @@ void Game::printBoard() {
     bank.Bank::printBank();
     field.Field::printField();
 }
+
+bool Game::roundIsOver(){
+    int CardsLeftinDeck = 55 - field.getDeck().getPlaceInDeck();
+    if (CardsLeftinDeck)
+        return true;
+
+}
