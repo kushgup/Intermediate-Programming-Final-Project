@@ -16,7 +16,7 @@ class Game {
 
 private:
 
-	Player * players[2];
+	Player * player[2];
 	int roundNum;
 	State gameState;
 	Field field;
@@ -34,7 +34,7 @@ private:
     void setPlayers(int);
     void printBoard();
 	int getRoundNum() const { return roundNum; };
-	Player & getWinner();
+	Player & setWinner( int );
 	bool roundIsOver();
 	bool gameOver();
 	void createDeck();

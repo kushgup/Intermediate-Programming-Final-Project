@@ -40,6 +40,7 @@ public:
     vector<Card*> getP1Hand(){return player1Hand;};
     vector<Card*> getP2Hand(){return player2Hand;};
     Deck * getDeck() {return &deck;};
+    void restoreDeck(){deck.Deck::restoreDeck();};
 
     //void moveGoodFromMarket();
     //void cleanGoodsToBeTaken();
