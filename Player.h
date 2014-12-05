@@ -7,24 +7,24 @@ This class will be inherited by HumanPlayer and AIPlayer
 #ifndef _PLAYER_H
 #define _PLAYER_H
 
-#include "OList.h"
+#include "OListIterator.h"
 #include "Token.h"
 #include "Card.h"
+#include "Field.h"
+#include "Move.h"
 #include <string>
 #include <vector>
+#include <iostream>
 
+using std::cout; using std::endl;
 using std::vector; using std::string;
-
-class Move;
 
 class Player {
 
-	friend class Move; //so Move can look at player's hand and herd
-
 protected:
 
-	Game * player_game;
 	string name; //store the name of the player
+	Field * game_field; //store a pointer to the game's field
 	OList<Card *> hand; //separate linked list of resource cards for the hand
 	vector<Card*> herd; //separate linked list of camels
 	vector<Token *> seals; //keep track of how many seals the player has
@@ -32,11 +32,11 @@ protected:
 
 public:
 
-	Player(string nm, Game * gm): name(nm), player_game(gm) { }
+	Player(string nm, Field * fd): name(nm), game_field(fd) { }
 
 	string getName() const { return name; };
 	int handSize() const { return hand.size(); };
-	int numCamels() const { return camels.size(); };
+	int numCamels() const { return herd.size(); };
 	int countPts() const;
 	int countSeals() const { return seals.size(); };
 	void printHand() const;
@@ -46,7 +46,7 @@ protected:
 
 	void takeCamels(Move to_make); //option 1, take all the camels in the market
 	void takeCard(Move to_make); //option 2, take a single card from market
-	void exchange(Move to_make); //option 3, take multiple cards from market and exchange from hand and/or camels
+	void exchange(Move to_make); //option 3, take multiple cards from market and exchange from hand and/or herd
 	void sellCards(Move to_make); //option 4, sell cards from the hand
 };
 
