@@ -1,11 +1,3 @@
-//
-//  Deck.h
-//  pg7b
-//
-//  Created by Edmund Connor on 11/23/14.
-//  Copyright (c) 2014 Edmund Connor. All rights reserved.
-//
-
 #ifndef __pg7b__Deck__
 #define __pg7b__Deck__
 
@@ -20,7 +12,7 @@ class Deck
     Card startCamels[3];
     Card deckForGame [MAXCARDSINDECK];
     int placeinDeck;
-    
+
 public:
     Deck();
     //~Deck();
@@ -29,10 +21,11 @@ public:
     void restoreDeck(){placeinDeck = 0;};
     void increasePlaceinDeck(){placeinDeck++;};
     Card * dealCard();
-    
+    int getPlaceInDeck() const {return placeinDeck;};
+
 private:
     void swap (int, int);
-    
+
 };
 
 #endif /* defined(__pg7b__Deck__) */
