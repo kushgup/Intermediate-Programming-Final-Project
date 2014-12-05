@@ -51,7 +51,7 @@ private:
 
 public:
 	Move(): field(NULL), type(""), validMove(false) {};
-	Move(Field * f, OList<Card *> & handRef); // use of this constructor means: "camels"
+	Move(Field * f); // use of this constructor means: "camels"
 	Move(Field * f, OList<Card *> & handRef, vector<int>); // use of this constructor means: "sell"
 	Move(Field * f, OList<Card *> & handRef, vector<int>, vector<char>, int, vector<Card *> &); // use of this constructor means: "exchange"
 	Move(Field * f, OList<Card *> & handRef, char); // use of this constructor means: "take"

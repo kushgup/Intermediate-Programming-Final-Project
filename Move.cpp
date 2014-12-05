@@ -1,6 +1,6 @@
 #include "Move.h"
 
-Move::Move(Field * f, OList<Card *> & handRef) // use of this constructor means: "camels"
+Move::Move(Field * f) // use of this constructor means: "camels"
 {
 	type = "camels";
 	field = f;
@@ -96,14 +96,14 @@ Move::Move(Field * f, OList<Card *> & handRef, vector<int> cardsToGive, vector<c
 		return;
 	}
 	// check that player has # camels
-	if(herd.size() < num_camels)
+	if((int) herd.size() < num_camels)
 	{
 		validMove = false;
 		// throw exception?? -- invalid # of arguments (too many camels)
 		return;
 	}
 	// check that player has # cardsToGive ???
-	if(handRef.size() < cardsToGive.size())
+	if((int)handRef.size() < (int)cardsToGive.size())
 	{
 		validMove = false;
 		// throw exception?? -- invalid # of arguments
@@ -171,7 +171,7 @@ Move::Move(Field * f, OList<Card *> & handRef, char index) // use of this constr
 
 	////////// final testing //////////////////////
 	// shouldn't be a camel
-	if((**takeSingle).Card::getIsCamel)
+	if((**takeSingle).Card::getIsCamel())
 	{
 		validMove = false;
 		// throw exception?? -- cannot take a single camel
@@ -272,7 +272,7 @@ void Move::fetchMarketCards(vector<char> cardIndices, vector< vector<Card *>::it
 
 }
 
-void fetchSingleMarketCard(char cardIndex, vector< Card *>::iterator & iter)
+void Move::fetchSingleMarketCard(char cardIndex, vector< Card *>::iterator & iter)
 {
 	////////////// to fetch the card //////////////////
 

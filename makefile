@@ -55,7 +55,7 @@ Token.o: Token.cpp Token.h
 	$(CC) $(CFLAGS) -c Token.cpp
 
 clean:
-	rm -rf *gch *o Driver BankTest
+	\rm -i *.o *gch Driver BankTest PlayerHumanTest
 
 zip:
 	zip -l pg7g.zip makefile README *.h *.cpp

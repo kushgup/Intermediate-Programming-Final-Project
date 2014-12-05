@@ -18,7 +18,7 @@ void PlayerHuman::makeMove() {
 		//have text-based GUI and construct move objects, then call individual functions checking valid first
 		cin >> ch;
 		if(ch == 'a') {
-			Move next(game_field, hand);
+			Move next(game_field);
 			takeCamels(next);
 		} else if(ch == 'b') {
 			cout << "Which card to take? ";
