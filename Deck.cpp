@@ -58,11 +58,6 @@ Deck::Deck()
     placeinDeck = 0;
 }
 
-Card Deck::getCardatIndex(int a)
-{
-    return deckTobeshuffled[a];
-}
-
 void Deck::shuffle()
 {
     /** SEED TIME **/

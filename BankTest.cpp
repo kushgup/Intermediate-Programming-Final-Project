@@ -28,6 +28,11 @@ int main(int argc, const char * argv[]) {
     assert(TakenPaper2->Token::getType() == "Paper");
     assert(TakenBon3->Token::getValue() >=1 || TakenBon3->Token::getValue() <=3);
     assert(TakenSeal1->Token::getValue() == 100);
+    
+    Card x = *new Card ("Paper");
+    Card y = *new Card ("Paper");
+    
+    assert(x==y);
 
     one.Bank::printBank();
 

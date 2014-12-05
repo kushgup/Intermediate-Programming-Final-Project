@@ -64,6 +64,11 @@ void Card::printCard() const
     cout << this->identifier;
 }
 
+bool Card::operator== (Card & other)
+{
+    return this->identifier == other.getIdentifier();
+}
+
 
 
 

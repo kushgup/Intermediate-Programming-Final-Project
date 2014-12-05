@@ -11,23 +11,20 @@
 
 #include <stdio.h>
 #include "Card.h"
+#define MAXCARDSINDECK 55
 using namespace std;
 
 class Deck
 {
     Card deckTobeshuffled [52];
     Card startCamels[3];
-    Card deckForGame [55];
+    Card deckForGame [MAXCARDSINDECK];
     int placeinDeck;
     
 public:
     Deck();
-    //Deck(Deck &);
-    //~Deck();
-    Card getCardatIndex(int);
     void printDeck();
     void shuffle();
-    //void dealRound; //not sure how this will work in the overall game
     void restoreDeck(){placeinDeck = 0;};
     void increasePlaceinDeck(){placeinDeck++;};
     Card * dealCard();

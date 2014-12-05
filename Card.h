@@ -31,6 +31,7 @@ public:
     void setPandaCamel();
     bool getIsPandaCamel() const;
     void printCard() const;
+    bool operator== (Card&);
 };
 
 #endif /* defined(__pg7b__Card__) */
