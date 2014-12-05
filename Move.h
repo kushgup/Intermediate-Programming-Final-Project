@@ -2,14 +2,45 @@
 #define MOVE_H_INCLUDED
 
 #include "Game.h"
+#include <string>
+#include <vector>
+#include "Card.h"
+
+using std::vector;
+using std::string;
 
 class Move
 
 {
 
+	friend class Player; // so that after validation, Player can look into Move object to get stored Card *
+
 private:
-	Game * game; // how we'll access Game's Field, and thus see if moves are valid
-	Player * player; // how we'll access Player's hand / herd, see if moves are valid
+	Field * field; // how we'll access Field, and thus see if moves are valid
+
+// 	OList<Card *> hand; //separate linked list of resource cards for the hand
+
+
+	string type; // "camels" (take all camels) || "take" || "exchange" || "sell"
+	bool validMove;
+
+	// these members represent all the potential values that might need to get filled with respective cards
+	// they will be accessed by Player after validation to easily obtain the Card *, without having to repeat the code to 
+		// convert the initial arguments (letters and numbers) into Card * 
+	Card * takeSingle;
+    vector<Card * > takeMult;
+    vector<Card * > returnMult;
+    vector<Card * > sell;
+    vector<Card * > fieldCamels;
+
+public:
+	Move(): field(NULL), player(NULL), type(""), validMove(false) {}; 
+	Move(Field * f, OList<Card *>); // use of this constructor means: "camels"
+	Move(Field * f, Player * p, vector<int>); // use of this constructor means: "sell"
+	Move(Field * f, Player * p, vector<int>, vector<char>); // use of this constructor means: "exchange"
+	Move(Field * f, Player * p, char); // use of this constructor means: "take"
+
+	bool isValid() {return validMove;};
 
 };
 

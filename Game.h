@@ -4,6 +4,7 @@
 #include "Field.h"
 #include "State.h"
 #include "Player.h"
+#include "Bank.h"
 
 class Player;
 class Move;
@@ -19,6 +20,7 @@ private:
 	int roundNum;
 	State gameState;
 	Field field;
+	Bank bank;
 
 public:
 
@@ -26,17 +28,17 @@ public:
     Game(Game &);
     ~Game();
 
-	void printBoard();
+	void playGame();
+
+private:
+    void setPlayers();
+    void printBoard();
 	int getRoundNum() const { return roundNum; };
 	Player & getWinner();
-	void initPlayers();
 	bool isOver();
 	void createDeck();
 	void shuffleDeck();
 	void deal();
-
-private:
-    void setPlayers();
 
 };
 
