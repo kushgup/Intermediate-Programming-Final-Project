@@ -15,7 +15,6 @@ class Token
 public:
     Token();
     Token(int, string);
-    Token(Token &);
     //~Token();
     void setValue(int);
     void setType(string);

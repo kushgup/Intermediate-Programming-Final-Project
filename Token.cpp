@@ -24,12 +24,6 @@ Token::Token(int v, string k)
     TypeOfToken = k;
 }
 
-Token::Token(Token & other)
-{
-    value = other.getValue();
-    TypeOfToken = other.getType();
-}
-
 void Token::setType(string y)
 {
     TypeOfToken = y;

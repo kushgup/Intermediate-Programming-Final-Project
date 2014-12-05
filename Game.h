@@ -31,7 +31,7 @@ public:
 	void playGame();
 
 private:
-    void setPlayers();
+    void setPlayers(int);
     void printBoard();
 	int getRoundNum() const { return roundNum; };
 	Player & getWinner();

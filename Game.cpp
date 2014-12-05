@@ -2,7 +2,7 @@
 
 #include "Game.h"
 #define PLYR_VS_AI 1
-#define PLAY_VS_PLYR 2
+#define PLYR_VS_PLYR 2
 
 using std::cout;
 using std::cin;
@@ -41,8 +41,8 @@ Game::~Game() {
 
 }
 */
-
-void Game::setPlayers(typeofPlayersinGame) {
+/*
+void Game::setPlayers(int typeofPlayersinGame) {
     switch (typeofPlayersinGame){
         case PLYR_VS_PLYR:
             {
@@ -84,3 +84,4 @@ bool Game::roundIsOver(){
         return true;
 
 }
+*/
