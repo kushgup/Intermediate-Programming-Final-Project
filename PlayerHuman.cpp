@@ -31,16 +31,23 @@ void PlayerHuman::makeMove() {
 			int num_camels = 0;
 			while(cin >> ch) {
 				if(isdigit(ch))
-					mkt_take.push_back(ch);
+					mkt_take.push_back((int) ch);
 				else if(ch >= 'A' && ch <= 'z')
 					hand_return.push_back(ch);
 				else
 					if(ch == '?')
 						num_camels++;
 			}
+			Move next(game_field, hand, mkt_take, hand_return, num_camels, herd);
+			exchange(next);
 		} else if(ch == 'd') {
-
+			vector<int> to_sell;
+			while(cin >> ch)
+				to_sell.push_back((int) ch);
+			Move next(game_field, hand, to_sell);			
+			sellCards(next);
 		} else
+			cout << "you didn't do it properly!!" << endl; //this line should be replaced with exception handling
 			//throw exc;
 	//} catch {
 
