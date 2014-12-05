@@ -154,14 +154,14 @@ Bank::Bank(Bank & other)
 {
     for(int i = 0; i< 6; i++)
     {
-        for(int j = 0; j< goodsTs[i].size(); j++)
+        for(int j = 0; j < (int) goodsTs[i].size(); j++)
         {
             goodsTs[i][j] = other.goodsTs[i][j];
         }
     }
     for(int i = 0; i< 3; i++)
     {
-        for(int j = 0; j< bonuses[i].size(); j++)
+        for(int j = 0; j < (int) bonuses[i].size(); j++)
         {
             bonuses[i][j] = other.bonuses[i][j];
         }
