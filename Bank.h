@@ -1,13 +1,11 @@
 #ifndef __pg7b__Bank__
 #define __pg7b__Bank__
 
-#include "Token.h"
-
 #include <stdio.h>
+#include "Token.h"
 #include <array>
 #include <vector>
 #include <map>
-
 #define NUMPAPER 9
 #define NUMSPICE 7
 #define NUMCLOTH 7
@@ -17,7 +15,6 @@
 #define NUM3S 7
 #define NUM4S 6
 #define NUM5S 5
-
 using namespace std;
 
 class Bank
@@ -65,7 +62,8 @@ public:
     Token * getCamelToken();
     void printBank();
     void refillBank();
-    int isDeplited();
+    bool isGoodDelipted(string);
+    bool isBonusDelipted(int bonus);
 
 private:
     void shuffleBonus();
