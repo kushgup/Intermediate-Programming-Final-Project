@@ -19,16 +19,29 @@ using namespace std;
 
 class Bank
 {
-    std::array<std::vector<Token>, 6> goodsTs{{std::vector<Token>(NUMPAPER), std::vector<Token>(NUMSPICE), std::vector<Token>(NUMCLOTH), std::vector<Token>(NUMSILVER), std::vector<Token>(NUMGOLD), std::vector<Token>(NUMDIAMONDS)}};
+    std::array<std::vector<Token>, 6> goodsTs
+    {{
+        std::vector<Token>(NUMPAPER), 
+        std::vector<Token>(NUMSPICE), 
+        std::vector<Token>(NUMCLOTH), 
+        std::vector<Token>(NUMSILVER), 
+        std::vector<Token>(NUMGOLD), 
+        std::vector<Token>(NUMDIAMONDS)
+    }};
 
-    std::array<std::vector<Token>, 3> bonuses{{std::vector<Token>(NUM3S), std::vector<Token>(NUM4S), std::vector<Token>(NUM5S)}};
+    std::array<std::vector<Token>, 3> bonuses
+    {{
+        std::vector<Token>(NUM3S), 
+        std::vector<Token>(NUM4S), 
+        std::vector<Token>(NUM5S)
+    }};
 
     Token seals [3];
     int numofSealsLeft;
     Token camelToken;
 
-    map <string, int> MaxTokensForGoodsTs;
-    map <int, int> MaxTokensForBonuses;
+    map <string, int> MaxTokensForGoodsTs; // associative array, keeps track of which tokens can be issued
+    map <int, int> MaxTokensForBonuses; // associative array, keeps track of which tokens can be issued
 
     /*  Bank Token Order
      *  Paper   (0)
