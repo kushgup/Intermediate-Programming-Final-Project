@@ -1,5 +1,6 @@
 #include "PlayerComp.h"
 #include <ctime>
+#include <cstdlib>
 
 void PlayerComp::makeMove() {
 
@@ -19,11 +20,23 @@ void PlayerComp::makeMove() {
 
 	if(!next1.isValid() && !next2.isValid() && !next3.isValid() && !next4.isValid()) {
 		//only reason take should fail is if hand is 7
-		for(int i = 0; i < hand.size(); i++) {
-			c.clear();
-			c.push_back()
+		//try to find something to sell
+		c.clear();
+		for(int i = 1; i < hand.size() - 1; i++) {
+			c.push_back(i);
+			next3 = Move(game_field, hand, c);
+			if(next3.isValid())
+				sellCards(next3);	
+			for(int j = i + 1; j < hand.size(); j++) {
+				c.push_back(j);
+				next3 = Move(game_field, hand, c);
+				if(next3.isValid())
+					sellCards(next3);
+				else
+					c.pop_back();
+			}
+			c.pop_back();
 		}
-
 	} else {
 		srand(time(NULL));
 		int x;
@@ -50,5 +63,4 @@ void PlayerComp::makeMove() {
 		if(x == 2) exchange(next3);
 		if(x == 3) sellCards(next4);		
 	}
-
 }
