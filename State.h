@@ -8,8 +8,10 @@ private:
     unsigned int bonusSeed;
 
 public:
-    getDeckSeed() { return deckSeed; };
-    getBonusSeed() { return bonusSeed; };
+    int getDeckSeed() { return deckSeed; };
+    void setDeckSeed(int seed) { this->deckSeed = seed; };
+    int getBonusSeed() { return bonusSeed; };
+    void setBonusSeed(int seed) {this->bonusSeed = seed; };
 
 };
 
