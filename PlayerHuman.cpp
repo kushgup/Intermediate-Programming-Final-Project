@@ -19,33 +19,37 @@ void PlayerHuman::makeMove() {
 		cin >> ch;
 		if(ch == 'a') {
 			Move next(game_field);
-			takeCamels(next);
+			if(next.isValid())
+                takeCamels(next);
 		} else if(ch == 'b') {
 			cout << "Which card to take? ";
 			cin >> ch;
 			Move next(game_field, hand, ch);
-			takeCard(next);
+			if(next.isValid())
+                takeCard(next);
 		} else if(ch == 'c') {
-			vector<int> mkt_take;
-			vector<char> hand_return;
+			vector<char> mkt_take;
+			vector<int> hand_return;
 			int num_camels = 0;
 			while(cin >> ch) {
 				if(isdigit(ch))
-					mkt_take.push_back((int) ch);
+					hand_return.push_back((int) ch);
 				else if(ch >= 'A' && ch <= 'z')
-					hand_return.push_back(ch);
+					mkt_take.push_back(ch);
 				else
 					if(ch == '?')
 						num_camels++;
 			}
 			Move next(game_field, hand, mkt_take, hand_return, num_camels, herd);
-			exchange(next);
+			if(next.isValid())
+                exchange(next);
 		} else if(ch == 'd') {
 			vector<int> to_sell;
 			while(cin >> ch)
 				to_sell.push_back((int) ch);
-			Move next(game_field, hand, to_sell);			
-			sellCards(next);
+			Move next(game_field, hand, to_sell);
+			if(next.isValid())
+                sellCards(next);
 		} else
 			cout << "you didn't do it properly!!" << endl; //this line should be replaced with exception handling
 			//throw exc;

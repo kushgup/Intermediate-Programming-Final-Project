@@ -66,7 +66,7 @@
 	"Deck.h"
 	"Field.h"
 
-1417772424 s:\mnmstorage\documents\michael\jhu\14'15_sophmore\2014fall\intermediateprogramming\c++\final\final\bank.h
+1417779165 s:\mnmstorage\documents\michael\jhu\14'15_sophmore\2014fall\intermediateprogramming\c++\final\final\bank.h
 	<stdio.h>
 	"Token.h"
 	<array>
@@ -80,7 +80,7 @@
 1417772517 source:s:\mnmstorage\documents\michael\jhu\14'15_sophmore\2014fall\intermediateprogramming\c++\final\final\move.cpp
 	"Move.h"
 
-1417770694 s:\mnmstorage\documents\michael\jhu\14'15_sophmore\2014fall\intermediateprogramming\c++\final\final\move.h
+1417779165 s:\mnmstorage\documents\michael\jhu\14'15_sophmore\2014fall\intermediateprogramming\c++\final\final\move.h
 	<string>
 	<vector>
 	"Card.h"
@@ -106,9 +106,7 @@
 	"Player.h"
 	<iomanip>
 
-1417770005 s:\mnmstorage\documents\michael\jhu\14'15_sophmore\2014fall\intermediateprogramming\c++\final\final\player.h
-	"Token.h"
-	"Card.h"
+1417779165 s:\mnmstorage\documents\michael\jhu\14'15_sophmore\2014fall\intermediateprogramming\c++\final\final\player.h
 	"Bank.h"
 	"Move.h"
 	<string>
