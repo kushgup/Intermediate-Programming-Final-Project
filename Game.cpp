@@ -5,6 +5,21 @@
 using std::cout; using std::cin; using std::endl;
 using std::string;
 
+Game::Game(): roundNum(1), playerWinnerIndex(0) {
+    bool init_passed = false;
+    while (!init_passed)
+    {
+        try {
+            initPlayers();
+            init_passed = true;
+        } catch (std::exception &e) {
+            cout << "# players must be btw 0 and 2!" << endl;
+        }
+    }
+
+
+}
+
 /*
 Game::Game(Game& other) {
 
@@ -21,6 +36,9 @@ void Game::initPlayers() {
     int numPlayers;
     cout << "Enter how many human players will be playing (0 - 2)" << endl;
     cin >> numPlayers;
+    if (numPlayers < 0 || numPlayers > 2) {
+            throw std::range_error("must be btw 0 and 2!");
+    }
     // try catch potentially
 
     int i = 0;

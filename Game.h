@@ -26,7 +26,7 @@ private:
 
 public:
 
-    Game(): roundNum(1), playerWinnerIndex(0) { initPlayers(); }; //default constructor
+    Game(); //default constructor
     //Game(Game &); //copy constructor
     //~Game();
 
