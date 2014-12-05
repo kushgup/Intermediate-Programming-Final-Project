@@ -23,7 +23,7 @@ Game::Game() {
     //create field
     field = * new Field();
 
-    Game::setPlayers(typeofPlayersinGame);
+    //Game::setPlayers(typeofPlayersinGame);
 
     //create bank
     bank = *new Bank();
