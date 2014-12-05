@@ -273,20 +273,21 @@ void Bank::printBank()
     {
         int num_elements = MaxTokensForBonuses[i+3];
         cout << bonuses[i][0].getType() << " Tokens: \t\t";
+        //char blackCircle = '\u25CF';
         for (int k = 0; k< num_elements; k++)
         {
             int toBePrinted = bonuses[i][k].getValue();
             if(toBePrinted)
-                cout << "• ";
+                cout << "o ";
         }
         cout << endl;
     }
-    cout << "Seals: \t\t\t\t";
+    cout << "Seals: \t\t\t";
     for(int i = 0; i< numofSealsLeft; i++)
     {
         int toBePrinted = seals[i].getValue();
         if(toBePrinted)
-            cout << "• ";
+            cout << "o ";
     }
     cout << endl;
     cout << "Camel Token: \t\t5"<<endl;

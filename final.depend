@@ -88,7 +88,7 @@
 	<vector>
 	"Card.h"
 
-1417744259 source:s:\mnmstorage\documents\michael\jhu\14'15_sophmore\2014fall\intermediateprogramming\c++\final\final\bank.cpp
+1417762271 source:s:\mnmstorage\documents\michael\jhu\14'15_sophmore\2014fall\intermediateprogramming\c++\final\final\bank.cpp
 	"Bank.h"
 	<stdio.h>
 	<stdlib.h>
@@ -96,7 +96,7 @@
 	"Token.h"
 	<array>
 
-1417744259 source:s:\mnmstorage\documents\michael\jhu\14'15_sophmore\2014fall\intermediateprogramming\c++\final\final\banktest.cpp
+1417760862 source:s:\mnmstorage\documents\michael\jhu\14'15_sophmore\2014fall\intermediateprogramming\c++\final\final\banktest.cpp
 	<iostream>
 	"assert.h"
 	"Bank.h"
