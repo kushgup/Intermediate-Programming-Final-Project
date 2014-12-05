@@ -38,6 +38,7 @@ public:
     void printField();
     vector<Card*> getP1Hand(){return player1Hand;};
     vector<Card*> getP2Hand(){return player2Hand;};
+    Deck * getDeck() const {return &deck;};
 
     //void moveGoodFromMarket();
     //void cleanGoodsToBeTaken();
