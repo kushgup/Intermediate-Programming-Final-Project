@@ -3,6 +3,7 @@
 	<FileVersion major="1" minor="6" />
 	<Project>
 		<Option title="final" />
+		<Option makefile="makefile" />
 		<Option pch_mode="2" />
 		<Option compiler="gcc" />
 		<Build>
@@ -32,12 +33,19 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
+		<Unit filename="Bank.cpp" />
+		<Unit filename="Bank.h" />
+		<Unit filename="BankTest.cpp" />
 		<Unit filename="Card.cpp" />
 		<Unit filename="Card.h" />
 		<Unit filename="Deck.cpp" />
 		<Unit filename="Deck.h" />
+		<Unit filename="Field.cpp" />
+		<Unit filename="Field.h" />
 		<Unit filename="Game.cpp" />
 		<Unit filename="Game.h" />
+		<Unit filename="Move.cpp" />
+		<Unit filename="Move.h" />
 		<Unit filename="OList.h" />
 		<Unit filename="Player.cpp" />
 		<Unit filename="Player.h" />
@@ -45,8 +53,13 @@
 		<Unit filename="PlayerComp.h" />
 		<Unit filename="PlayerHuman.cpp" />
 		<Unit filename="PlayerHuman.h" />
+		<Unit filename="State.cpp" />
+		<Unit filename="State.h" />
+		<Unit filename="Token.cpp" />
 		<Unit filename="Token.h" />
-		<Unit filename="main.cpp" />
+		<Unit filename="main.cpp">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
 		<Extensions>
 			<code_completion />
 			<envvars />
