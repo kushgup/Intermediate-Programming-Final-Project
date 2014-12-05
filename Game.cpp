@@ -13,49 +13,41 @@ using std::endl;
 using std::string;
 
 
-Game::Game() {
-    cout << "Choose type of game \n1) human v. human\n2) human v. computer\n" << endl;
-    int typeofPlayersinGame;
-    do
-    {
-        cin >> typeofPlayersinGame;
-    }
-    while (typeofPlayersinGame != 1 || typeofPlayersinGame != 2);
+// Game::Game(): roundNum(1), playerWinnerIndex(0) {
 
-    //create field
-    field = * new Field();
-    //create bank
-    bank = *new Bank();
-    switch (typeofPlayersinGame){
-        case PLYR_VS_PLYR:
-            {
-                for (int i = 0; i < 2; i++) {
-                    cout << "Enter player (" << i << ") name: ";
-                    string name;
-                    cin >> name;
-                    player[i] = new PlayerHuman(name, &field, &bank);
-                }
-                break;
-            }
-        case PLYR_VS_AI:
-            {
-                cout << "Enter player (0) name: ";
-                string name0;
-                cin >> name0;
-                player[0] = new PlayerHuman(name0, &field, &bank);
+//     //field and bank have default constructors
+//     initPlayers();
 
-                cout << "Enter player (0) name: ";
-                cin >> name0;
-                //player[1] = new PlayerComp(name0, &field, &bank);
-                break;
-            }
-        default:
-            cout << "ERROR!" << endl;
+//     // switch (typeofPlayersinGame){
+//     //     case PLYR_VS_PLYR:
+//     //         {
+//     //             for (int i = 0; i < 2; i++) {
+//     //                 cout << "Enter player (" << i << ") name: ";
+//     //                 string name;
+//     //                 cin >> name;
+//     //                 player[i] = new PlayerHuman(name, &field, &bank);
+//     //             }
+//     //             break;
+//     //         }
+//     //     case PLYR_VS_AI:
+//     //         {
+//     //             cout << "Enter player (0) name: ";
+//     //             string name0;
+//     //             cin >> name0;
+//     //             player[0] = new PlayerHuman(name0, &field, &bank);
 
-        }
-    //Game::setPlayers(typeofPlayersinGame);
+//     //             cout << "Enter player (0) name: ";
+//     //             cin >> name0;
+//     //             //player[1] = new PlayerComp(name0, &field, &bank);
+//     //             break;
+//     //         }
+//     //     default:
+//     //         cout << "ERROR!" << endl;
 
-}
+//     //     }
+//     // //Game::setPlayers(typeofPlayersinGame);
+
+// }
 
 /*
 Game::Game(Game& other) {
@@ -75,8 +67,7 @@ void Game::initPlayers() {
     cin >> numPlayers;
     // try catch potentially
 
-    //////////////// initialize players ////////////////
-    int i=0;
+    int i = 0;
     string name, temp;
     while(numPlayers--) // create human players
     {
@@ -84,25 +75,22 @@ void Game::initPlayers() {
         cin >> name;
         playersInGame[i++] = new PlayerHuman(name, &field, &bank);
     }
-    while(i<2) // create remaining AI players
+    while(i < 2) // create remaining AI players
     {
         itoa(i, temp, 10);
         name = "AI Player" + temp;
         playersInGame[i++] = new PlayerComp(name, &field, &bank);
-
     }
 
-    //////////////// deal initial player hands ////////////////
-    for(i=0; i<2; i++)
+    //deal initial player hands
+    for(i = 0; i < 2; i++)
     {
-        for(int j=0; j<5; j++)
+        for(int j = 0; j < 5; j++)
         {
             playersInGame[i].hand.insert(field.deck.dealCard());
         }
     }
-
 }
-
 
 void Game::printBoard() {
     bank.Bank::printBank();
@@ -110,12 +98,12 @@ void Game::printBoard() {
 }
 
 bool Game::roundIsOver(){
-    int CardsLeftinDeck = 55 - field.getDeck()->getPlaceInDeck();
+    int CardsLeftinDeck = 55 - *(field.getDeck())getPlaceInDeck();
     if (CardsLeftinDeck == 0){
         return true;
     }
 
-    int depletedTokens = bank.Bank::isDepleted();
+    int depletedTokens = bank.isDepleted();
 
     if(depletedTokens >= 3){
         return true;
@@ -125,35 +113,26 @@ bool Game::roundIsOver(){
 
 bool Game::gameOver()
 {
-    if (player[0]->Player::countSeals() == 2) {
-        Game::setWinner(0);
+    if (*player[0].countSeals() == 2) {
+        setWinner(0);
         return true;
     }
-    if (player[1]->Player::countSeals()== 2){
-        Game::setWinner(1);
+    if (*player[1].countSeals() == 2) {
+        setWinner(1);
         return true;
     }
     return false;
 }
 
-Player & Game::setWinner(int x)
-{
-    return *player[x];
-}
-
 void Game::playGame()
 {
-    while(!Game::gameOver())
+    while(!gameOver())
     {
         cout << "Lets start the round of Jaipur" << endl;
-        field.Field::restoreDeck();
-        bank.Bank::refillBank();
-
+        field.restoreDeck();
+        bank.refillBank();
         while (!roundIsOver){
 
         }
-
     }
-
 }
-

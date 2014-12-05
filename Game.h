@@ -21,12 +21,12 @@ private:
 
 	Player* playersInGame[2];
 	int roundNum;
-	State gameState;
 	int playerWinnerIndex;
+	//State gameState;
 
 public:
 
-    Game(); // requires immediate attention
+    Game(): roundNum(1), playerWinnerIndex(0) { initPlayers(); }; // requires immediate attention
     Game(Game &);
     ~Game();
 
@@ -37,7 +37,7 @@ private:
 
     void printBoard();
 	int getRoundNum() const { return roundNum; };
-	Player & setWinner( int );
+	Player & setWinner(int x) { return player[x]; } ;
 	bool roundIsOver();
 	bool gameOver();
 	void shuffleDeck();
