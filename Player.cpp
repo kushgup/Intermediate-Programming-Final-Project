@@ -17,7 +17,7 @@ int Player::countPts() const {
 
 void Player::printHand() const {
 
-	cout << std::setfill('*') << std::setw(50) << name << endl;
+	cout << std::setfill('*') << std::setw(50) << endl << name << endl;
 	cout << std::setfill(' ');
 	int i = 1;
 	for(OListIterator<Card*> iter = hand.begin(); iter != hand.end(); iter++)
