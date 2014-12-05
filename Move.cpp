@@ -1,8 +1,6 @@
 #include "Move.h"
-#include "Game.h"
 #include "Field.h"
 #include "OListIterator.h"
-#include "Player.h"
 
 Move::Move(Field * f, Player * p); // use of this constructor means: "camels"
 {
