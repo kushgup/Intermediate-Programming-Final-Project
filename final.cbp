@@ -47,6 +47,7 @@
 		<Unit filename="Move.cpp" />
 		<Unit filename="Move.h" />
 		<Unit filename="OList.h" />
+		<Unit filename="OListIterator.h" />
 		<Unit filename="Player.cpp" />
 		<Unit filename="Player.h" />
 		<Unit filename="PlayerComp.cpp" />
@@ -57,7 +58,7 @@
 		<Unit filename="State.h" />
 		<Unit filename="Token.cpp" />
 		<Unit filename="Token.h" />
-		<Unit filename="main.cpp">
+		<Unit filename="driver.cpp">
 			<Option target="&lt;{~None~}&gt;" />
 		</Unit>
 		<Extensions>
