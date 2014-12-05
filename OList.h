@@ -1,14 +1,16 @@
-#ifndef _OLIST_H
-#define _OLIST_H
+#ifndef OLIST_H
+#define OLIST_H
 
 #include <iostream>
 
 template <class T> class OList;
+template <class T> class OListIterator;
 
 template <class T>
 class Node {
 
     friend class OList<T>;
+    friend class OListIterator<T>; //friend the iterator so it doesn't have to call getValue and getNext all the time
 
 private:
     T value;
@@ -42,6 +44,9 @@ public:
     void remove(T val);
     void uniquify();
     bool isSorted();
+
+    OListIterator<T> begin() const { return OListIterator<T>(head); };
+    OListIterator<T> end() const { return OListIterator<T>(NULL); };
 };
 
 template <class T>
