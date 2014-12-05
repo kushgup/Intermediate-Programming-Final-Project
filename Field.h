@@ -13,33 +13,35 @@
 #include "Deck.h"
 #include "Card.h"
 #include <vector>
+#include <stack>
 
 using namespace std;
 
 
-class Field
-{
-	friend class Move; // needed so that Move can access Field's market
-	friend class Player; // needed so that Player can look into Field's market to move stuff
+class Field {
 
-
-
-// private members
+    friend class Move;
+    friend class Player;
 
     vector<Card*> market;
     vector<Card*> goodsToBeTaken;
     vector<Card*> goodsToBeGiven;
-    Deck deck;
-    
+    Deck deck = *new Deck();
+    stack<Card*> discardPile;
+    vector<Card*> player1Hand;
+    vector<Card*> player2Hand;
+
+
+
 public:
     Field();
     void printField();
+    vector<Card*> getP1Hand(){return player1Hand;};
+    vector<Card*> getP2Hand(){return player2Hand;};
+
     //void moveGoodFromMarket();
     //void cleanGoodsToBeTaken();
     //The the field can do right now is be printed it will eventually be able to work with move for game play
-    
-    //need a function to take a card from the deck into the market
-
 };
 
 #endif /* defined(__pg7b__Field__) */

@@ -51,8 +51,9 @@ Deck::Deck()
     {
         startCamels[i] = *new Card ("Camel");
     }
+    startCamels[0].Card::setPandaCamel();
     shuffle();
-    
+
     for(int j = 0; j<3; j++)
     {
         deckForGame[j] = startCamels[j];
@@ -61,7 +62,7 @@ Deck::Deck()
     {
         deckForGame[j] = deckTobeshuffled[j];
     }
-    
+
     placeinDeck = 0;
 }
 
@@ -72,6 +73,7 @@ Card Deck::getCardatIndex(int a)
 
 void Deck::shuffle()
 {
+    /** SEED TIME **/
     for(int i = 0; i< 52; i++)
     {
         int s = rand() % 52;
@@ -98,7 +100,7 @@ void Deck::printDeck()
             cout << endl;
             cout << "\t\t";
         }
-        
+
     }
     cout << endl;
 }

@@ -19,6 +19,11 @@ Field::Field()
     {
         market.push_back(deck.dealCard());
     }
+    for (int i =0; i<5; i++)
+    {
+        player1Hand.push_back(deck.dealCard());
+        player2Hand.push_back(deck.dealCard());
+    }
 }
 
 void Field::printField()

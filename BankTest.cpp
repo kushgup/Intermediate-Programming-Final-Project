@@ -13,6 +13,9 @@
 #include "Deck.h"
 #include "Field.h"
 
+using std::cout;
+using std::endl;
+
 int main(int argc, const char * argv[]) {
 
     Bank one = *new Bank();
@@ -35,6 +38,8 @@ int main(int argc, const char * argv[]) {
     assert(TakenSeal1->Token::getValue() == 100);
 
     one.Bank::printBank();
+
+    cout << "All Tests Pass" << endl;
 
     return 0;
 }

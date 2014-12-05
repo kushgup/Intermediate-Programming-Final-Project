@@ -14,7 +14,7 @@ private:
 	int roundNum;
 	State gameState;
 	Field field;
-	
+
 public:
 
 	void printBoard();
