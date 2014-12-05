@@ -104,7 +104,7 @@ void Deck::printDeck()
 {
     cout << "Deck:\t\t";
     string blackSquare = "\u25A0";
-    for (int i = 1; i<=MAXCARDSINDECK-placeinDeck; i++)
+    for (int i = 1; i <= MAXCARDSINDECK - placeinDeck; i++)
     {
         cout << "# ";
         if (i % 15 == 0)
