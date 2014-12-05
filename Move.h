@@ -57,8 +57,15 @@ public:
 	bool isValid() {return validMove;};
 
 private:
-	void fetchHandCards(vector<int> cardIndices, OList<Card *> & handRef, vector< OListIterator<Card *> > & iterators_Vector);
-	void fetchMarketCards(vector<char> cardIndices, vector< vector<Card *>::iterator > & iterators_Vector);
+	void fetchHandCards(
+		vector<int> cardIndices, 
+		OList<Card *> & handRef, 
+		vector< OListIterator<Card *> > & iterators_Vector
+	);
+	void fetchMarketCards(
+		vector<char> cardIndices, 
+		vector< vector<Card *>::iterator > & iterators_Vector
+	);
 
 };
 
