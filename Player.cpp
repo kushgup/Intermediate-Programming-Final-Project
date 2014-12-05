@@ -47,7 +47,7 @@ void Player::exchange(Move to_make) {
 
 	//assumes that the field has been checked by "move" object already... look for takeMult and returnMult
 	//take cards first
-	vector<vector<Card *>::iterator>::iterator take_Iter = to_make.takeMult.begin(), takeIter_end = to_make.takeMult.end();
+	vector<vector<Card *>::iterator>::iterator takeIter = to_make.takeMult.begin(), takeIter_end = to_make.takeMult.end();
 	while(takeIter != takeIter_end) {
 		hand.insert(**takeIter); //add to hand
 		game_field->market.erase(*takeIter); //delete from market
@@ -69,8 +69,9 @@ void Player::sellCards(Move to_make) {
 	//sell cards by deleting them, meanwhile adding tokens
 	vector<OListIterator<Card *>>::iterator iter = to_make.sell.begin(), iter_end = to_make.sell.end();
 	string type_sell = (***iter).getIdentifier();
-	if(to_make.sell.size() >= 3 && !(*game_bank).isBonusDepleted())
-		tokens.push_back((*game_bank).takeBonusToken(to_make.sell.size())); //award the bonus token first, temporal order shouldn't matter
+	int how_many = to_make.sell.size();
+	if(how_many >= 3 && !(*game_bank).isBonusDepleted(how_many))
+		tokens.push_back((*game_bank).takeBonusToken(how_many)); //award the bonus token first, temporal order shouldn't matter
 	while(iter != iter_end) {
 		if(!(*game_bank).isGoodDepleted(type_sell)) //only award tokens while there are still tokens left
 			tokens.push_back((*game_bank).takeTokenFromGoodTs(type_sell)); //award

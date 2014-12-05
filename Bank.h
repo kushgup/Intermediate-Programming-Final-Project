@@ -64,6 +64,7 @@ public:
     void refillBank();
     bool isGoodDepleted(string);
     bool isBonusDepleted(int bonus);
+    int isDepleted();
 
 private:
     void shuffleBonus();

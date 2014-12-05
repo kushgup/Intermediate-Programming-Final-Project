@@ -12,7 +12,7 @@ void PlayerHuman::makeMove() {
 	int num_camels;
 	char c;
 	while(cin >> c) {
-		if(c.isDigit())
+		if(isdigit(c))
 			mkt_take.push_back(c);
 		else if(c >= 'A' && c <= 'z')
 			hand_return.push_back(c);

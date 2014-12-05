@@ -74,7 +74,7 @@ Move::Move(Field * f, OList<Card *> & handRef, vector<int> cardsToGive, vector<c
 	{
 		validMove = false;
 		// throw exception??
-		
+
 	}
 	// check that # camels + # cardsToGive == # cardsToTake
 	// check that player has # camels
@@ -130,7 +130,8 @@ void Move::fetchHandCards(vector<int> cardIndices, OList<Card *> & handRef, vect
 	// add Card * of cards to sell to vector<Card *> sell
 	while(iterCardIndices != cardIndices.end())
 	{
-		curr-- = *iterCardIndices;
+		curr = *iterCardIndices;
+		curr--;
 		while(curr != 0 && iterHand != handRef.end())
 		{
 			iterHand++;
@@ -175,7 +176,8 @@ void Move::fetchMarketCards(vector<char> cardIndices, vector< vector<Card *>::it
 	// add Card * of cards to sell to vector<Card *> sell
 	while(iterCardIndices != cardIndices.end())
 	{
-		curr-- = *iterCardIndices;
+		curr = *iterCardIndices;
+		curr--;
 		while(curr != 'a'-1 && iterMarket != field->market.end())
 		{
 			iterMarket++;

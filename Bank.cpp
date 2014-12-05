@@ -365,3 +365,28 @@ bool Bank::isBonusDepleted(int bonus)
 {
     return (MaxTokensForBonuses[bonus] == 0);
 }
+
+int Bank::isDepleted()
+{
+    int depletedTokens = 0;
+    if( MaxTokensForGoodsTs["Paper"] == 0) {
+        depletedTokens++;
+    }
+    if(MaxTokensForGoodsTs["Spice"] == 0) {
+        depletedTokens++;
+    }
+    if(MaxTokensForGoodsTs["Cloth"] == 0) {
+        depletedTokens++;
+    }
+    if(MaxTokensForGoodsTs["Silver"] == 0) {
+        depletedTokens++;
+    }
+    if(MaxTokensForGoodsTs["Gold"] == 0) {
+        depletedTokens++;
+    }
+    if(MaxTokensForGoodsTs["Diamonds"] == 0) {
+        depletedTokens++;
+    }
+
+    return depletedTokens;
+}

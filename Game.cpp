@@ -83,11 +83,12 @@ bool Game::roundIsOver(){
         return true;
     }
 
-    int depletedTokens = bank.Bank::isDeplited();
+    int depletedTokens = bank.Bank::isDepleted();
 
     if(depletedTokens >= 3){
         return true;
     }
+    return false;
 }
 
 
