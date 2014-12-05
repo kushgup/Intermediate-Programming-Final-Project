@@ -1,44 +1,9 @@
 #include "Game.h"
 #include <ctime>
+#include <string>
 
 using std::cout; using std::cin; using std::endl;
 using std::string;
-
-// Game::Game(): roundNum(1), playerWinnerIndex(0) {
-
-//     //field and bank have default constructors
-//     initPlayers();
-
-//     // switch (typeofPlayersinGame){
-//     //     case PLYR_VS_PLYR:
-//     //         {
-//     //             for (int i = 0; i < 2; i++) {
-//     //                 cout << "Enter player (" << i << ") name: ";
-//     //                 string name;
-//     //                 cin >> name;
-//     //                 player[i] = new PlayerHuman(name, &field, &bank);
-//     //             }
-//     //             break;
-//     //         }
-//     //     case PLYR_VS_AI:
-//     //         {
-//     //             cout << "Enter player (0) name: ";
-//     //             string name0;
-//     //             cin >> name0;
-//     //             player[0] = new PlayerHuman(name0, &field, &bank);
-
-//     //             cout << "Enter player (0) name: ";
-//     //             cin >> name0;
-//     //             //player[1] = new PlayerComp(name0, &field, &bank);
-//     //             break;
-//     //         }
-//     //     default:
-//     //         cout << "ERROR!" << endl;
-
-//     //     }
-//     // //Game::setPlayers(typeofPlayersinGame);
-
-// }
 
 /*
 Game::Game(Game& other) {
@@ -59,18 +24,20 @@ void Game::initPlayers() {
     // try catch potentially
 
     int i = 0;
-    string name, temp;
+    string name;
     while(numPlayers--) // create human players
     {
         cout << "Enter player name" << endl;
         cin >> name;
-        playersInGame[i++] = PlayerHuman(name, &field, &bank);
+        players[i++] = new PlayerHuman(name, &field, &bank);
+
     }
     while(i < 2) // create remaining AI players
     {
-        itoa(i, temp, 10);
-        name = "AI Player" + temp;
-        playersInGame[i++] = PlayerComp(name, &field, &bank);
+        //char ch = i;
+        //string str = ch;
+        name = "AI Player";// + str;
+        players[i++] = new PlayerComp(name, &field, &bank);
     }
 
     //deal initial player hands
@@ -78,7 +45,7 @@ void Game::initPlayers() {
     {
         for(int j = 0; j < 5; j++)
         {
-            playersInGame[i].hand.insert(field.deck.dealCard());
+          (*players[i]).hand.insert(field.deck.dealCard());
         }
     }
 }
@@ -97,12 +64,12 @@ bool Game::roundIsOver(){
 
 bool Game::gameOver()
 {
-    if (player[0].countSeals() == 2) {
-        setWinner(0);
+    if ((*players[0]).countSeals() == 2) {
+        //setWinner(0);
         return true;
     }
-    if (player[1].countSeals() == 2) {
-        setWinner(1);
+    if ((*players[1]).countSeals() == 2) {
+        //setWinner(1);
         return true;
     }
     return false;
@@ -113,10 +80,10 @@ void Game::playGame()
     while(!gameOver())
     {
         cout << "Lets start the round of Jaipur" << endl;
-        while (!roundIsOver){
-            playersInGame[playerWinnerIndex].makeMove();
+        while (!roundIsOver()){
+            (*players[playerWinnerIndex]).makeMove();
             field.refillMarket();
-            playersInGame[(playerWinnerIndex + 1) % 2].makeMove();
+            (*players[(playerWinnerIndex + 1) % 2]).makeMove();
             field.refillMarket();
         }
         field.restoreDeck();

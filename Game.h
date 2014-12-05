@@ -8,6 +8,9 @@
 #include <cstdio> // recently added
 #include <cstdlib> // recently added
 
+class Player;
+class PlayerComp;
+class PlayerHuman;
 
 class Game {
 
@@ -15,7 +18,7 @@ private:
 
 	Field field; // default constructor gets called automatically upon game objection creation
 	Bank bank; // default constructor gets called automatically upon game objection creation
-	Player playersInGame[2];
+	Player* players[2];
 	int roundNum;
 	int playerWinnerIndex; //keep track of starting player
 	//State gameState;
@@ -33,7 +36,7 @@ private:
 
     void printBoard();
 	int getRoundNum() const { return roundNum; };
-	Player & setWinner(int x) { return player[x]; } ;
+//	Player & setWinner(int x) { return players[x]; } ;
 	bool roundIsOver();
 	bool gameOver();
 	void shuffleDeck();

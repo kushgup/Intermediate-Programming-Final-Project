@@ -55,9 +55,10 @@
 	"Deck.h"
 	"Card.h"
 
-1417772445 source:s:\mnmstorage\documents\michael\jhu\14'15_sophmore\2014fall\intermediateprogramming\c++\final\final\game.cpp
-	<time.h>
+1417812288 source:s:\mnmstorage\documents\michael\jhu\14'15_sophmore\2014fall\intermediateprogramming\c++\final\final\game.cpp
 	"Game.h"
+	<ctime>
+	<string>
 
 1417736670 source:s:\mnmstorage\documents\michael\jhu\14'15_sophmore\2014fall\intermediateprogramming\c++\final\final\main.cpp
 	<iostream>
@@ -99,11 +100,11 @@
 	"Deck.h"
 	"Field.h"
 
-1417779165 source:s:\mnmstorage\documents\michael\jhu\14'15_sophmore\2014fall\intermediateprogramming\c++\final\final\player.cpp
+1417808330 source:s:\mnmstorage\documents\michael\jhu\14'15_sophmore\2014fall\intermediateprogramming\c++\final\final\player.cpp
 	"Player.h"
 	<iomanip>
 
-1417779165 s:\mnmstorage\documents\michael\jhu\14'15_sophmore\2014fall\intermediateprogramming\c++\final\final\player.h
+1417803448 s:\mnmstorage\documents\michael\jhu\14'15_sophmore\2014fall\intermediateprogramming\c++\final\final\player.h
 	"Bank.h"
 	"Move.h"
 	<string>
@@ -113,26 +114,30 @@
 1417748878 s:\mnmstorage\documents\michael\jhu\14'15_sophmore\2014fall\intermediateprogramming\c++\final\final\olist.h
 	<iostream>
 
-1417781813 source:s:\mnmstorage\documents\michael\jhu\14'15_sophmore\2014fall\intermediateprogramming\c++\final\final\playercomp.cpp
+1417808943 source:s:\mnmstorage\documents\michael\jhu\14'15_sophmore\2014fall\intermediateprogramming\c++\final\final\playercomp.cpp
 	"PlayerComp.h"
+	"Player.h"
+	<cctype>
 
-1417772807 source:s:\mnmstorage\documents\michael\jhu\14'15_sophmore\2014fall\intermediateprogramming\c++\final\final\playerhuman.cpp
+1417803448 source:s:\mnmstorage\documents\michael\jhu\14'15_sophmore\2014fall\intermediateprogramming\c++\final\final\playerhuman.cpp
 	"PlayerHuman.h"
 
 1417772079 s:\mnmstorage\documents\michael\jhu\14'15_sophmore\2014fall\intermediateprogramming\c++\final\final\playerhuman.h
 	"Player.h"
 	<cctype>
 
-1417759572 source:s:\mnmstorage\documents\michael\jhu\14'15_sophmore\2014fall\intermediateprogramming\c++\final\final\token.cpp
+1417804663 source:s:\mnmstorage\documents\michael\jhu\14'15_sophmore\2014fall\intermediateprogramming\c++\final\final\token.cpp
 	"Token.h"
 	<stdio.h>
 	<iostream>
 
-1417759572 s:\mnmstorage\documents\michael\jhu\14'15_sophmore\2014fall\intermediateprogramming\c++\final\final\game.h
-	"Field.h"
+1417811960 s:\mnmstorage\documents\michael\jhu\14'15_sophmore\2014fall\intermediateprogramming\c++\final\final\game.h
 	"State.h"
-	"Player.h"
-	"Bank.h"
+	"PlayerComp.h"
+	"PlayerHuman.h"
+	<iostream>
+	<cstdio>
+	<cstdlib>
 
 1417748051 s:\mnmstorage\documents\michael\jhu\14'15_sophmore\2014fall\intermediateprogramming\c++\final\final\state.h
 
@@ -145,6 +150,6 @@
 	<iostream>
 	"Game.h"
 
-1417781878 s:\mnmstorage\documents\michael\jhu\14'15_sophmore\2014fall\intermediateprogramming\c++\final\final\playercomp.h
+1417812416 s:\mnmstorage\documents\michael\jhu\14'15_sophmore\2014fall\intermediateprogramming\c++\final\final\playercomp.h
 	"Player.h"
 
