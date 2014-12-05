@@ -43,6 +43,7 @@ public:
 	int countSeals() const { return seals.size(); };
 	void printHand() const;
 	virtual void makeMove() = 0; //decides which action to take on the turn, should be overwritten for human and AI players
+    void resetForRound();
 
 protected:
 

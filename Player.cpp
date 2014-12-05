@@ -84,3 +84,10 @@ void Player::sellCards(Move to_make) {
 		iter++;
 	}
 }
+
+void Player::resetForRound()
+{
+    hand.clear();
+    herd.clear();
+    tokens.clear();
+}
