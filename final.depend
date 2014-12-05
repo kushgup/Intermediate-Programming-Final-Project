@@ -29,7 +29,7 @@
 	<stdio.h>
 	<iostream>
 
-1417779165 source:s:\mnmstorage\documents\michael\jhu\14'15_sophmore\2014fall\intermediateprogramming\c++\final\final\deck.cpp
+1417804663 source:s:\mnmstorage\documents\michael\jhu\14'15_sophmore\2014fall\intermediateprogramming\c++\final\final\deck.cpp
 	"Deck.h"
 	<stdio.h>
 	<stdlib.h>
@@ -88,13 +88,11 @@
 	"Field.h"
 	"OListIterator.h"
 
-1417779165 source:s:\mnmstorage\documents\michael\jhu\14'15_sophmore\2014fall\intermediateprogramming\c++\final\final\bank.cpp
+1417804663 source:s:\mnmstorage\documents\michael\jhu\14'15_sophmore\2014fall\intermediateprogramming\c++\final\final\bank.cpp
 	"Bank.h"
-	<stdio.h>
 	<stdlib.h>
 	<time.h>
 	"Token.h"
-	<array>
 
 1417760862 source:s:\mnmstorage\documents\michael\jhu\14'15_sophmore\2014fall\intermediateprogramming\c++\final\final\banktest.cpp
 	<iostream>
