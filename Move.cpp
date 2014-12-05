@@ -1,6 +1,4 @@
 #include "Move.h"
-#include "Field.h"
-#include "OListIterator.h"
 
 Move::Move(Field * f, OList<Card *> & handRef) // use of this constructor means: "camels"
 {
@@ -8,19 +6,18 @@ Move::Move(Field * f, OList<Card *> & handRef) // use of this constructor means:
 	field = f;
 
 	vector<Card *>::iterator iterMarket = field->market.begin();
-	vector<Card *>::iterator iterCamels = fieldCamels.begin();
 
 	while(iterMarket != field->market.end())
 	{
 		if((*(*iterMarket)).Card::getIsCamel())
 		{
-			iterCamels = fieldCamels.insert(iterCamels, *iterMarket);
+			fieldCamels.push_back(iterMarket);
 			// do I need to increment iterCamels???
 		}
 		iterMarket++;
 	}
 
-	if(fieldCamels.size() == 0)
+	if(fieldCamels.size() == 0) // 0 camels
 	{
 		validMove = false;
 		// throw exception??
@@ -35,26 +32,19 @@ Move::Move(Field * f, OList<Card *> & handRef, vector<int> cardsToSell) // use o
 	type = "sell";
 	field = f;
 
-	// add Card * of cards to sell to vector<Card *> sell
+	// fill sell with iterators pointing to all cards being sold
 	fetchHandCards(cardsToSell, handRef, sell);
 
-	// now, sell vector should contain all the cards that the player wants to sell
+	// now, sell vector should contain iterators pointing to all the cards that the player wants to sell
 	// we want to check that these cards can, indeed, be sold
 
-	vector<Card *>::iterator sellIter = sell.begin();
+	vector< OListIterator<Card *> >::iterator sellIter = sell.begin();
 
-	// check that there aren't repeats in the cards being sold
-	if( !checkRepeats(sell) )
-	{
-		validMove = false;
-		// throw exception??
-		return;
-	}
 	// check that all the cards being sold are the same type
-	string type = (*(*sellIter++)).Card::getIdentifier();
+	string type = (*(*(*sellIter++))).Card::getIdentifier(); //triple dereference gets to the Card
 	while(sellIter != sell.end())
 	{
-		if((*(*sellIter++)).Card::getIdentifier() != type)
+		if((*(*(*sellIter++))).Card::getIdentifier() != type)
 		{
 			validMove = false;
 			// throw exception?
@@ -63,7 +53,7 @@ Move::Move(Field * f, OList<Card *> & handRef, vector<int> cardsToSell) // use o
 	}
 	// check that if cards are precious, then num cards being sold >=2
 	sellIter = sell.begin();
-	if((**sellIter).Card::getPrecious())
+	if((***sellIter).Card::getPrecious())
 	{
 		if(sell.size() < 2){
 			validMove = false;
@@ -76,10 +66,28 @@ Move::Move(Field * f, OList<Card *> & handRef, vector<int> cardsToSell) // use o
 
 }
 
-Move::Move(Field * f, OList<Card *> & handRef, vector<int>, vector<char>) // use of this constructor means: "exchange"
+Move::Move(Field * f, OList<Card *> & handRef, vector<int> cardsToGive, vector<char> cardsToTake) // use of this constructor means: "exchange"
 {
+	//////////// PRELIMINARY CHECKS //////////////
+	// check that player isn't taking more than 7 cards
+	// check that # camels + # cardsToGive == # cardsToTake
+	// check that player has # camels
+	// check that player has # cardsToGive ???
+
 	type = "exchange";
 	field = f;
+
+	// fill returnMult with iterators pointing to all cards being given
+	fetchHandCards(cardsToGive, handRef, returnMult);
+	// fill takeMult with iterators pointing to all cards being taken
+	fetchMarketCards(cardsToTake, takeMult);
+
+	// now, returnMult and takeMult vectors should contain iterators pointing to all the cards that the player wants to exchange
+	// we want to check that these cards can, indeed, be exchanged
+
+	//////////// FINAL CHECKS //////////////
+	// check that same type card isn't being given and taken
+	// dealing with camels??? wtf.
 }
 
 Move::Move(Field * f, OList<Card *> & handRef, char) // use of this constructor means: "take"
@@ -88,25 +96,25 @@ Move::Move(Field * f, OList<Card *> & handRef, char) // use of this constructor 
 
 }
 
-bool Move::checkRepeats(vector<Card *> cardList)
+void Move::fetchHandCards(vector<int> cardIndices, OList<Card *> & handRef, vector< OListIterator<Card *> > & iterators_Vector)
 {
-	vector<Card *>::iterator iter;
-	vector<Card *>::iterator iter2 = cardList.begin();
-
-	for(iter = cardList.begin(); iter != cardList.end(); iter++)
+	// first check to ensure no repeats
+	vector<int>::iterator iter1;
+	vector<int>::iterator iter2;
+	for(iter1 = cardIndices.begin(); iter1 != cardIndices.end(); iter1++)
 	{
-		for(iter2 = iter + 1; iter != cardList.end(); iter2++)
+		for(iter2 = iter1 + 1; iter2 != cardIndices.end(); iter2++)
 		{
-			if(*iter2 == *iter)
-				return false;
+			if(*iter1 == *iter2)
+			{
+				validMove = false;
+				// throw exception??
+				return;
+			}
 		}
 	}
 
-	return true;
-}
-
-void Move::fetchHandCards(vector<int> cardIndices, OList<Card *> & handRef, vector<Card *> & cardPtrs)
-{
+	////////////// now actually fetch the cards //////////////////
 
 	int curr; // pre-declaration
 
@@ -116,15 +124,15 @@ void Move::fetchHandCards(vector<int> cardIndices, OList<Card *> & handRef, vect
 	// add Card * of cards to sell to vector<Card *> sell
 	while(iterCardIndices != cardIndices.end())
 	{
-		curr = *iterCardIndices;
-		while(--curr != 0 && iterHand != handRef.end())
+		curr-- = *iterCardIndices;
+		while(curr != 0 && iterHand != handRef.end())
 		{
 			iterHand++;
 			curr--;
 		}
 		if(iterHand != handRef.end())
-			cardPtrs.push_back(*iterHand);
-		// else throw exception??
+			iterators_Vector.push_back(iterHand);
+		// else throw exception?? --- outOfRange
 
 		iterHand = handRef.begin(); // reset iterHand to beginning of OList hand
 		iterCardIndices++;
@@ -132,4 +140,47 @@ void Move::fetchHandCards(vector<int> cardIndices, OList<Card *> & handRef, vect
 
 }
 
+void Move::fetchMarketCards(vector<char> cardIndices, vector< vector<Card *>::iterator > & iterators_Vector)
+{
+	// first check to ensure no repeats
+	vector<char>::iterator iter1;
+	vector<char>::iterator iter2;
+	for(iter1 = cardIndices.begin(); iter1 != cardIndices.end(); iter1++)
+	{
+		for(iter2 = iter1 + 1; iter2 != cardIndices.end(); iter2++)
+		{
+			if(*iter1 == *iter2)
+			{
+				validMove = false;
+				// throw exception?? --- outOfRange
+				return;
+			}
+		}
+	}
 
+	////////////// now actually fetch the cards //////////////////
+
+	char curr; // pre-declaration
+
+	vector<Card *>::iterator iterMarket = field->market.begin();
+	//----- OListIterator<Card *> iterHand = handRef.begin();
+	vector<char>::iterator iterCardIndices = cardIndices.begin();
+
+	// add Card * of cards to sell to vector<Card *> sell
+	while(iterCardIndices != cardIndices.end())
+	{
+		curr-- = *iterCardIndices;
+		while(curr != 'a'-1 && iterMarket != field->market.end())
+		{
+			iterMarket++;
+			curr--;
+		}
+		if(iterMarket != field->market.end())
+			iterators_Vector.push_back(iterMarket);
+		// else throw exception??
+
+		iterMarket = field->market.begin(); // reset iterMarket to beginning of OList hand
+		iterCardIndices++;
+	}
+
+}

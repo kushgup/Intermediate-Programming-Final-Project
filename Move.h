@@ -4,6 +4,8 @@
 #include <string>
 #include <vector>
 #include "Card.h"
+#include "Field.h"
+#include "OListIterator.h"
 
 using std::vector;
 using std::string;
@@ -37,7 +39,7 @@ private:
     */
 
     // the new
-    vector<Card *>::iterator takeSingle; // take ...... iterator for field
+    vector< Card *>::iterator takeSingle; // take ...... iterator for field
     vector<	vector<Card *>::iterator > takeMult; // exchange ...... iterator for field
     vector< OListIterator<Card *> > returnMult; // exchange ...... iterator for OList hand
     vector< OListIterator<Card *> > sell; // sell ...... iterator for OList hand
@@ -55,8 +57,8 @@ public:
 	bool isValid() {return validMove;};
 
 private:
-	bool checkRepeats(vector<Card *> cardList);
-	void fetchHandCards(vector<int> cardIndices, OList<Card *> & handRef, vector<Card *> & cardPtrs);
+	void fetchHandCards(vector<int> cardIndices, OList<Card *> & handRef, vector< OListIterator<Card *> > & iterators_Vector);
+	void fetchMarketCards(vector<char> cardIndices, vector< vector<Card *>::iterator > & iterators_Vector);
 
 };
 
