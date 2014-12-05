@@ -77,11 +77,19 @@ void Game::printBoard() {
     bank.Bank::printBank();
     field.Field::printField();
 }
-
-bool Game::roundIsOver(){
-    int CardsLeftinDeck = 55 - field.getDeck().getPlaceInDeck();
-    if (CardsLeftinDeck)
-        return true;
-
-}
 */
+bool Game::roundIsOver(){
+    int CardsLeftinDeck = 55 - field.getDeck()->getPlaceInDeck();
+    if (CardsLeftinDeck == 0){
+        return true;
+    }
+
+    int depletedTokens = bank.Bank::isDeplited();
+
+    if(depletedTokens >= 3){
+        return true;
+    }
+}
+
+
+

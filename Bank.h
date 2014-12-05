@@ -21,18 +21,18 @@ class Bank
 {
     std::array<std::vector<Token>, 6> goodsTs
     {{
-        std::vector<Token>(NUMPAPER), 
-        std::vector<Token>(NUMSPICE), 
-        std::vector<Token>(NUMCLOTH), 
-        std::vector<Token>(NUMSILVER), 
-        std::vector<Token>(NUMGOLD), 
+        std::vector<Token>(NUMPAPER),
+        std::vector<Token>(NUMSPICE),
+        std::vector<Token>(NUMCLOTH),
+        std::vector<Token>(NUMSILVER),
+        std::vector<Token>(NUMGOLD),
         std::vector<Token>(NUMDIAMONDS)
     }};
 
     std::array<std::vector<Token>, 3> bonuses
     {{
-        std::vector<Token>(NUM3S), 
-        std::vector<Token>(NUM4S), 
+        std::vector<Token>(NUM3S),
+        std::vector<Token>(NUM4S),
         std::vector<Token>(NUM5S)
     }};
 
@@ -62,6 +62,7 @@ public:
     Token * getCamelToken();
     void printBank();
     void refillBank();
+    int isDeplited();
 
 private:
     void shuffleBonus();
