@@ -27,8 +27,6 @@ Game::Game() {
 
     //create bank
     bank = *new Bank();
-
-
 }
 
 /*
