@@ -80,30 +80,30 @@ void Card::printCard() const
     cout << this->identifier;
 }
 
-bool Card::operator== (Card & other)
+bool Card::operator== (const Card & other)
 {
     return this->rank == other.getRank();
 }
 
-bool Card::operator > (Card & other)
+bool Card::operator > (const Card & other)
 {
-    return this->rank > other.getRank();
+    return this->getRank() > other.getRank();
 }
-bool Card::operator >= (Card & other)
+bool Card::operator >= (const Card & other)
 {
-    return this->rank >= other.getRank();
+    return this->getRank() >= other.getRank();
 }
-bool Card::operator <= (Card & other)
+bool Card::operator <= (const Card & other)
 {
-    return this->rank <= other.getRank();
+    return this->getRank() <= other.getRank();
 }
-bool Card::operator < (Card & other)
+bool Card::operator < (const Card & other)
 {
-    return this->rank < other.getRank();
+    return this->getRank() < other.getRank();
 }
-bool Card::operator != (Card & other)
+bool Card::operator != (const Card & other)
 {
-    return this->rank != other.getRank();
+    return this->getRank() != other.getRank();
 }
 
 
