@@ -25,32 +25,30 @@
 	<stdio.h>
 	<iostream>
 
-1417762485 s:\mnmstorage\documents\michael\jhu\14'15_sophmore\2014fall\intermediateprogramming\c++\final\final\card.h
+1417809067 s:\mnmstorage\documents\michael\jhu\14'15_sophmore\2014fall\intermediateprogramming\c++\final\final\card.h
 	<stdio.h>
 	<iostream>
 
-1417804663 source:s:\mnmstorage\documents\michael\jhu\14'15_sophmore\2014fall\intermediateprogramming\c++\final\final\deck.cpp
+1417808943 source:s:\mnmstorage\documents\michael\jhu\14'15_sophmore\2014fall\intermediateprogramming\c++\final\final\deck.cpp
 	"Deck.h"
-	<stdio.h>
-	<stdlib.h>
-	<time.h>
-	"Card.h"
 	<array>
-	<time.h>
 	<string>
+	<cstdio>
+	<cstdlib>
+	<ctime>
 
-1417758411 s:\mnmstorage\documents\michael\jhu\14'15_sophmore\2014fall\intermediateprogramming\c++\final\final\deck.h
+1417808330 s:\mnmstorage\documents\michael\jhu\14'15_sophmore\2014fall\intermediateprogramming\c++\final\final\deck.h
 	<stdio.h>
 	"Card.h"
 
-1417803448 source:s:\mnmstorage\documents\michael\jhu\14'15_sophmore\2014fall\intermediateprogramming\c++\final\final\field.cpp
+1417808330 source:s:\mnmstorage\documents\michael\jhu\14'15_sophmore\2014fall\intermediateprogramming\c++\final\final\field.cpp
 	"Field.h"
 	<stdio.h>
 	<iostream>
 	"Deck.h"
 	"Card.h"
 
-1417803448 s:\mnmstorage\documents\michael\jhu\14'15_sophmore\2014fall\intermediateprogramming\c++\final\final\field.h
+1417808330 s:\mnmstorage\documents\michael\jhu\14'15_sophmore\2014fall\intermediateprogramming\c++\final\final\field.h
 	<stdio.h>
 	<vector>
 	<stack>
@@ -67,7 +65,7 @@
 	"Deck.h"
 	"Field.h"
 
-1417804663 s:\mnmstorage\documents\michael\jhu\14'15_sophmore\2014fall\intermediateprogramming\c++\final\final\bank.h
+1417808790 s:\mnmstorage\documents\michael\jhu\14'15_sophmore\2014fall\intermediateprogramming\c++\final\final\bank.h
 	<stdio.h>
 	"Token.h"
 	<array>
@@ -88,7 +86,7 @@
 	"Field.h"
 	"OListIterator.h"
 
-1417804663 source:s:\mnmstorage\documents\michael\jhu\14'15_sophmore\2014fall\intermediateprogramming\c++\final\final\bank.cpp
+1417808330 source:s:\mnmstorage\documents\michael\jhu\14'15_sophmore\2014fall\intermediateprogramming\c++\final\final\bank.cpp
 	"Bank.h"
 	<stdlib.h>
 	<time.h>

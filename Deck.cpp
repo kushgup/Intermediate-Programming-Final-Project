@@ -70,7 +70,7 @@ Deck::~Deck()
 */
 void Deck::shuffle()
 {
-
+    int num_cards = 55;
     //shuffle the deck by iterating 60 times, have a random number generator, swap cards in the deck
     int x, i;
     Card temp;

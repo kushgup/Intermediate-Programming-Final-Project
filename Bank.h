@@ -50,7 +50,7 @@ public:
     Token * getCamelToken();
     void printBank();
     void refillBank();
-    bool isGoodDepleted(string) { return (MaxTokensForGoodsTs[good] == 0); };
+    bool isGoodDepleted(string good) { return (MaxTokensForGoodsTs[good] == 0); };
     bool isBonusDepleted(int bonus) { return (MaxTokensForBonuses[bonus] == 0); };
     int isDepleted();
 
