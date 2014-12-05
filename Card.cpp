@@ -27,7 +27,7 @@ Card::Card(string Id)
     else
         isPrecious = false;
     
-    
+    rank = 0;
     if(Id == "Diamonds")
         rank = 6;
     if(Id == "Gold")
@@ -48,6 +48,19 @@ Card::Card(Card & other)
     identifier = other.identifier;
     isCamel = other.isCamel;
     PandaCamel = other.PandaCamel;
+    rank = 0;
+    if(identifier == "Diamonds")
+        rank = 6;
+    if(identifier == "Gold")
+        rank = 5;
+    if(identifier == "Silver")
+        rank = 4;
+    if(identifier == "Cloth")
+        rank = 3;
+    if(identifier == "Spice")
+        rank = 2;
+    if(identifier == "Paper")
+        rank = 1;
 }
 /*
 Card::~Card()
