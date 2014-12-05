@@ -40,7 +40,7 @@ void PlayerHuman::makeMove() {
 					if(ch == '?')
 						num_camels++;
 			}
-			Move next(game_field, hand, mkt_take, hand_return, num_camels, herd);
+			Move next(game_field, hand, hand_return, mkt_take, num_camels, herd);
 			if(next.isValid())
                 exchange(next);
 		} else if(ch == 'd') {

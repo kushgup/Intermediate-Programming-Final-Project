@@ -16,12 +16,11 @@ using std::string;
 Game::Game() {
     cout << "Choose type of game \n1) human v. human\n2) human v. computer\n" << endl;
     int typeofPlayersinGame;
-    cin >> typeofPlayersinGame;
-    while (typeofPlayersinGame != 1 || typeofPlayersinGame != 2)
+    do
     {
-        cout << "Invalid choice" << endl;
         cin >> typeofPlayersinGame;
     }
+    while (typeofPlayersinGame != 1 || typeofPlayersinGame != 2);
 
     //create field
     field = * new Field();
