@@ -7,6 +7,7 @@
 #include <iostream> // recently added
 #include <cstdio> // recently added
 #include <cstdlib> // recently added
+#include "Card.h"
 
 class Player;
 class PlayerComp;

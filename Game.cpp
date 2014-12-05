@@ -41,11 +41,17 @@ void Game::initPlayers() {
     }
 
     //deal initial player hands
+    Card * temp;
     for(i = 0; i < 2; i++)
     {
         for(int j = 0; j < 5; j++)
         {
-          (*players[i]).hand.insert(field.deck.dealCard());
+            temp = field.deck.dealCard();
+            if(temp.getIsCamel())
+                // do shit
+                (*players[i]).hand.push_back(temp);
+            else
+                (*players[i]).hand.insert(temp);
         }
     }
 }
