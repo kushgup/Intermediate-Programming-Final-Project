@@ -91,3 +91,12 @@ void Game::playGame()
         //update roundnumber and playerwinnerindex, compute who gets a seal
     }
 }
+
+void Game::calculateWiner()
+{
+    if((*players[0]).numCamels)
+    if((*players[0]).countPts() > (*players[1]).countPts())
+    {
+        playerwinnerindex = 0;
+    }
+}
