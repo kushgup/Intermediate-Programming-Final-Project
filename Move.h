@@ -23,6 +23,8 @@ private:
 	string type; // "camels" (take all camels) || "take" || "exchange" || "sell"
 	bool validMove;
 
+	int num_camels_exchanged;
+
 	// these members represent all the potential values that might need to get filled with respective cards
 	// they will be accessed by Player after validation to easily obtain the Card *, without having to repeat the code to
 		// convert the initial arguments (letters and numbers) into Card *
