@@ -9,7 +9,7 @@ using std::endl;
 
 Field::Field()
 {
-    for (int i =0; i<5; i++)
+    for (int i=0; i<5; i++)
     {
         market.push_back(deck.dealCard());
     }
@@ -24,10 +24,10 @@ void Field::refillMarket()
 
 void Field::printField()
 {
-    deck.Deck::printDeck();
+    deck.printDeck();
     cout << endl;
-    cout << "Market ********************************************"<<endl;
-    market[0]->Card::printCard();
+    cout << "Market ********************************************" <<endl;
+    market.at(0)->printCard();
     cout << " ";
     market[1]->Card::printCard();
     cout << " ";
