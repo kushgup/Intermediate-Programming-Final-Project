@@ -97,9 +97,7 @@ void Game::initPlayers() {
     {
         for(int j=0; j<5; j++)
         {
-            playersInGame[i].hand.i
-            player1Hand.push_back(deck.Deck::dealCard());
-            player2Hand.push_back(deck.Deck::dealCard());
+            playersInGame[i].hand.insert(field.deck.dealCard());
         }
     }
 

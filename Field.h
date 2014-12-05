@@ -23,6 +23,7 @@ class Field {
 
     friend class Move; // needed so that Move can access Game's field
     friend class Player; // needed so that Player can look into Game's field to move stuff
+    friend class Game; // allows Game to access Deck for dealing initial hand to players
 
     Deck deck; // by default, deck constructor is called here
 
