@@ -88,15 +88,46 @@ void Game::playGame()
         }
         field.restoreDeck();
         bank.refillBank();
+
         //update roundnumber and playerwinnerindex, compute who gets a seal
+        calculateWinner(); // assign camel token and calculate who wins. Give seal to winner and update playerWinnerIndex
+        roundNum++;
+
+        // empty player hands and reset
+        for(int i = 0; i < 2; i++)
+        {
+            players[i]->OList.clear();
+
+        }
     }
+
 }
 
-void Game::calculateWiner()
+void Game::calculateWinner() // assign camel token and calculate who wins. Give seal to winner and update playerWinnerIndex
 {
-    if((*players[0]).numCamels)
+    if((*players[0]).numCamels() > (*players[1]).numCamels() )
+    {
+        (*players[0]).tokens.push_back(bank.getCamelToken());
+    }
+    else if((*players[1]).numCamels() > (*players[0]).numCamels() )
+    {
+        (*players[1]).tokens.push_back(bank.getCamelToken());
+    }
+    else // tie for # of camels
+    {
+        //PANDA CAMEL
+    }
     if((*players[0]).countPts() > (*players[1]).countPts())
     {
-        playerwinnerindex = 0;
+        playerWinnerIndex = 0;
+        players[0]->seals.push_back(bank.takeSeal());
     }
+    else if((*players[1]).countPts() > (*players[0]).countPts()) {
+        playerWinnerIndex = 1;
+        players[1]->seals.push_back(bank.takeSeal());
+    }
+    else {
+        //TIE
+    }
+
 }
