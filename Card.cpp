@@ -3,31 +3,16 @@
 #include <iostream>
 using namespace std;
 
-Card::Card()
+Card::Card(string Id): identifier(Id), PandaCamel(false), isCamel(false), rank(0)
 {
-    isCamel = false;
-    isPrecious = false;
-    PandaCamel = false;
-    identifier = "NA";
-    rank = 0;
-}
-
-Card::Card(string Id)
-{
-    identifier = Id;
-    PandaCamel = false;
-
     if(Id == "Camel")
         isCamel = true;
-    else
-        isCamel = false;
 
     if(Id == "Gold" || Id == "Silver" || Id == "Diamonds")
         isPrecious = true;
     else
         isPrecious = false;
-    
-    rank = 0;
+
     if(Id == "Diamonds")
         rank = 6;
     if(Id == "Gold")
@@ -40,7 +25,7 @@ Card::Card(string Id)
         rank = 2;
     if(Id == "Paper")
         rank = 1;
-    
+
 }
 
 Card::Card(Card & other)

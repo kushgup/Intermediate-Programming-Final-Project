@@ -8,9 +8,7 @@
 
 class Deck
 {
-    Card deckTobeshuffled[52];
-    Card startCamels[3];
-    Card deckForGame[MAXCARDSINDECK];
+    Card deckTobeshuffled[MAXCARDSINDECK];
     int placeinDeck;
 
 public:

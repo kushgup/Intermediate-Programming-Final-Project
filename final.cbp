@@ -35,7 +35,9 @@
 		</Compiler>
 		<Unit filename="Bank.cpp" />
 		<Unit filename="Bank.h" />
-		<Unit filename="BankTest.cpp" />
+		<Unit filename="BankTest.cpp">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
 		<Unit filename="Card.cpp" />
 		<Unit filename="Card.h" />
 		<Unit filename="Deck.cpp" />
@@ -58,9 +60,7 @@
 		<Unit filename="State.h" />
 		<Unit filename="Token.cpp" />
 		<Unit filename="Token.h" />
-		<Unit filename="driver.cpp">
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
+		<Unit filename="driver.cpp" />
 		<Extensions>
 			<code_completion />
 			<envvars />

@@ -3,5 +3,8 @@
 
 int main(void) {
 
+    Game g;
+    g.playGame();
+
     return 0;
 }

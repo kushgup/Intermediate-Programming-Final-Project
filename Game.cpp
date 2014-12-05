@@ -81,8 +81,10 @@ void Game::playGame()
     {
         cout << "Lets start the round of Jaipur" << endl;
         while (!roundIsOver()){
+            printBoard();
             (*players[playerWinnerIndex]).makeMove();
             field.refillMarket();
+            printBoard();
             (*players[(playerWinnerIndex + 1) % 2]).makeMove();
             field.refillMarket();
         }

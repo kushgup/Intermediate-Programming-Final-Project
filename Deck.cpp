@@ -6,6 +6,8 @@
 #include <ctime>
 
 using std::string;
+using std::cout;
+using std::endl;
 
 Deck::Deck()
 {
@@ -121,7 +123,7 @@ Card * Deck::dealCard()
 {
     if (placeinDeck == 55)
         return nullptr;
-    Card * temp = &deckForGame[placeinDeck];
+    Card * temp = &deckTobeshuffled[placeinDeck];
     placeinDeck++;
     return temp;
 

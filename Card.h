@@ -15,8 +15,8 @@ class Card
     int rank;
 
 public:
-    Card();
-    Card(string);
+    Card(): identifier("NA"), isCamel(false), isPrecious(false), PandaCamel(false), rank(0) {};
+    Card(string id);
     Card(Card &);
     //~Card();
     string getIdentifier() const;
