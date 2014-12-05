@@ -20,5 +20,5 @@ void PlayerHuman::makeMove() {
 			if(c == '?')
 				num_camels++;
 	}
-
+	//have text-based GUI and construct move objects, then call individual functions checking valid first
 }

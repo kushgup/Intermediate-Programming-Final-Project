@@ -61,6 +61,7 @@ void Player::exchange(Move to_make) {
 		hand.remove(**returnIter); //delete from hand
 		returnIter++; //update the iterator through the vector of iterators
 	}
+	
 }
 
 void Player::sellCards(Move to_make) {
