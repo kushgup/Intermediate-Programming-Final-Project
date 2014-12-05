@@ -18,15 +18,10 @@ void PlayerComp::makeMove() {
 	Move next4(game_field, hand, c); //sell first card in hand
 
 	if(!next1.isValid() && !next2.isValid() && !next3.isValid() && !next4.isValid()) {
-		a.clear();
-		b.clear();
-		for(int i = 1; i < hand.size() - 1; i++) {
-			a.push_back(i);
-			for(int j = i + 1; j < hand.size(); j++) {
-				a.push_back(j);
-				next3 = Move(game_field, hand, a, b, 0, herd);
-				a.pop_back();
-			}
+		//only reason take should fail is if hand is 7
+		for(int i = 0; i < hand.size(); i++) {
+			c.clear();
+			c.push_back()
 		}
 
 	} else {
