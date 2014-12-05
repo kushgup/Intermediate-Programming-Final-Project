@@ -1,6 +1,5 @@
-#include <time.h>
-
 #include "Game.h"
+#include <ctime>
 
 using std::cout; using std::cin; using std::endl;
 using std::string;
@@ -85,31 +84,24 @@ void Game::initPlayers() {
 }
 
 void Game::printBoard() {
-    bank.Bank::printBank();
-    field.Field::printField();
+    bank.printBank();
+    field.printField();
 }
 
 bool Game::roundIsOver(){
-    int CardsLeftinDeck = 55 - *(field.getDeck()).getPlaceInDeck();
-    if (CardsLeftinDeck == 0) {
-        return true;
-    }
 
-    int depletedTokens = bank.isDepleted();
-
-    if(depletedTokens >= 3){
+    if((55 - field.deck.getPlaceInDeck()) == 0 || bank.isDepleted() >= 3) //check if deck is empty
         return true;
-    }
     return false;
 }
 
 bool Game::gameOver()
 {
-    if (*player[0].countSeals() == 2) {
+    if (player[0].countSeals() == 2) {
         setWinner(0);
         return true;
     }
-    if (*player[1].countSeals() == 2) {
+    if (player[1].countSeals() == 2) {
         setWinner(1);
         return true;
     }
@@ -121,10 +113,14 @@ void Game::playGame()
     while(!gameOver())
     {
         cout << "Lets start the round of Jaipur" << endl;
+        while (!roundIsOver){
+            playersInGame[playerWinnerIndex].makeMove();
+            field.refillMarket();
+            playersInGame[(playerWinnerIndex + 1) % 2].makeMove();
+            field.refillMarket();
+        }
         field.restoreDeck();
         bank.refillBank();
-        while (!roundIsOver){
-
-        }
+        //update roundnumber and playerwinnerindex, compute who gets a seal
     }
 }

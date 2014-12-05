@@ -29,6 +29,7 @@ public:
     Field();
 
     void printField();
+    void refillMarket();
     Deck * getDeck() { return &deck; };
     void restoreDeck() { deck.restoreDeck(); };
 

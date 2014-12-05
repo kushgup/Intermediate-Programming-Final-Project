@@ -23,7 +23,7 @@ public:
     void restoreDeck(){placeinDeck = 0;};
     void increasePlaceinDeck(){placeinDeck++;};
     Card * dealCard();
-    int getPlaceInDeck() const {return placeinDeck;};
+    int getPlaceInDeck() const { return placeinDeck; };
 
 private:
 

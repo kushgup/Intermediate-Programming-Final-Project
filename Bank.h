@@ -22,7 +22,6 @@ using std::vector;
 class Bank
 {
     array <vector<Token>, 6> goodsTs;
-
     array <vector<Token>, 3> bonuses;
 
     Token seals [3];
@@ -51,8 +50,8 @@ public:
     Token * getCamelToken();
     void printBank();
     void refillBank();
-    bool isGoodDepleted(string);
-    bool isBonusDepleted(int bonus);
+    bool isGoodDepleted(string) { return (MaxTokensForGoodsTs[good] == 0); };
+    bool isBonusDepleted(int bonus) { return (MaxTokensForBonuses[bonus] == 0); };
     int isDepleted();
 
 private:

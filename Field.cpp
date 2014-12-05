@@ -11,9 +11,15 @@ Field::Field()
 {
     for (int i =0; i<5; i++)
     {
-        market.push_back(deck.Deck::dealCard());
+        market.push_back(deck.dealCard());
     }
 
+}
+
+void Field::refillMarket()
+{
+    while(market.size() < 5)
+        market.push_back(deck.dealCard());
 }
 
 void Field::printField()

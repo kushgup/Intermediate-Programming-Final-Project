@@ -77,20 +77,21 @@ void Deck::shuffle()
     srand(time(NULL));
     for (i = 0; i < num_cards; i++) {
         x = rand() / (RAND_MAX / num_cards + 1);
-        temp = (game->deck)[i];
-        (game->deck)[i] = (game->deck)[x];
-        (game->deck)[x] = temp;
+        swap(i, x);
+        // temp = (game->deck)[i];
+        // (game->deck)[i] = (game->deck)[x];
+        // (game->deck)[x] = temp;
     }
 
-    int seed;
-    time_t t;
-    seed = (int) time(&t);
-    srand((unsigned) seed);
-    for(int i = 0; i< 52; i++)
-    {
-        int s = rand() % 52;
-        swap(i, s);
-    }
+    // int seed;
+    // time_t t;
+    // seed = (int) time(&t);
+    // srand((unsigned) seed);
+    // for(int i = 0; i< 52; i++)
+    // {
+    //     int s = rand() % 52;
+    //     swap(i, s);
+    // }
 }
 
 void Deck::swap(int a, int b)
