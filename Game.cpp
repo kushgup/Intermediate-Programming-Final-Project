@@ -43,35 +43,35 @@ Game::~Game() {
 */
 
 void Game::setPlayers(typeofPlayersinGame) {
-switch (typeofPlayersinGame){
-    case PLYR_VS_PLYR:
-        {
-            for (int i = 0; i < 2; i++) {
-                cout << "Enter player (" << i << ") name: ";
-                string name;
-                cin >> name;
-                player[i] = * new PlayerHuman(name, *field);
+    switch (typeofPlayersinGame){
+        case PLYR_VS_PLYR:
+            {
+                for (int i = 0; i < 2; i++) {
+                    cout << "Enter player (" << i << ") name: ";
+                    string name;
+                    cin >> name;
+                    player[i] = * new PlayerHuman(name, *field);
+                }
+                break;
             }
-            break;
-        }
-    case PLYR_VS_AI:
-        {
-            cout << "Enter player (0) name: ";
-            string name0;
-            cin >> name0;
-            player[0] = * new PlayerHuman(name, *field);
+        case PLYR_VS_AI:
+            {
+                cout << "Enter player (0) name: ";
+                string name0;
+                cin >> name0;
+                player[0] = * new PlayerHuman(name, *field);
 
-            cout << "Enter player (0) name: ";
-            string name0;
-            cin >> name0;
-            player[1] = * new PlayerAI(name, *field);
-            break;
-        }
-    default:
-        cout << "ERROR!" << endl;
+                cout << "Enter player (0) name: ";
+                string name0;
+                cin >> name0;
+                player[1] = * new PlayerAI(name, *field);
+                break;
+            }
+        default:
+            cout << "ERROR!" << endl;
 
-    }
-    //cout << "Enter name: "
+        }
+        //cout << "Enter name: "
 }
 void Game::printBoard() {
     bank.Bank::printBank();
