@@ -100,7 +100,7 @@
 	"Deck.h"
 	"Field.h"
 
-1417819017 source:s:\mnmstorage\documents\michael\jhu\14'15_sophmore\2014fall\intermediateprogramming\c++\final\final\player.cpp
+1417821659 source:s:\mnmstorage\documents\michael\jhu\14'15_sophmore\2014fall\intermediateprogramming\c++\final\final\player.cpp
 	"Player.h"
 	<iomanip>
 
@@ -114,8 +114,9 @@
 1417748878 s:\mnmstorage\documents\michael\jhu\14'15_sophmore\2014fall\intermediateprogramming\c++\final\final\olist.h
 	<iostream>
 
-1417819150 source:s:\mnmstorage\documents\michael\jhu\14'15_sophmore\2014fall\intermediateprogramming\c++\final\final\playercomp.cpp
+1417821800 source:s:\mnmstorage\documents\michael\jhu\14'15_sophmore\2014fall\intermediateprogramming\c++\final\final\playercomp.cpp
 	"PlayerComp.h"
+	<ctime>
 
 1417803448 source:s:\mnmstorage\documents\michael\jhu\14'15_sophmore\2014fall\intermediateprogramming\c++\final\final\playerhuman.cpp
 	"PlayerHuman.h"
