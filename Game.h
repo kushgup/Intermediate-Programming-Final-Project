@@ -40,7 +40,6 @@ private:
 	void shuffleDeck();
 	void deal();
 
-
 };
 
 #endif
