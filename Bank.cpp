@@ -247,6 +247,7 @@ Token * Bank::getCamelToken()
 
 void Bank::printBank()
 {
+    cout<< "Swag"<<endl;
     cout << "Bank **********************************************" << endl;
     for(int i=0; i< 6 ;i++)
     {
