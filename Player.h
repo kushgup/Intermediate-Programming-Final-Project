@@ -7,10 +7,8 @@ This class will be inherited by HumanPlayer and AIPlayer
 #ifndef _PLAYER_H
 #define _PLAYER_H
 
-#include "OListIterator.h"
 #include "Token.h"
 #include "Card.h"
-#include "Field.h"
 #include "Bank.h"
 #include "Move.h"
 #include <string>
@@ -28,7 +26,7 @@ protected:
 
 	string name; //store the name of the player
 	Field * game_field; //store a pointer to the game's field
-	Bank * game_bank;
+	Bank * game_bank; //store a pointer to the bank to take tokens when needed
 	OList<Card *> hand; //separate linked list of resource cards for the hand
 	vector<Card*> herd; //separate linked list of camels
 	vector<Token *> seals; //keep track of how many seals the player has
