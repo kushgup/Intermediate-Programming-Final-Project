@@ -68,6 +68,10 @@ private:
 		vector<char> cardIndices, 
 		vector< vector<Card *>::iterator > & iterators_Vector
 	);
+	void fetchSingleMarketCard(
+		char cardIndex,
+		vector< Card *>::iterator & iter
+	);
 
 };
 
