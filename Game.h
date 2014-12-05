@@ -20,7 +20,7 @@ private:
 public:
 
     Game();
-    Game(& Game);
+    Game(Game &);
     ~Game();
 
 	void printBoard();
@@ -31,6 +31,9 @@ public:
 	void createDeck();
 	void shuffleDeck();
 	void deal();
+
+private:
+    void setPlayers();
 
 };
 
