@@ -18,7 +18,7 @@ This class will be inherited by HumanPlayer and AIPlayer
 using std::cout; using std::endl;
 using std::vector; using std::string;
 
-class Move; ///??? maybe causes other issues
+class Move; //??? maybe causes other issues
 
 class Player {
 

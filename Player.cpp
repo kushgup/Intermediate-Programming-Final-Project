@@ -1,5 +1,6 @@
 /*
 This file contains all the function definitions for Player
+The different actions a player takes on their turn depend heavily on a "move" object for that turn that is constructed in makeMove()
 */
 
 #include "Player.h"
@@ -64,17 +65,15 @@ void Player::exchange(Move to_make) {
 void Player::sellCards(Move to_make) {
 
 	//assumes that the field has been checked by "move" object already... look for sell
+	//sell cards by deleting them, meanwhile adding tokens
 	vector<OListIterator<Card *>>::iterator iter = to_make.sell.begin(), iter_end = to_make.sell.end();
 	int how_many = to_make.sell.size(); //how many cards to sell
 	while(iter != iter_end) {
-		hand.remove(**iter);
-		if()
+		hand.remove(**iter); //delete token
 		if(how_many >= 3)
-			tokens.push_back(Token::takeBonusToken(how_many)); //award the bonus token
+			tokens.push_back(Token::takeBonusToken(how_many)); //award the bonus token first, temporal order shouldn't matter
+		while(how_many--)
+			if()
 		iter++;
 	}
-
-	//iterate through the hand to find the cards to sell
-	//delete them from the hand but not from the deck
-	//add tokens to the player hand
 }
