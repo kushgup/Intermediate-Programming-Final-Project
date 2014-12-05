@@ -15,10 +15,6 @@
 #include "Deck.h"
 #include "Card.h"
 
-
-using namespace std;
-
-
 class Field {
 
     friend class Move; // needed so that Move can access Game's field
@@ -26,20 +22,16 @@ class Field {
     friend class Game; // allows Game to access Deck for dealing initial hand to players
 
     Deck deck; // by default, deck constructor is called here
-
     vector<Card*> market;
 
-
-
 public:
-    Field();
-    void printField();
-    Deck * getDeck() {return &deck;};
-    void restoreDeck(){deck.Deck::restoreDeck();};
 
-    //void moveGoodFromMarket();
-    //void cleanGoodsToBeTaken();
-    //The the field can do right now is be printed it will eventually be able to work with move for game play
+    Field();
+
+    void printField();
+    Deck * getDeck() { return &deck; };
+    void restoreDeck() { deck.restoreDeck(); };
+
 };
 
 #endif /* defined(__pg7b__Field__) */

@@ -14,7 +14,6 @@ private:
 
 	Field field; // default constructor gets called automatically upon game objection creation
 	Bank bank; // default constructor gets called automatically upon game objection creation
-
 	Player playersInGame[2];
 	int roundNum;
 	int playerWinnerIndex; //keep track of starting player

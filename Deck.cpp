@@ -1,66 +1,55 @@
 #include "Deck.h"
-#include <stdio.h>
-#include <stdlib.h>
-#include <time.h>
-#include "Card.h"
 #include <array>
-#include <time.h>
 #include <string>
+#include <cstdio>
+#include <cstdlib>
+#include <ctime>
 
 using std::string;
 
 Deck::Deck()
 {
-    for(int i = 0; i < 11; i++)
+    int i;
+    for(i = 0; i < 11; i++)
     {
         deckTobeshuffled[i] = Card("Camel");
-        //deck[i].setIdentifier("Camel");
     }
-    for(int i = 11; i< 21; i++)
+    for(; i < 21; i++)
     {
         deckTobeshuffled[i] = Card("Paper");
-        //deck[i].setIdentifier("Paper");
     }
-    for(int i = 21; i< 29; i++)
+    for(; i < 29; i++)
     {
         deckTobeshuffled[i] = Card("Spice");
-        //deck[i].setIdentifier("Spice");
     }
-    for(int i = 29; i< 37; i++)
+    for(; i < 37; i++)
     {
         deckTobeshuffled[i] = Card("Cloth");
-        //deck[i].setIdentifier("Cloth");
     }
-    for(int i = 37; i< 43; i++)
+    for(; i < 43; i++)
     {
         deckTobeshuffled[i] = Card("Silver");
     }
-    for(int i = 43; i< 49; i++)
+    for(; i < 49; i++)
     {
         deckTobeshuffled[i] = Card("Gold");
     }
-    for(int i = 49; i<= 52; i++)
+    for(; i <= 52; i++)
     {
         deckTobeshuffled[i] = Card("Diamonds");
     }
-    for(int i =0; i<3; i++)
-    {
-        startCamels[i] = Card ("Camel");
-    }
-    startCamels[0].Card::setPandaCamel();
     shuffle();
-
-    for(int j = 0; j<3; j++)
+    for(; i < 55; i++)
     {
-        deckForGame[j] = startCamels[j];
-    }
-    for(int j =3; j<55; j++)
-    {
-        deckForGame[j] = deckTobeshuffled[j];
+        deckTobeshuffled[i] = Card("Camel");
+        if(i == 53)
+            deckTobeshuffled[i].setPandaCamel();
+        swap(i, i - 52);
     }
 
     placeinDeck = 0;
 }
+
 /*
 Deck::~Deck()
 {
@@ -81,14 +70,22 @@ Deck::~Deck()
 */
 void Deck::shuffle()
 {
-    int seed;
 
+    //shuffle the deck by iterating 60 times, have a random number generator, swap cards in the deck
+    int x, i;
+    Card temp;
+    srand(time(NULL));
+    for (i = 0; i < num_cards; i++) {
+        x = rand() / (RAND_MAX / num_cards + 1);
+        temp = (game->deck)[i];
+        (game->deck)[i] = (game->deck)[x];
+        (game->deck)[x] = temp;
+    }
+
+    int seed;
     time_t t;
     seed = (int) time(&t);
-
     srand((unsigned) seed);
-
-
     for(int i = 0; i< 52; i++)
     {
         int s = rand() % 52;
@@ -115,7 +112,6 @@ void Deck::printDeck()
             cout << endl;
             cout << "\t\t";
         }
-
     }
     cout << endl;
 }
@@ -130,8 +126,3 @@ Card * Deck::dealCard()
 
     // return &(deckForGame[placeinDeck++])
 }
-
-
-
-
-

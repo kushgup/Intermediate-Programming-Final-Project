@@ -3,19 +3,21 @@
 
 #include <stdio.h>
 #include "Card.h"
+
 #define MAXCARDSINDECK 55
-using namespace std;
 
 class Deck
 {
-    Card deckTobeshuffled [52];
+    Card deckTobeshuffled[52];
     Card startCamels[3];
-    Card deckForGame [MAXCARDSINDECK];
+    Card deckForGame[MAXCARDSINDECK];
     int placeinDeck;
 
 public:
+
     Deck();
     //~Deck();
+
     void printDeck();
     void shuffle();
     void restoreDeck(){placeinDeck = 0;};
@@ -24,6 +26,7 @@ public:
     int getPlaceInDeck() const {return placeinDeck;};
 
 private:
+
     void swap (int, int);
 
 };
