@@ -9,6 +9,7 @@
 using std::vector;
 using std::string;
 
+
 class Move
 
 {
@@ -25,8 +26,8 @@ private:
 	bool validMove;
 
 	// these members represent all the potential values that might need to get filled with respective cards
-	// they will be accessed by Player after validation to easily obtain the Card *, without having to repeat the code to 
-		// convert the initial arguments (letters and numbers) into Card * 
+	// they will be accessed by Player after validation to easily obtain the Card *, without having to repeat the code to
+		// convert the initial arguments (letters and numbers) into Card *
 	Card * takeSingle;
     vector<Card * > takeMult;
     vector<Card * > returnMult;
