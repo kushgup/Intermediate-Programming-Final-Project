@@ -1,16 +1,12 @@
 #ifndef _GAME_H
 #define _GAME_H
 
-#include "Field.h"
 #include "State.h"
-#include "Player.h"
-#include "Bank.h"
+#include "PlayerComp.h"
+#include "PlayerHuman.h"
 #include <iostream> // recently added
 #include <cstdio> // recently added
 #include <cstdlib> // recently added
-
-class Player;
-class Move;
 
 class Game {
 
@@ -19,19 +15,19 @@ private:
 	Field field; // default constructor gets called automatically upon game objection creation
 	Bank bank; // default constructor gets called automatically upon game objection creation
 
-	Player* playersInGame[2];
+	Player playersInGame[2];
 	int roundNum;
-	int playerWinnerIndex;
+	int playerWinnerIndex; //keep track of starting player
 	//State gameState;
 
 public:
 
-    Game(): roundNum(1), playerWinnerIndex(0) { initPlayers(); }; // requires immediate attention
-    Game(Game &);
-    ~Game();
+    Game(): roundNum(1), playerWinnerIndex(0) { initPlayers(); }; //default constructor
+    //Game(Game &); //copy constructor
+    //~Game();
 
 	void playGame();
-	void initPlayers(); // kush and mao
+	void initPlayers();
 
 private:
 

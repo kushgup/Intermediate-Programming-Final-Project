@@ -1,17 +1,9 @@
 #include <time.h>
 
 #include "Game.h"
-#include "PlayerComp.h"
-#include "PlayerHuman.h"
 
-#define PLYR_VS_AI 1
-#define PLYR_VS_PLYR 2
-
-using std::cout;
-using std::cin;
-using std::endl;
+using std::cout; using std::cin; using std::endl;
 using std::string;
-
 
 // Game::Game(): roundNum(1), playerWinnerIndex(0) {
 
@@ -73,13 +65,13 @@ void Game::initPlayers() {
     {
         cout << "Enter player name" << endl;
         cin >> name;
-        playersInGame[i++] = new PlayerHuman(name, &field, &bank);
+        playersInGame[i++] = PlayerHuman(name, &field, &bank);
     }
     while(i < 2) // create remaining AI players
     {
         itoa(i, temp, 10);
         name = "AI Player" + temp;
-        playersInGame[i++] = new PlayerComp(name, &field, &bank);
+        playersInGame[i++] = PlayerComp(name, &field, &bank);
     }
 
     //deal initial player hands
@@ -98,8 +90,8 @@ void Game::printBoard() {
 }
 
 bool Game::roundIsOver(){
-    int CardsLeftinDeck = 55 - *(field.getDeck())getPlaceInDeck();
-    if (CardsLeftinDeck == 0){
+    int CardsLeftinDeck = 55 - *(field.getDeck()).getPlaceInDeck();
+    if (CardsLeftinDeck == 0) {
         return true;
     }
 
