@@ -2,6 +2,8 @@
 #define _GAME_H
 
 #include "Field.h"
+#include "State.h"
+#include "Player.h"
 
 class Game {
 
@@ -10,7 +12,7 @@ class Game {
 
 private:
 
-	Player players[2];
+	Player * players[2];
 	int roundNum;
 	State gameState;
 	Field field;
@@ -18,7 +20,7 @@ private:
 public:
 
 	void printBoard();
-	int roundNum();
+	int getRoundNum() const { return roundNum; };
 	Player & getWinner();
 	void initPlayers();
 	bool isOver();
