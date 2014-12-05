@@ -17,18 +17,15 @@ void PlayerHuman::makeMove() {
 	//try {
 		//have text-based GUI and construct move objects, then call individual functions checking valid first
 		cin >> ch;
-		if(ch == a) {
+		if(ch == 'a') {
 			Move next(game_field, hand);
 			takeCamels(next);
-		} else if(ch == b) {
+		} else if(ch == 'b') {
 			cout << "Which card to take? ";
 			cin >> ch;
 			Move next(game_field, hand, ch);
 			takeCard(next);
-		} else if(ch == c) {
-
-
-		} else if(ch == d) {
+		} else if(ch == 'c') {
 			vector<int> mkt_take;
 			vector<char> hand_return;
 			int num_camels = 0;
@@ -41,6 +38,8 @@ void PlayerHuman::makeMove() {
 					if(ch == '?')
 						num_camels++;
 			}
+		} else if(ch == 'd') {
+
 		} else
 			//throw exc;
 	//} catch {
