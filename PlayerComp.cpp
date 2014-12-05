@@ -24,5 +24,4 @@ void PlayerComp::makeMove() {
 	else
 		takeCamels(next1);
 
-	return 0;
 }
