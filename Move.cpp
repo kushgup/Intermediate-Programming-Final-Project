@@ -70,6 +70,12 @@ Move::Move(Field * f, OList<Card *> & handRef, vector<int> cardsToGive, vector<c
 {
 	//////////// PRELIMINARY CHECKS //////////////
 	// check that player isn't taking more than 7 cards
+	if(handRef.size() + cardsToTake.size() > 7)
+	{
+		validMove = false;
+		// throw exception??
+		
+	}
 	// check that # camels + # cardsToGive == # cardsToTake
 	// check that player has # camels
 	// check that player has # cardsToGive ???
