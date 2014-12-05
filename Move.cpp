@@ -70,14 +70,23 @@ Move::Move(Field * f, OList<Card *> & handRef, vector<int> cardsToGive, vector<c
 {
 	//////////// PRELIMINARY CHECKS //////////////
 	// check that player isn't taking more than 7 cards
-	if(handRef.size() + cardsToTake.size() > 7)
+	if((handRef.size() + cardsToTake.size() - cardsToGive.size()) > 7)
 	{
 		validMove = false;
-		// throw exception??
-
+		// throw exception?? -- invalid # of arguments (too many takes)
 	}
 	// check that # camels + # cardsToGive == # cardsToTake
+	if((num_camels + cardsToGive.size()) != cardsToTake.size())
+	{
+		validMove = false;
+		// throw exception?? -- invalid # of arguments
+	}
 	// check that player has # camels
+	if(herd.size() < num_camels)
+	{
+		validMove = false;
+		// throw exception?? -- invalid # of arguments (too many camels)
+	}
 	// check that player has # cardsToGive ???
 
 	type = "exchange";
