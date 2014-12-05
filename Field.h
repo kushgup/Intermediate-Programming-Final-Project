@@ -26,7 +26,7 @@ class Field {
     vector<Card*> market;
     vector<Card*> goodsToBeTaken;
     vector<Card*> goodsToBeGiven;
-    Deck deck = *new Deck();
+    Deck deck;
     stack<Card*> discardPile;
     vector<Card*> player1Hand;
     vector<Card*> player2Hand;

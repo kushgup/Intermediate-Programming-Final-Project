@@ -1,28 +1,23 @@
-//
-//  Field.cpp
-//  pg7b
-//
-//  Created by Edmund Connor on 11/25/14.
-//  Copyright (c) 2014 Edmund Connor. All rights reserved.
-//
-
 #include "Field.h"
 #include <stdio.h>
 #include <iostream>
 #include "Deck.h"
 #include "Card.h"
-using namespace std;
+
+using std::cout;
+using std::endl;
 
 Field::Field()
 {
+    deck = * new Deck();
     for (int i =0; i<5; i++)
     {
-        market.push_back(deck.dealCard());
+        market.push_back(deck.Deck::dealCard());
     }
     for (int i =0; i<5; i++)
     {
-        player1Hand.push_back(deck.dealCard());
-        player2Hand.push_back(deck.dealCard());
+        player1Hand.push_back(deck.Deck::dealCard());
+        player2Hand.push_back(deck.Deck::dealCard());
     }
 }
 

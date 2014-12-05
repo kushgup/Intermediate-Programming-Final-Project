@@ -29,7 +29,7 @@
 	<stdio.h>
 	<iostream>
 
-1417738343 source:s:\mnmstorage\documents\michael\jhu\14'15_sophmore\2014fall\intermediateprogramming\c++\final\final\deck.cpp
+1417739941 source:s:\mnmstorage\documents\michael\jhu\14'15_sophmore\2014fall\intermediateprogramming\c++\final\final\deck.cpp
 	"Deck.h"
 	<stdio.h>
 	<stdlib.h>
@@ -48,11 +48,12 @@
 	"Deck.h"
 	"Card.h"
 
-1417738343 s:\mnmstorage\documents\michael\jhu\14'15_sophmore\2014fall\intermediateprogramming\c++\final\final\field.h
+1417740557 s:\mnmstorage\documents\michael\jhu\14'15_sophmore\2014fall\intermediateprogramming\c++\final\final\field.h
 	<stdio.h>
 	"Deck.h"
 	"Card.h"
 	<vector>
+	<stack>
 
 1417728852 source:s:\mnmstorage\documents\michael\jhu\14'15_sophmore\2014fall\intermediateprogramming\c++\final\final\game.cpp
 
@@ -87,7 +88,7 @@
 	"Token.h"
 	<array>
 
-1417738343 source:s:\mnmstorage\documents\michael\jhu\14'15_sophmore\2014fall\intermediateprogramming\c++\final\final\banktest.cpp
+1417739872 source:s:\mnmstorage\documents\michael\jhu\14'15_sophmore\2014fall\intermediateprogramming\c++\final\final\banktest.cpp
 	<iostream>
 	"assert.h"
 	"Bank.h"
