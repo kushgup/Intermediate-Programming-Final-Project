@@ -66,7 +66,7 @@ Move::Move(Field * f, OList<Card *> & handRef, vector<int> cardsToSell) // use o
 
 }
 
-Move::Move(Field * f, OList<Card *> & handRef, vector<int> cardsToGive, vector<char> cardsToTake) // use of this constructor means: "exchange"
+Move::Move(Field * f, OList<Card *> & handRef, vector<int> cardsToGive, vector<char> cardsToTake, int num_camels, vector<Card *> & herd) // use of this constructor means: "exchange"
 {
 	//////////// PRELIMINARY CHECKS //////////////
 	// check that player isn't taking more than 7 cards
