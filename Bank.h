@@ -62,8 +62,8 @@ public:
     Token * getCamelToken();
     void printBank();
     void refillBank();
-    bool isGoodDelipted(string);
-    bool isBonusDelipted(int bonus);
+    bool isGoodDepleted(string);
+    bool isBonusDepleted(int bonus);
 
 private:
     void shuffleBonus();

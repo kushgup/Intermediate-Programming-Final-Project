@@ -356,12 +356,12 @@ void Bank::refillBank()
     numofSealsLeft = NUMSEALS;
 }
 
-bool Bank::isGoodDelipted(string good)
+bool Bank::isGoodDepleted(string good)
 {
     return (MaxTokensForGoodsTs[good] == 0);
 }
 
-bool Bank::isBonusDelipted(int bonus)
+bool Bank::isBonusDepleted(int bonus)
 {
     return (MaxTokensForBonuses[bonus] == 0);
 }

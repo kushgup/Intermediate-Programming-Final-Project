@@ -54,6 +54,7 @@ void Player::exchange(Move to_make) {
 		takeIter++; //update the iterator through the vector of iterators
 	}
 	//return cards to the market second
+	//need to deal with separate camel and hands!
 	vector<OListIterator<Card *>>::iterator returnIter = to_make.returnMult.begin(), returnIter_end = to_make.returnMult.end();
 	while(returnIter != returnIter_end) {
 		game_field->market.push_back(**returnIter); //add to market
@@ -67,13 +68,13 @@ void Player::sellCards(Move to_make) {
 	//assumes that the field has been checked by "move" object already... look for sell
 	//sell cards by deleting them, meanwhile adding tokens
 	vector<OListIterator<Card *>>::iterator iter = to_make.sell.begin(), iter_end = to_make.sell.end();
-	int how_many = to_make.sell.size(); //how many cards to sell
+	string type_sell = (***iter).getIdentifier();
+	if(to_make.sell.size() >= 3 && !(*game_bank).isBonusDepleted())
+		tokens.push_back((*game_bank).takeBonusToken(to_make.sell.size())); //award the bonus token first, temporal order shouldn't matter
 	while(iter != iter_end) {
+		if(!(*game_bank).isGoodDepleted(type_sell)) //only award tokens while there are still tokens left
+			tokens.push_back((*game_bank).takeTokenFromGoodTs(type_sell)); //award
 		hand.remove(**iter); //delete token
-		if(how_many >= 3)
-			tokens.push_back(Token::takeBonusToken(how_many)); //award the bonus token first, temporal order shouldn't matter
-		while(how_many--)
-			if()
 		iter++;
 	}
 }
