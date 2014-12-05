@@ -32,7 +32,6 @@ public:
 
 	void playGame();
 	void initPlayers(); // kush and mao
-	void initBank();
 
 private:
 

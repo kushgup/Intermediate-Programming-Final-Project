@@ -13,39 +13,39 @@ Deck::Deck()
 {
     for(int i = 0; i < 11; i++)
     {
-        deckTobeshuffled[i] = *new Card("Camel");
+        deckTobeshuffled[i] = Card("Camel");
         //deck[i].setIdentifier("Camel");
     }
     for(int i = 11; i< 21; i++)
     {
-        deckTobeshuffled[i] = *new Card("Paper");
+        deckTobeshuffled[i] = Card("Paper");
         //deck[i].setIdentifier("Paper");
     }
     for(int i = 21; i< 29; i++)
     {
-        deckTobeshuffled[i] = *new Card("Spice");
+        deckTobeshuffled[i] = Card("Spice");
         //deck[i].setIdentifier("Spice");
     }
     for(int i = 29; i< 37; i++)
     {
-        deckTobeshuffled[i] = *new Card("Cloth");
+        deckTobeshuffled[i] = Card("Cloth");
         //deck[i].setIdentifier("Cloth");
     }
     for(int i = 37; i< 43; i++)
     {
-        deckTobeshuffled[i] = *new Card("Silver");
+        deckTobeshuffled[i] = Card("Silver");
     }
     for(int i = 43; i< 49; i++)
     {
-        deckTobeshuffled[i] = *new Card("Gold");
+        deckTobeshuffled[i] = Card("Gold");
     }
     for(int i = 49; i<= 52; i++)
     {
-        deckTobeshuffled[i] = *new Card("Diamonds");
+        deckTobeshuffled[i] = Card("Diamonds");
     }
     for(int i =0; i<3; i++)
     {
-        startCamels[i] = *new Card ("Camel");
+        startCamels[i] = Card ("Camel");
     }
     startCamels[0].Card::setPandaCamel();
     shuffle();
