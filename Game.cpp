@@ -1,6 +1,7 @@
 #include <time.h>
 
 #include "Game.h"
+
 #define PLYR_VS_AI 1
 #define PLYR_VS_PLYR 2
 
@@ -27,8 +28,6 @@ Game::Game() {
 
     //create bank
     bank = *new Bank();
-
-
 }
 
 /*

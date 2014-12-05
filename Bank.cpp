@@ -356,28 +356,12 @@ void Bank::refillBank()
     numofSealsLeft = NUMSEALS;
 }
 
-
-int Bank::isDeplited()
+bool Bank::isGoodDepleted(string good)
 {
-    int depletedTokens = 0;
-    if( MaxTokensForGoodsTs["Paper"] == 0) {
-        depletedTokens++;
-    }
-    if(MaxTokensForGoodsTs["Spice"] == 0) {
-        depletedTokens++;
-    }
-    if(MaxTokensForGoodsTs["Cloth"] == 0) {
-        depletedTokens++;
-    }
-    if(MaxTokensForGoodsTs["Silver"] == 0) {
-        depletedTokens++;
-    }
-    if(MaxTokensForGoodsTs["Gold"] == 0) {
-        depletedTokens++;
-    }
-    if(MaxTokensForGoodsTs["Diamonds"] == 0) {
-        depletedTokens++;
-    }
+    return (MaxTokensForGoodsTs[good] == 0);
+}
 
-    return depletedTokens;
+bool Bank::isBonusDepleted(int bonus)
+{
+    return (MaxTokensForBonuses[bonus] == 0);
 }

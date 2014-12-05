@@ -1,5 +1,6 @@
 /*
 This file contains all the function definitions for Player
+The different actions a player takes on their turn depend heavily on a "move" object for that turn that is constructed in makeMove()
 */
 
 #include "Player.h"
@@ -26,48 +27,54 @@ void Player::printHand() const {
 
 void Player::takeCamels(Move to_make) {
 
-	//assumes that the field has been checked by "move" object already
-	vector<Card *>::const_iterator iter;
-/*	for(iter = to_make.fieldCamels.begin(); iter != to_make.fieldCamels.end(); iter++) {
-		herd.push_back(*iter);
-		game_field->market.erase(iter);
-		game_field->market.push_back(Field::deck.dealCard());
+	//assumes that the field has been checked by "move" object already... look for fieldCamels
+	vector<vector<Card *>::iterator>::iterator iter = to_make.fieldCamels.begin(), iter_end = to_make.fieldCamels.end();
+	while(iter != iter_end) {
+		herd.push_back(**iter); //add to herd
+		game_field->market.erase(*iter); //delete from market
+		iter++; //update the iterator through the vector of iterators
 	}
-*/
 }
 
 void Player::takeCard(Move to_make) {
 
-	//assumes that the field has been checked by "move" object already
-	hand.insert(to_make.takeSingle);
-	//game_field->market.erase(to_make.takeSingle);
-	game_field->market.push_back(game_field->deck.dealCard());
+	//assumes that the field has been checked by "move" object already... look for takeSingle
+	hand.insert(*to_make.takeSingle); //add to hand
+	game_field->market.erase(to_make.takeSingle); //delete from market
 }
 
 void Player::exchange(Move to_make) {
 
-	//assumes that the field has been checked by "move" object already
-	//takeMult, returnMult
-	vector<Card *>::const_iterator iter;
-	for(iter = to_make.takeMult.begin(); iter != to_make.takeMult.end(); iter++) {
-		herd.push_back(*iter);
-		//game_field->market.erase(iter);
-		//game_field->market.push_back(to_make.returnMult.);
+	//assumes that the field has been checked by "move" object already... look for takeMult and returnMult
+	//take cards first
+	vector<vector<Card *>::iterator>::iterator take_Iter = to_make.takeMult.begin(), takeIter_end = to_make.takeMult.end();
+	while(takeIter != takeIter_end) {
+		hand.insert(**takeIter); //add to hand
+		game_field->market.erase(*takeIter); //delete from market
+		takeIter++; //update the iterator through the vector of iterators
 	}
-
+	//return cards to the market second
+	//need to deal with separate camel and hands!
+	vector<OListIterator<Card *>>::iterator returnIter = to_make.returnMult.begin(), returnIter_end = to_make.returnMult.end();
+	while(returnIter != returnIter_end) {
+		game_field->market.push_back(**returnIter); //add to market
+		hand.remove(**returnIter); //delete from hand
+		returnIter++; //update the iterator through the vector of iterators
+	}
 }
 
 void Player::sellCards(Move to_make) {
 
-	//assumes that the field has been checked by "move" object already
-	//iterate through the hand to find the cards to sell
-	//delete them from the hand but not from the deck
-	//add tokens to the player hand
-
-	//vector<Card *> sell
-	vector<Card *>::const_iterator iter;
-	for(iter = to_make.sell.begin(); iter != to_make.sell.end(); iter++) {
-		//herd.remove(*iter);
-
+	//assumes that the field has been checked by "move" object already... look for sell
+	//sell cards by deleting them, meanwhile adding tokens
+	vector<OListIterator<Card *>>::iterator iter = to_make.sell.begin(), iter_end = to_make.sell.end();
+	string type_sell = (***iter).getIdentifier();
+	if(to_make.sell.size() >= 3 && !(*game_bank).isBonusDepleted())
+		tokens.push_back((*game_bank).takeBonusToken(to_make.sell.size())); //award the bonus token first, temporal order shouldn't matter
+	while(iter != iter_end) {
+		if(!(*game_bank).isGoodDepleted(type_sell)) //only award tokens while there are still tokens left
+			tokens.push_back((*game_bank).takeTokenFromGoodTs(type_sell)); //award
+		hand.remove(**iter); //delete token
+		iter++;
 	}
 }
