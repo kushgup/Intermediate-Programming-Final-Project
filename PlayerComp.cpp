@@ -1,4 +1,5 @@
 #include "PlayerComp.h"
+#include <ctime>
 
 void PlayerComp::makeMove() {
 
@@ -15,13 +16,44 @@ void PlayerComp::makeMove() {
 	vector<int> c;
 	c.push_back(1);
 	Move next4(game_field, hand, c); //sell first card in hand
-	if(next2.isValid()) //take
-		takeCard(next2);
-	else if(next3.isValid()) //exchange
-		exchange(next3);
-	else if(next4.isValid()) //sell
-		sellCards(next4);
-	else
-		takeCamels(next1);
+
+	if(!next1.isValid() && !next2.isValid() && !next3.isValid() && !next4.isValid()) {
+		a.clear();
+		b.clear();
+		for(int i = 1; i < hand.size() - 1; i++) {
+			a.push_back(i);
+			for(int j = i + 1; j < hand.size(); j++) {
+				a.push_back(j);
+				next3 = Move(game_field, hand, a, b, 0, herd);
+				a.pop_back();
+			}
+		}
+
+	} else {
+		srand(time(NULL));
+		int x;
+		bool y;
+		while(!y) {
+			x = rand() / (RAND_MAX / 4 + 1);
+			switch (x) {
+				case 0: 
+					y = next1.isValid();
+					break;
+				case 1:
+					y = next2.isValid();
+					break;
+				case 2:
+					y = next3.isValid();
+					break;
+				case 3:
+					y = next4.isValid();
+					break;
+			}
+		}
+		if(x == 0) takeCamels(next1);
+		if(x == 1) takeCard(next2);
+		if(x == 2) exchange(next3);
+		if(x == 3) sellCards(next4);		
+	}
 
 }
