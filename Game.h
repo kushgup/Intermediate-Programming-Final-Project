@@ -41,6 +41,7 @@ private:
 	bool gameOver();
 	void shuffleDeck();
 	void deal();
+	void calculateWinner();
 
 };
 
