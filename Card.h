@@ -19,6 +19,7 @@ class Card
     bool isCamel;
     bool PandaCamel;
     bool isPrecious;
+    int rank;
     
 public:
     Card();
@@ -28,10 +29,17 @@ public:
     string getIdentifier() const;
     void setIdentifier(string);
     bool getIsCamel() const;
+    int getRank() const;
     void setPandaCamel();
     bool getIsPandaCamel() const;
     void printCard() const;
     bool operator== (Card&);
+    bool operator> (Card&);
+    bool operator>= (Card&);
+    bool operator< (Card&);
+    bool operator<= (Card&);
+    bool operator!= (Card&);
+
 };
 
 #endif /* defined(__pg7b__Card__) */
