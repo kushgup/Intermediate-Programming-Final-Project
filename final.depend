@@ -55,7 +55,7 @@
 	"Deck.h"
 	"Card.h"
 
-1417820170 source:s:\mnmstorage\documents\michael\jhu\14'15_sophmore\2014fall\intermediateprogramming\c++\final\final\game.cpp
+1417822578 source:s:\mnmstorage\documents\michael\jhu\14'15_sophmore\2014fall\intermediateprogramming\c++\final\final\game.cpp
 	"Game.h"
 	<ctime>
 	<string>
@@ -100,7 +100,7 @@
 	"Deck.h"
 	"Field.h"
 
-1417821659 source:s:\mnmstorage\documents\michael\jhu\14'15_sophmore\2014fall\intermediateprogramming\c++\final\final\player.cpp
+1417821997 source:s:\mnmstorage\documents\michael\jhu\14'15_sophmore\2014fall\intermediateprogramming\c++\final\final\player.cpp
 	"Player.h"
 	<iomanip>
 
@@ -114,9 +114,10 @@
 1417748878 s:\mnmstorage\documents\michael\jhu\14'15_sophmore\2014fall\intermediateprogramming\c++\final\final\olist.h
 	<iostream>
 
-1417821800 source:s:\mnmstorage\documents\michael\jhu\14'15_sophmore\2014fall\intermediateprogramming\c++\final\final\playercomp.cpp
+1417822503 source:s:\mnmstorage\documents\michael\jhu\14'15_sophmore\2014fall\intermediateprogramming\c++\final\final\playercomp.cpp
 	"PlayerComp.h"
 	<ctime>
+	<cstdlib>
 
 1417803448 source:s:\mnmstorage\documents\michael\jhu\14'15_sophmore\2014fall\intermediateprogramming\c++\final\final\playerhuman.cpp
 	"PlayerHuman.h"
@@ -130,13 +131,14 @@
 	<stdio.h>
 	<iostream>
 
-1417819289 s:\mnmstorage\documents\michael\jhu\14'15_sophmore\2014fall\intermediateprogramming\c++\final\final\game.h
+1417822459 s:\mnmstorage\documents\michael\jhu\14'15_sophmore\2014fall\intermediateprogramming\c++\final\final\game.h
 	"State.h"
 	"PlayerComp.h"
 	"PlayerHuman.h"
 	<iostream>
 	<cstdio>
 	<cstdlib>
+	"Card.h"
 
 1417748051 s:\mnmstorage\documents\michael\jhu\14'15_sophmore\2014fall\intermediateprogramming\c++\final\final\state.h
 

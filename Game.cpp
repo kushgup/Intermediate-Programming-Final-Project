@@ -47,9 +47,9 @@ void Game::initPlayers() {
         for(int j = 0; j < 5; j++)
         {
             temp = field.deck.dealCard();
-            if(temp.getIsCamel())
+            if(temp->getIsCamel())
                 // do shit
-                (*players[i]).hand.push_back(temp);
+                (*players[i]).herd.push_back(temp);
             else
                 (*players[i]).hand.insert(temp);
         }
