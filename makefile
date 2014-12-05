@@ -30,7 +30,7 @@ Driver.o: Driver.cpp Bank.h Card.h Deck.h Field.h Game.h Move.h OList.h OListIte
 Field.o: Field.cpp Field.h Card.h Deck.h
 	$(CC) $(CFLAGS) -c Field.cpp
 
-Game.o: Game.cpp Bank.h Card.h Deck.h Field.h Game.h Move.h OList.h OListIterator.h Player.h PlayerComp.h PlayerHuman.h State.h Token.h
+Game.o: Game.cpp Game.h State.h PlayerComp.h PlayerHuman.h Player.h Bank.h Move.h Token.h Card.h Field.h OListIterator.h OList.h Deck.h
 	$(CC) $(CFLAGS) -c Game.cpp
 
 Move.o: Move.cpp Move.h Card.h Field.h Deck.h OListIterator.h OList.h
@@ -45,7 +45,7 @@ PlayerHumanTest.o: PlayerHumanTest.cpp PlayerHuman.h Player.h Bank.h Move.h Toke
 PlayerHuman.o: PlayerHuman.cpp PlayerHuman.h Player.h Bank.h Move.h Token.h Card.h Field.h OListIterator.h OList.h Deck.h
 	$(CC) $(CFLAGS) -c PlayerHuman.cpp
 
-PlayerComp.o: PlayerComp.cpp PlayerComp.h Player.h Token.h Card.h Bank.h Move.h Field.h Deck.h OList.h OListIterator.h
+PlayerComp.o: PlayerComp.cpp PlayerComp.h Player.h Bank.h Move.h Token.h Card.h Field.h OListIterator.h OList.h Deck.h
 	$(CC) $(CFLAGS) -c PlayerComp.cpp
 
 State.o: State.cpp State.h
