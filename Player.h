@@ -11,6 +11,7 @@ This class will be inherited by HumanPlayer and AIPlayer
 #include "Token.h"
 #include "Card.h"
 #include "Field.h"
+#include "Bank.h"
 #include "Move.h"
 #include <string>
 #include <vector>
@@ -25,6 +26,7 @@ protected:
 
 	string name; //store the name of the player
 	Field * game_field; //store a pointer to the game's field
+	Bank * game_bank;
 	OList<Card *> hand; //separate linked list of resource cards for the hand
 	vector<Card*> herd; //separate linked list of camels
 	vector<Token *> seals; //keep track of how many seals the player has
@@ -32,7 +34,7 @@ protected:
 
 public:
 
-	Player(string nm, Field * fd): name(nm), game_field(fd) { }
+	Player(string nm, Field * fd, Bank * bk): name(nm), game_field(fd), game_bank(bk) { }
 
 	string getName() const { return name; };
 	int handSize() const { return hand.size(); };
