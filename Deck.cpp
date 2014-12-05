@@ -127,6 +127,8 @@ Card * Deck::dealCard()
     Card * temp = &deckForGame[placeinDeck];
     placeinDeck++;
     return temp;
+
+    // return &(deckForGame[placeinDeck++])
 }
 
 

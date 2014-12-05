@@ -24,21 +24,15 @@ class Field {
     friend class Move; // needed so that Move can access Game's field
     friend class Player; // needed so that Player can look into Game's field to move stuff
 
+    Deck deck; // by default, deck constructor is called here
+
     vector<Card*> market;
-    vector<Card*> goodsToBeTaken;
-    vector<Card*> goodsToBeGiven;
-    Deck deck;
-    stack<Card*> discardPile;
-    vector<Card*> player1Hand;
-    vector<Card*> player2Hand;
 
 
 
 public:
     Field();
     void printField();
-    vector<Card*> getP1Hand(){return player1Hand;};
-    vector<Card*> getP2Hand(){return player2Hand;};
     Deck * getDeck() {return &deck;};
     void restoreDeck(){deck.Deck::restoreDeck();};
 

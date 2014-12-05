@@ -55,7 +55,6 @@ Game::Game() {
         }
     //Game::setPlayers(typeofPlayersinGame);
 
-
 }
 
 /*
@@ -69,37 +68,44 @@ Game::~Game() {
 }
 */
 
-void Game::setPlayers(int typeofPlayersinGame) {
-    /*switch (typeofPlayersinGame){
-        case PLYR_VS_PLYR:
-            {
-                for (int i = 0; i < 2; i++) {
-                    cout << "Enter player (" << i << ") name: ";
-                    string name;
-                    cin >> name;
-                    player[i] = * new PlayerHuman(name, *field, *bank);
-                }
-                break;
-            }
-        case PLYR_VS_AI:
-            {
-                cout << "Enter player (0) name: ";
-                string name0;
-                cin >> name0;
-                player[0] = * new PlayerHuman(name, *field, *bank);
+void Game::initPlayers() {
+    //////////////// get number of human / AI players ////////////////
+    int numPlayers;
+    cout << "Enter how many human players will be playing (0 - 2)" << endl;
+    cin >> numPlayers;
+    // try catch potentially
 
-                cout << "Enter player (0) name: ";
-                string name0;
-                cin >> name0;
-                player[1] = * new PlayerComp(name, *field, *bank);
-                break;
-            }
-        default:
-            cout << "ERROR!" << endl;
+    //////////////// initialize players ////////////////
+    int i=0;
+    string name, temp;
+    while(numPlayers--) // create human players
+    {
+        cout << "Enter player name" << endl;
+        cin >> name;
+        playersInGame[i++] = new PlayerHuman(name, &field, &bank);
+    }
+    while(i<2) // create remaining AI players
+    {
+        itoa(i, temp, 10);
+        name = "AI Player" + temp;
+        playersInGame[i++] = new PlayerComp(name, &field, &bank);
 
+    }
+
+    //////////////// deal initial player hands ////////////////
+    for(i=0; i<2; i++)
+    {
+        for(int j=0; j<5; j++)
+        {
+            playersInGame[i].hand.i
+            player1Hand.push_back(deck.Deck::dealCard());
+            player2Hand.push_back(deck.Deck::dealCard());
         }
-        //cout << "Enter name: "*/
+    }
+
 }
+
+
 void Game::printBoard() {
     bank.Bank::printBank();
     field.Field::printField();

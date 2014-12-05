@@ -9,16 +9,11 @@ using std::endl;
 
 Field::Field()
 {
-    deck = * new Deck();
     for (int i =0; i<5; i++)
     {
         market.push_back(deck.Deck::dealCard());
     }
-    for (int i =0; i<5; i++)
-    {
-        player1Hand.push_back(deck.Deck::dealCard());
-        player2Hand.push_back(deck.Deck::dealCard());
-    }
+
 }
 
 void Field::printField()

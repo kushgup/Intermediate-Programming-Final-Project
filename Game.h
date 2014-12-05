@@ -5,22 +5,24 @@
 #include "State.h"
 #include "Player.h"
 #include "Bank.h"
+#include <iostream> // recently added
+#include <cstdio> // recently added
+#include <cstdlib> // recently added
 
 class Player;
 class Move;
 
 class Game {
 
-	friend class Move; // needed so that Move can access Game's field
-	friend class Player; // needed so that Player can look into Game's field to move stuff
-
 private:
 
-	Player * player[2];
+	Field field; // default constructor gets called automatically upon game objection creation
+
+	Player* playersInGame[2];
 	int roundNum;
 	State gameState;
-	Field field;
 	Bank bank;
+	int playerWinnerIndex;
 
 public:
 
@@ -29,15 +31,16 @@ public:
     ~Game();
 
 	void playGame();
+	void initPlayers(); // kush and mao
+	void initBank();
 
 private:
-    void setPlayers(int);
+
     void printBoard();
 	int getRoundNum() const { return roundNum; };
 	Player & setWinner( int );
 	bool roundIsOver();
 	bool gameOver();
-	void createDeck();
 	void shuffleDeck();
 	void deal();
 

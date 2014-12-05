@@ -20,6 +20,8 @@ class Move; //??? maybe causes other issues
 
 class Player {
 
+	friend class Game; // allows Game class to access hand and deal initial hand
+
 protected:
 
 	string name; //store the name of the player
