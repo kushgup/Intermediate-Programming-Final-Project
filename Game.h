@@ -19,6 +19,10 @@ private:
 
 public:
 
+    Game();
+    Game(& Game);
+    ~Game();
+
 	void printBoard();
 	int getRoundNum() const { return roundNum; };
 	Player & getWinner();
