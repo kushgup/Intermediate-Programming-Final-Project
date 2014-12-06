@@ -35,7 +35,6 @@ public:
     bool operator< (const Card&);
     bool operator<= (const Card&);
     bool operator!= (const Card&);
-    bool operator= (const Card &);
 
 };
 

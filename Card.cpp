@@ -3,7 +3,7 @@
 #include <iostream>
 using namespace std;
 
-Card::Card(string Id): identifier(Id), PandaCamel(false), isCamel(false), isPrecious(false), rank(0)
+Card::Card(string Id): identifier(Id), isCamel(false), PandaCamel(false), isPrecious(false), rank(0)
 {
     if(Id == "Camel")
         isCamel = true;
@@ -65,15 +65,6 @@ void Card::printCard() const
     cout << this->identifier;
 }
 
-bool Card::operator= (const Card & other)
-{
-    identifier = other.identifier;
-    isCamel = other.isCamel;
-    PandaCamel = other.PandaCamel;
-    isPrecious = other.isPrecious;
-    rank = other.rank;
-}
-
 bool Card::operator== (const Card & other)
 {
     return this->rank == other.getRank();
@@ -83,32 +74,23 @@ bool Card::operator > (const Card & other)
 {
     return this->getRank() > other.getRank();
 }
+
 bool Card::operator >= (const Card & other)
 {
     return this->getRank() >= other.getRank();
 }
+
 bool Card::operator <= (const Card & other)
 {
     return this->getRank() <= other.getRank();
 }
+
 bool Card::operator < (const Card & other)
 {
     return this->getRank() < other.getRank();
 }
+
 bool Card::operator != (const Card & other)
 {
     return this->getRank() != other.getRank();
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
