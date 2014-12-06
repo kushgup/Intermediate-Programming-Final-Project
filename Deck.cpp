@@ -79,46 +79,16 @@ void Deck::shuffle()
     for (i = 0; i < num_cards; i++) {
         x = rand() / (RAND_MAX / num_cards + 1);
         swap(i, x);
-        // temp = (game->deck)[i];
-        // (game->deck)[i] = (game->deck)[x];
-        // (game->deck)[x] = temp;
+
     }
 
-    // int seed;
-    // time_t t;
-    // seed = (int) time(&t);
-    // srand((unsigned) seed);
-    // for(int i = 0; i< 52; i++)
-    // {
-    //     int s = rand() % 52;
-    //     swap(i, s);
-    // }
 }
 
 void Deck::swap(int a, int b)
 {
-    cout << "swapping: " << a << "-->" << b << endl;
-    //Card temp ( deckTobeshuffled[a] );
-    Card temp;
-    temp.identifier = deckTobeshuffled[a].identifier;
-    temp.isCamel = deckTobeshuffled[a].isCamel;
-    temp.PandaCamel = deckTobeshuffled[a].PandaCamel;
-    temp.isPrecious = deckTobeshuffled[a].isPrecious;
-    temp.rank = deckTobeshuffled[a].rank;
-
-    //deckTobeshuffled[a] = deckTobeshuffled[b];
-    deckTobeshuffled[a].identifier = deckTobeshuffled[b].identifier;
-    deckTobeshuffled[a].isCamel = deckTobeshuffled[b].isCamel;
-    deckTobeshuffled[a].PandaCamel = deckTobeshuffled[b].PandaCamel;
-    deckTobeshuffled[a].isPrecious = deckTobeshuffled[b].isPrecious;
-    deckTobeshuffled[a].rank = deckTobeshuffled[b].rank;
-
-    //deckTobeshuffled[b] = temp;
-    deckTobeshuffled[b].identifier = temp.identifier;
-    deckTobeshuffled[b].isCamel = temp.isCamel;
-    deckTobeshuffled[b].PandaCamel = temp.PandaCamel;
-    deckTobeshuffled[b].isPrecious = temp.isPrecious;
-    deckTobeshuffled[b].rank = temp.rank;
+    Card temp ( deckTobeshuffled[a] );
+    deckTobeshuffled[a] = deckTobeshuffled[b];
+    deckTobeshuffled[b] = temp;
 }
 
 void Deck::printDeck()

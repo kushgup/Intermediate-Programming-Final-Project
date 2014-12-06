@@ -31,7 +31,7 @@ void PlayerHuman::makeMove() {
 			vector<char> mkt_take;
 			vector<int> hand_return;
 			int num_camels = 0;
-			while(cin >> ch) {
+			while(cin >> ch && ch != 'q') {
 				if(isdigit(ch))
 					hand_return.push_back((int) ch);
 				else if(ch >= 'A' && ch <= 'z')
@@ -45,8 +45,9 @@ void PlayerHuman::makeMove() {
                 exchange(next);
 		} else if(ch == 'd') {
 			vector<int> to_sell;
-			while(cin >> ch)
-				to_sell.push_back((int) ch);
+			while(cin >> ch && ch != 'q') {
+                to_sell.push_back((int) ch);
+			}
 			Move next(game_field, hand, to_sell);
 			if(next.isValid())
                 sellCards(next);

@@ -106,10 +106,6 @@ void Game::playGame()
         cout << "Lets start the round of Jaipur" << endl;
         while (!roundIsOver()){
             printBoard();
-            for(int k = 0; k < 55; k++)
-            {
-                cout << k << ": " << field.deck.deckTobeshuffled[k].getIdentifier() << endl;
-            }
             (*players[playerWinnerIndex]).makeMove();
             field.refillMarket();
             printBoard();
