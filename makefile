@@ -1,13 +1,11 @@
 CFLAGS = -std=c++11 -pedantic -Wall -Wextra -O -g
 CC = g++
 
-pg7: JaipurTest BankTest
+JaipurTest: JaipurTest.o Game.o PlayerHuman.o PlayerComp.o Player.o Bank.o Move.o Token.o Card.o Field.o Deck.o
+	$(CC) $(CFLAGS) -o JaipurTest JaipurTest.o Game.o PlayerHuman.o PlayerComp.o Player.o Bank.o Move.o Token.o Card.o Field.o Deck.o
 
 BankTest: BankTest.o Bank.o
 	$(CC) $(CFLAGS) -o BankTest BankTest.o Bank.o
-
-JaipurTest: JaipurTest.o Game.o PlayerHuman.o PlayerComp.o Player.o Bank.o Move.o Token.o Card.o Field.o Deck.o
-	$(CC) $(CFLAGS) -o JaipurTest JaipurTest.o Game.o PlayerHuman.o PlayerComp.o Player.o Bank.o Move.o Token.o Card.o Field.o Deck.o
 
 PlayerHumanTest: PlayerHumanTest.o PlayerHuman.o Player.o Bank.o Move.o Token.o Card.o Field.o Deck.o
 	$(CC) $(CFLAGS) -o PlayerHumanTest PlayerHumanTest.o PlayerHuman.o Player.o Bank.o Move.o Token.o Card.o Field.o Deck.o
@@ -61,4 +59,4 @@ clean:
 	\rm *.o *gch Driver BankTest PlayerHumanTest
 
 zip:
-	zip -l pg7g.zip makefile README *.h *.cpp
+	zip -l pg7.zip makefile README *.h *.cpp
