@@ -6,8 +6,8 @@ pg7: JaipurTest BankTest
 BankTest: BankTest.o Bank.o
 	$(CC) $(CFLAGS) -o BankTest BankTest.o Bank.o
 
-JaipurTest: JaipurTest.o Game.o
-	$(CC) $(CFLAGS) -o JaipurTest JaipurTest.o Game.o
+JaipurTest: JaipurTest.o Game.o PlayerHuman.o PlayerComp.o Player.o Bank.o Move.o Token.o Card.o Field.o Deck.o
+	$(CC) $(CFLAGS) -o JaipurTest JaipurTest.o Game.o PlayerHuman.o PlayerComp.o Player.o Bank.o Move.o Token.o Card.o Field.o Deck.o
 
 PlayerHumanTest: PlayerHumanTest.o PlayerHuman.o Player.o Bank.o Move.o Token.o Card.o Field.o Deck.o
 	$(CC) $(CFLAGS) -o PlayerHumanTest PlayerHumanTest.o PlayerHuman.o Player.o Bank.o Move.o Token.o Card.o Field.o Deck.o

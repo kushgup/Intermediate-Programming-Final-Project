@@ -9,7 +9,7 @@ Move::Move(Field * f) // use of this constructor means: "camels"
 
 	while(iterMarket != field->market.end())
 	{
-		if((*(*iterMarket)).Card::getIsCamel())
+		if((**iterMarket).getIsCamel())
 		{
 			fieldCamels.push_back(iterMarket);
 			// do I need to increment iterCamels???

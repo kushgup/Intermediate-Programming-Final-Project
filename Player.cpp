@@ -30,7 +30,8 @@ void Player::printHand() const {
 void Player::takeCamels(Move to_make) {
 
 	//assumes that the field has been checked by "move" object already... look for fieldCamels
-	vector<vector<Card *>::iterator>::iterator iter = to_make.fieldCamels.begin(), iter_end = to_make.fieldCamels.end();
+	//reverse iterator so that delete, the other iterators aren't messed up
+	vector<vector<Card *>::iterator>::reverse_iterator iter = to_make.fieldCamels.rbegin(), iter_end = to_make.fieldCamels.rend();
 	while(iter != iter_end) {
 		herd.push_back(**iter); //add to herd
 		game_field->market.erase(*iter); //delete from market
@@ -49,9 +50,9 @@ void Player::exchange(Move to_make) {
 
 	//assumes that the field has been checked by "move" object already... look for takeMult and returnMult
 	//take cards first
-	vector<vector<Card *>::iterator>::iterator takeIter = to_make.takeMult.begin(), takeIter_end = to_make.takeMult.end();
+	vector<vector<Card *>::iterator>::reverse_iterator takeIter = to_make.takeMult.rbegin(), takeIter_end = to_make.takeMult.rend();
 	while(takeIter != takeIter_end) {
-		hand.insert(**takeIter); //add to hand
+		hand.push_back(**takeIter); //add to hand
 		game_field->market.erase(*takeIter); //delete from market
 		takeIter++; //update the iterator through the vector of iterators
 	}
