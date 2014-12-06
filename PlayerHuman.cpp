@@ -69,6 +69,7 @@ void PlayerHuman::makeMove() {
 
 		else if(ch == 'd')
 		{
+			cout << "Selected d" << endl;
 			vector<int> to_sell;
 
 			while( isspace(c_two =getchar()) ); // c is the first non-whitespace character to be entered
