@@ -88,8 +88,8 @@ void Player::sellCards(Move to_make) {
 	}
 }
 
-void Player::resetForRound()
-{
+void Player::resetForRound() {
+	
     hand.clear();
     herd.clear();
     tokens.clear();
