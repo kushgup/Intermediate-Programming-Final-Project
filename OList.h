@@ -12,12 +12,12 @@ class Node {
     friend class OList<T>;
     friend class OListIterator<T>; //friend the iterator so it doesn't have to call getValue and getNext all the time
 
-private:
+public://private:
     T value;
     Node<T> * next;
-    
+
 public:
-    Node(): next(NULL) { } 
+    Node(): next(NULL) { }
     Node(T val): value(val), next(NULL) { }
     Node(T val, Node<T> *other): value(val), next(other) { }
 
@@ -28,9 +28,9 @@ public:
 template <class T>
 class OList {
 
-private:
+public://private:
     Node<T> * head;
-    
+
 public:
     OList(): head(NULL) { } //default constructor
     OList(const OList<T> & other); //copy constructor
@@ -68,7 +68,7 @@ OList<T>::~OList() {
 
 template <class T>
 void OList<T>::clear() {
-    
+
     Node<T> * curr = head;
     while(curr) {
         head = head->next;
@@ -80,7 +80,7 @@ void OList<T>::clear() {
 
 template <class T>
 int OList<T>::size() const {
-    
+
     int size = 0;
     Node<T> * curr = head;
     while(curr) {
@@ -123,7 +123,7 @@ int OList<T>::count(T val) const {
 
 template <class T>
 void OList<T>::insert(T val) {
-    
+
     if(!head) {
         head = new Node<T>(val, NULL);
         return;

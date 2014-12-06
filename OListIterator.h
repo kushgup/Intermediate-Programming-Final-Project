@@ -6,10 +6,10 @@
 template <class T>
 class OListIterator {
 
-private:
+public://private:
     Node<T> * position;
     //no "last" position since we are not defining any -- operators
-    
+
 public:
     OListIterator(Node<T> * pos): position(pos) { } //conversion constructor
 
@@ -38,7 +38,7 @@ OListIterator<T> & OListIterator<T>::operator+= (int move) {
 
 template <class T>
 OListIterator<T> OListIterator<T>::operator+ (int move) const {
-    
+
     Node<T> * curr = position;
     while(curr && move-- > 0) { //don't return any shifted iterator if position is null or move < 0, since the forward move is invalid. Return original
         if(curr)

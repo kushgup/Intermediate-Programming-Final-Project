@@ -16,8 +16,6 @@ Game::Game(): roundNum(1), playerWinnerIndex(0) {
             cout << "# players must be btw 0 and 2!" << endl;
         }
     }
-
-
 }
 
 /*
@@ -33,7 +31,9 @@ Game::~Game() {
 
 void Game::initPlayers() {
     //////////////// get number of human / AI players ////////////////
-    int numPlayers;
+
+    int numPlayers = 2;
+    /*
     cout << "Enter how many human players will be playing (0 - 2)" << endl;
     cin >> numPlayers;
     if (numPlayers < 0 || numPlayers > 2) {
@@ -42,11 +42,15 @@ void Game::initPlayers() {
     // try catch potentially
 
     int i = 0;
-    string name;
+    */
+    int i = 0;
+    string name = "Zebulon";
     while(numPlayers--) // create human players
     {
+        /*
         cout << "Enter player name" << endl;
         cin >> name;
+        */
         players[i++] = new PlayerHuman(name, &field, &bank);
 
     }
@@ -101,10 +105,14 @@ bool Game::gameOver()
 
 void Game::playGame()
 {
-    while(!gameOver())
+    int numRepsGame = 1; // testing
+    int numRepsRound = 1; // testing
+    //while(!gameOver())
+    while(numRepsGame--)
     {
-        cout << "Lets start the round of Jaipur" << endl;
-        while (!roundIsOver()){
+        cout << "Let's start the round of Jaipur" << endl;
+        //while (!roundIsOver()){
+        while(numRepsRound--) {
             printBoard();
             (*players[playerWinnerIndex]).makeMove();
             field.refillMarket();

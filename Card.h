@@ -8,6 +8,7 @@ using namespace std;
 
 class Card
 {
+public://private:
     friend class Deck; // TAKE THIS OUT. FOR TESTING ONLY
 
     string identifier;

@@ -8,6 +8,7 @@
 
 class Deck
 {
+public://private:
     friend class Game;
 
     Card deckTobeshuffled[MAXCARDSINDECK]; // this seems to call Card() default constructor on all array elements automatically
@@ -25,7 +26,7 @@ public:
     Card * dealCard();
     int getPlaceInDeck() const { return placeinDeck; };
 
-private:
+public://private:
 
     void swap (int, int);
 

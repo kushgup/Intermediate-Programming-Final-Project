@@ -15,9 +15,10 @@ class Move
 
 {
 
+public://private:
 	friend class Player; // so that after validation, Player can look into Move object to get stored Card *
 
-private:
+public://private:
 	Field * field; // how we'll access Field, and thus see if moves are valid
 
 	string type; // "camels" (take all camels) || "take" || "exchange" || "sell"

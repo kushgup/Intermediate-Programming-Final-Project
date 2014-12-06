@@ -15,7 +15,7 @@ class PlayerHuman;
 
 class Game {
 
-private:
+public://private:
 
 	Field field; // default constructor gets called automatically upon game objection creation
 	Bank bank; // default constructor gets called automatically upon game objection creation
@@ -33,7 +33,7 @@ public:
 	void playGame(); // move to private area eventually...
 	void initPlayers();
 
-private:
+public://private:
 
     void printBoard();
 	int getRoundNum() const { return roundNum; };
