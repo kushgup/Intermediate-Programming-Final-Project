@@ -20,16 +20,16 @@
 	<stdio.h>
 	<iostream>
 
-1417820955 source:s:\mnmstorage\documents\michael\jhu\14'15_sophmore\2014fall\intermediateprogramming\c++\final\final\card.cpp
+1417826519 source:s:\mnmstorage\documents\michael\jhu\14'15_sophmore\2014fall\intermediateprogramming\c++\final\final\card.cpp
 	"Card.h"
 	<stdio.h>
 	<iostream>
 
-1417819944 s:\mnmstorage\documents\michael\jhu\14'15_sophmore\2014fall\intermediateprogramming\c++\final\final\card.h
+1417827087 s:\mnmstorage\documents\michael\jhu\14'15_sophmore\2014fall\intermediateprogramming\c++\final\final\card.h
 	<stdio.h>
 	<iostream>
 
-1417821129 source:s:\mnmstorage\documents\michael\jhu\14'15_sophmore\2014fall\intermediateprogramming\c++\final\final\deck.cpp
+1417827516 source:s:\mnmstorage\documents\michael\jhu\14'15_sophmore\2014fall\intermediateprogramming\c++\final\final\deck.cpp
 	"Deck.h"
 	<array>
 	<string>
@@ -37,7 +37,7 @@
 	<cstdlib>
 	<ctime>
 
-1417821081 s:\mnmstorage\documents\michael\jhu\14'15_sophmore\2014fall\intermediateprogramming\c++\final\final\deck.h
+1417825945 s:\mnmstorage\documents\michael\jhu\14'15_sophmore\2014fall\intermediateprogramming\c++\final\final\deck.h
 	<stdio.h>
 	"Card.h"
 
@@ -55,7 +55,7 @@
 	"Deck.h"
 	"Card.h"
 
-1417822578 source:s:\mnmstorage\documents\michael\jhu\14'15_sophmore\2014fall\intermediateprogramming\c++\final\final\game.cpp
+1417827550 source:s:\mnmstorage\documents\michael\jhu\14'15_sophmore\2014fall\intermediateprogramming\c++\final\final\game.cpp
 	"Game.h"
 	<ctime>
 	<string>
@@ -100,7 +100,7 @@
 	"Deck.h"
 	"Field.h"
 
-1417821997 source:s:\mnmstorage\documents\michael\jhu\14'15_sophmore\2014fall\intermediateprogramming\c++\final\final\player.cpp
+1417824353 source:s:\mnmstorage\documents\michael\jhu\14'15_sophmore\2014fall\intermediateprogramming\c++\final\final\player.cpp
 	"Player.h"
 	<iomanip>
 
@@ -131,7 +131,7 @@
 	<stdio.h>
 	<iostream>
 
-1417823167 s:\mnmstorage\documents\michael\jhu\14'15_sophmore\2014fall\intermediateprogramming\c++\final\final\game.h
+1417823553 s:\mnmstorage\documents\michael\jhu\14'15_sophmore\2014fall\intermediateprogramming\c++\final\final\game.h
 	"State.h"
 	"PlayerComp.h"
 	"PlayerHuman.h"

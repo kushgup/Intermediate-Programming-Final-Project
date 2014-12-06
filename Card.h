@@ -8,6 +8,8 @@ using namespace std;
 
 class Card
 {
+    friend class Deck; // TAKE THIS OUT. FOR TESTING ONLY
+
     string identifier;
     bool isCamel;
     bool PandaCamel;
@@ -33,6 +35,7 @@ public:
     bool operator< (const Card&);
     bool operator<= (const Card&);
     bool operator!= (const Card&);
+    bool operator= (const Card &);
 
 };
 
