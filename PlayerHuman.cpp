@@ -18,7 +18,13 @@ void PlayerHuman::makeMove() {
 	//big try catch block to do exception handling
 	//try {
 		//have text-based GUI and construct move objects, then call individual functions checking valid first
+		
+
+		///////// if NOT using cin (using C-type functions instead) /////////
 		char c_one, c_two;
+		/////////////////////////////////////////////////////////////////////
+		
+
 		cin >> ch;
 		if(ch == 'a')
 		{
@@ -35,10 +41,6 @@ void PlayerHuman::makeMove() {
 			if(next.isValid())
                 takeCard(next);
 		}
-
-		///////// if NOT using cin (using C-type functions instead) /////////
-
-		/////////////////////////////////////////////////////////////////////
 
 		else if(ch == 'c')
 		{
