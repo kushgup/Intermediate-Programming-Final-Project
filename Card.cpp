@@ -3,27 +3,25 @@
 #include <iostream>
 using namespace std;
 
-Card::Card(string Id): identifier(Id), PandaCamel(false), isCamel(false), rank(0)
+Card::Card(string Id): identifier(Id), PandaCamel(false), isCamel(false), isPrecious(false), rank(0)
 {
     if(Id == "Camel")
         isCamel = true;
 
     if(Id == "Gold" || Id == "Silver" || Id == "Diamonds")
         isPrecious = true;
-    else
-        isPrecious = false;
 
     if(Id == "Diamonds")
         rank = 6;
-    if(Id == "Gold")
+    else if(Id == "Gold")
         rank = 5;
-    if(Id == "Silver")
+    else if(Id == "Silver")
         rank = 4;
-    if(Id == "Cloth")
+    else if(Id == "Cloth")
         rank = 3;
-    if(Id == "Spice")
+    else if(Id == "Spice")
         rank = 2;
-    if(Id == "Paper")
+    else if(Id == "Paper")
         rank = 1;
 
 }
@@ -33,19 +31,8 @@ Card::Card(Card & other)
     identifier = other.identifier;
     isCamel = other.isCamel;
     PandaCamel = other.PandaCamel;
-    rank = 0;
-    if(identifier == "Diamonds")
-        rank = 6;
-    if(identifier == "Gold")
-        rank = 5;
-    if(identifier == "Silver")
-        rank = 4;
-    if(identifier == "Cloth")
-        rank = 3;
-    if(identifier == "Spice")
-        rank = 2;
-    if(identifier == "Paper")
-        rank = 1;
+    isPrecious = other.isPrecious;
+    rank = other.rank;
 }
 /*
 Card::~Card()
@@ -76,6 +63,15 @@ void Card::setPandaCamel()
 void Card::printCard() const
 {
     cout << this->identifier;
+}
+
+bool Card::operator= (const Card & other)
+{
+    identifier = other.identifier;
+    isCamel = other.isCamel;
+    PandaCamel = other.PandaCamel;
+    isPrecious = other.isPrecious;
+    rank = other.rank;
 }
 
 bool Card::operator== (const Card & other)

@@ -8,7 +8,9 @@
 
 class Deck
 {
-    Card deckTobeshuffled[MAXCARDSINDECK];
+    friend class Game;
+
+    Card deckTobeshuffled[MAXCARDSINDECK]; // this seems to call Card() default constructor on all array elements automatically
     int placeinDeck;
 
 public:

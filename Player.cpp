@@ -17,12 +17,14 @@ int Player::countPts() const {
 
 void Player::printHand() const {
 
-	cout << name << std::setfill('*') << std::setw(50) << endl;
-	cout << std::setfill(' ');
+	cout << std::setfill('*') << std::setw(50) << endl;
+	//cout << std::setfill(' ');
+	cout << '\n' << name << '\n'; ///TODO
+	cout.flush();//replaces endl without newline
 	int i = 1;
 	for(OListIterator<Card*> iter = hand.begin(); iter != hand.end(); iter++)
-		cout << i << ") " << (**iter).getIdentifier() << endl;
-	cout << "Camels: " << herd.size() << endl;
+		cout << i++ << ") " << (**iter).getIdentifier() << endl;
+	cout << "Camels: " << herd.size() << '\n' << endl;
 }
 
 void Player::takeCamels(Move to_make) {

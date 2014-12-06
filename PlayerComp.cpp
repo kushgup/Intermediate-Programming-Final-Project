@@ -40,7 +40,7 @@ void PlayerComp::makeMove() {
 	} else {
 		srand(time(NULL));
 		int x;
-		bool y;
+		bool y = false;
 		while(!y) {
 			x = rand() / (RAND_MAX / 4 + 1);
 			switch (x) {

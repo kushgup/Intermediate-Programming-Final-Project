@@ -9,6 +9,9 @@ BankTest: BankTest.o Bank.o
 Driver: Driver.o Game.o
 	$(CC) $(CFLAGS) -o Driver Driver.o Game.o
 
+JaipurTest: JaipurTest.o Game.o PlayerHuman.o PlayerComp.o Player.o Bank.o Move.o Token.o Card.o Field.o Deck.o
+	$(CC) $(CFLAGS) -o JaipurTest JaipurTest.o Game.o PlayerHuman.o PlayerComp.o Player.o Bank.o Move.o Token.o Card.o Field.o Deck.o
+
 PlayerHumanTest: PlayerHumanTest.o PlayerHuman.o Player.o Bank.o Move.o Token.o Card.o Field.o Deck.o
 	$(CC) $(CFLAGS) -o PlayerHumanTest PlayerHumanTest.o PlayerHuman.o Player.o Bank.o Move.o Token.o Card.o Field.o Deck.o
 
@@ -32,6 +35,9 @@ Field.o: Field.cpp Field.h Card.h Deck.h
 
 Game.o: Game.cpp Game.h State.h PlayerComp.h PlayerHuman.h Player.h Bank.h Move.h Token.h Card.h Field.h OListIterator.h OList.h Deck.h
 	$(CC) $(CFLAGS) -c Game.cpp
+
+JaipurTest.o: JaipurTest.cpp Game.h State.h PlayerComp.h PlayerHuman.h Player.h Bank.h Move.h Token.h Card.h Field.h OListIterator.h OList.h Deck.h
+	$(CC) $(CFLAGS) -c JaipurTest.cpp
 
 Move.o: Move.cpp Move.h Card.h Field.h Deck.h OListIterator.h OList.h
 	$(CC) $(CFLAGS) -c Move.cpp
