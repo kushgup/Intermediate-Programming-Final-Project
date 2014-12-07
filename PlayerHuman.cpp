@@ -4,7 +4,7 @@ This file contains all the function definitions for the Human Player
 
 #include "PlayerHuman.h"
 
-void PlayerHuman::makeMove() const {
+void PlayerHuman::makeMove(){
 
 	printHand();
 	cout << "a) take camels" << endl;
@@ -88,7 +88,7 @@ void PlayerHuman::makeMove() const {
                 std::cout << *i << ' ';
             cout << endl;
 
-			Move next(game_field, hand, to_sell);
+			Move next(hand, to_sell);
 			if(next.isValid())
                 sellCards(next);
 		}

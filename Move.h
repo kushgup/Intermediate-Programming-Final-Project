@@ -35,9 +35,9 @@ public://private:
 	/*********************************************************************************************/
 
 public:
-	Move(): field(NULL), type(""), validMove(false) {};
+	Move(): type(""), validMove(false) {};
 	Move(Field * f); // use of this constructor means: "camels"
-	Move(Field * f, OList<Card *> & handRef, vector<int>); // use of this constructor means: "sell"
+	Move(OList<Card *> & handRef, vector<int>); // use of this constructor means: "sell"
 	Move(Field * f, OList<Card *> & handRef, vector<int>, vector<char>, int num_camels, vector<Card *> &); // use of this constructor means: "exchange"
 	Move(Field * f, OList<Card *> & handRef, char); // use of this constructor means: "take"
 
@@ -47,8 +47,7 @@ private:
 	void fetchHandCards(
 		vector<int> cardIndices,
 		OList<Card *> & handRef,
-		vector< OListIterator<Card *> > & iterators_Vector, 
-		Field *
+		vector< OListIterator<Card *> > & iterators_Vector
 	);
 	void fetchMarketCards(
 		vector<char> cardIndices,

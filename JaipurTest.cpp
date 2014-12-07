@@ -18,7 +18,8 @@ int main() {
 	assert((**(my_game.players[0]->hand.get(3))).getIdentifier() == "Diamonds");
 	assert((**(my_game.players[0]->hand.get(4))).getIdentifier() == "Gold");
 
-    my_game.players[0]->takeCamels(Move( &(my_game.field) ));
+	Move taking_camels(&(my_game.field));
+    my_game.players[0]->takeCamels(taking_camels);
     assert(my_game.players[0]->herd.size() == 4);
 
     my_game.field.refillMarket();
@@ -28,12 +29,10 @@ int main() {
 	assert(my_game.field.market.at(3)->identifier == "Spice");
 	assert(my_game.field.market.at(4)->identifier == "Gold");
 
-
-    my_game.players[1]->takeCard(Move( &(my_game.field), my_game.players[1]->hand, 'a'));
+	Move taking_card(&(my_game.field), my_game.players[1]->hand, 'a');
+    my_game.players[1]->takeCard(taking_card);
     assert(my_game.players[1]->hand.size() == 5);
     //assert(my_game.players[0]->herd.size() == 4);
-
-
 
 
 	//hardcoded srand(11)

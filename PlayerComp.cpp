@@ -2,7 +2,7 @@
 #include <ctime>
 #include <cstdlib>
 
-void PlayerComp::makeMove() {
+void PlayerComp::makeMove(){
 
 	//make four different moves and just pick one that is valid
 	Move next1(game_field); //takes camels
@@ -16,7 +16,7 @@ void PlayerComp::makeMove() {
 	Move next3(game_field, hand, a, b, 0, herd); //exchange first two cards in market for first two cards in hand
 	vector<int> c;
 	c.push_back(1);
-	Move next4(game_field, hand, c); //sell first card in hand
+	Move next4(hand, c); //sell first card in hand
 
 	if(!next1.isValid() && !next2.isValid() && !next3.isValid() && !next4.isValid()) {
 		//only reason take should fail is if hand is 7
@@ -24,14 +24,14 @@ void PlayerComp::makeMove() {
 		c.clear();
 		for(int i = 1; i < hand.size() - 1; i++) {
 			c.push_back(i);
-			next3 = Move(game_field, hand, c);
-			if(next3.isValid())
-				sellCards(next3);	
+			next4 = Move(hand, c);
+			if(next4.isValid())
+				sellCards(next4);	
 			for(int j = i + 1; j < hand.size(); j++) {
 				c.push_back(j);
-				next3 = Move(game_field, hand, c);
-				if(next3.isValid())
-					sellCards(next3);
+				next4 = Move(hand, c);
+				if(next4.isValid())
+					sellCards(next4);
 				else
 					c.pop_back();
 			}

@@ -2,9 +2,9 @@
 
 Move::Move(Field * f): type("camels") // use of this constructor means: "camels"
 {
-	vector<Card *>::iterator iterMarket = field->market.begin();
+	vector<Card *>::iterator iterMarket = f->market.begin(), iterMarket_end = f->market.end();
 
-	while(iterMarket != field->market.end())
+	while(iterMarket != iterMarket_end)
 	{
 		if((**iterMarket).getIsCamel())
 		{
@@ -24,10 +24,10 @@ Move::Move(Field * f): type("camels") // use of this constructor means: "camels"
 		validMove = true;
 }
 
-Move::Move(Field * f, OList<Card *> & handRef, vector<int> cardsToSell): type("sell") // use of this constructor means: "sell"
+Move::Move(OList<Card *> & handRef, vector<int> cardsToSell): type("sell") // use of this constructor means: "sell"
 {
 	// fill sell with iterators pointing to all cards being sold
-	fetchHandCards(cardsToSell, handRef, sell, f);
+	fetchHandCards(cardsToSell, handRef, sell);
 
 	// now, sell vector should contain iterators pointing to all the cards that the player wants to sell
 	// we want to check that these cards can, indeed, be sold
@@ -75,7 +75,7 @@ Move::Move(Field * f, OList<Card *> & handRef, vector<int> cardsToGive, vector<c
 		return;
 	}
 
-	fetchHandCards(cardsToGive, handRef, returnMult, f); // fill returnMult with iterators pointing to all cards being given
+	fetchHandCards(cardsToGive, handRef, returnMult); // fill returnMult with iterators pointing to all cards being given
 	fetchMarketCards(cardsToTake, takeMult, f); // fill takeMult with iterators pointing to all cards being taken
 
 	// now, returnMult and takeMult vectors should contain iterators pointing to all the cards that the player wants to exchange
@@ -131,7 +131,7 @@ Move::Move(Field * f, OList<Card *> & handRef, char index): type("take") // use 
 	validMove = true;
 }
 
-void Move::fetchHandCards(vector<int> cardIndices, OList<Card *> & handRef, vector< OListIterator<Card *> > & iterators_Vector, Field * field)
+void Move::fetchHandCards(vector<int> cardIndices, OList<Card *> & handRef, vector< OListIterator<Card *> > & iterators_Vector)
 {
 	// first check to ensure no repeats
 	vector<int>::iterator iter1;

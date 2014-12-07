@@ -22,7 +22,7 @@ class Player {
 
 	friend class Game; // allows Game class to access hand and deal initial hand
 
-protected:
+public: //protected:
 
 	string name; //store the name of the player
 	Field * game_field; //store a pointer to the game's field
@@ -42,10 +42,10 @@ public:
 	int countPts() const;
 	int countSeals() const { return seals.size(); };
 	void printHand() const;
-	virtual void makeMove() = 0 const; //decides which action to take on the turn, should be overwritten for human and AI players
+	virtual void makeMove() = 0; //decides which action to take on the turn, should be overwritten for human and AI players
     void resetForRound();
 
-protected:
+public: //protected:
 
 	void takeCamels(Move & to_make); //option 1, take all the camels in the market
 	void takeCard(Move & to_make); //option 2, take a single card from market
