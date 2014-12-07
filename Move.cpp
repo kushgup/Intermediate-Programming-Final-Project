@@ -1,6 +1,6 @@
 #include "Move.h"
 
-Move::Move(Field * f): type("camels"), field(f) // use of this constructor means: "camels"
+Move::Move(Field * f): type("camels") // use of this constructor means: "camels"
 {
 	vector<Card *>::iterator iterMarket = field->market.begin();
 
@@ -24,10 +24,10 @@ Move::Move(Field * f): type("camels"), field(f) // use of this constructor means
 		validMove = true;
 }
 
-Move::Move(Field * f, OList<Card *> & handRef, vector<int> cardsToSell): type("sell"), field(f) // use of this constructor means: "sell"
+Move::Move(Field * f, OList<Card *> & handRef, vector<int> cardsToSell): type("sell") // use of this constructor means: "sell"
 {
 	// fill sell with iterators pointing to all cards being sold
-	fetchHandCards(cardsToSell, handRef, sell);
+	fetchHandCards(cardsToSell, handRef, sell, f);
 
 	// now, sell vector should contain iterators pointing to all the cards that the player wants to sell
 	// we want to check that these cards can, indeed, be sold
@@ -60,7 +60,7 @@ Move::Move(Field * f, OList<Card *> & handRef, vector<int> cardsToSell): type("s
 }
 
 // use of this constructor means: "exchange"
-Move::Move(Field * f, OList<Card *> & handRef, vector<int> cardsToGive, vector<char> cardsToTake, int num_camels, vector<Card *> & herd): type("exchange"), field(f), num_camels_exchanged(num_camels) 
+Move::Move(Field * f, OList<Card *> & handRef, vector<int> cardsToGive, vector<char> cardsToTake, int num_camels, vector<Card *> & herd): type("exchange"), num_camels_exchanged(num_camels) 
 {
 	//////////// PRELIMINARY CHECKS //////////////
 	bool too_many_takes = (handRef.size() + cardsToTake.size() - cardsToGive.size()) > 7; 	// check that player isn't taking more than 7 cards into hand
@@ -75,8 +75,8 @@ Move::Move(Field * f, OList<Card *> & handRef, vector<int> cardsToGive, vector<c
 		return;
 	}
 
-	fetchHandCards(cardsToGive, handRef, returnMult); // fill returnMult with iterators pointing to all cards being given
-	fetchMarketCards(cardsToTake, takeMult); // fill takeMult with iterators pointing to all cards being taken
+	fetchHandCards(cardsToGive, handRef, returnMult, f); // fill returnMult with iterators pointing to all cards being given
+	fetchMarketCards(cardsToTake, takeMult, f); // fill takeMult with iterators pointing to all cards being taken
 
 	// now, returnMult and takeMult vectors should contain iterators pointing to all the cards that the player wants to exchange
 	// we want to check that these cards can, indeed, be exchanged
@@ -106,7 +106,7 @@ Move::Move(Field * f, OList<Card *> & handRef, vector<int> cardsToGive, vector<c
 	validMove = true;
 }
 
-Move::Move(Field * f, OList<Card *> & handRef, char index): type("take"), field(f) // use of this constructor means: "take"
+Move::Move(Field * f, OList<Card *> & handRef, char index): type("take") // use of this constructor means: "take"
 {
 	////////// preliminary testing ////////////////
 	// shouldn't have 7 cards in hand already
@@ -117,7 +117,7 @@ Move::Move(Field * f, OList<Card *> & handRef, char index): type("take"), field(
 		return;	
 	}
 
-	fetchSingleMarketCard(index, takeSingle);
+	fetchSingleMarketCard(index, takeSingle, f);
 
 	////////// final testing //////////////////////
 	// shouldn't be a camel
@@ -131,7 +131,7 @@ Move::Move(Field * f, OList<Card *> & handRef, char index): type("take"), field(
 	validMove = true;
 }
 
-void Move::fetchHandCards(vector<int> cardIndices, OList<Card *> & handRef, vector< OListIterator<Card *> > & iterators_Vector)
+void Move::fetchHandCards(vector<int> cardIndices, OList<Card *> & handRef, vector< OListIterator<Card *> > & iterators_Vector, Field * field)
 {
 	// first check to ensure no repeats
 	vector<int>::iterator iter1;
@@ -176,7 +176,7 @@ void Move::fetchHandCards(vector<int> cardIndices, OList<Card *> & handRef, vect
 
 }
 
-void Move::fetchMarketCards(vector<char> cardIndices, vector< vector<Card *>::iterator > & iterators_Vector)
+void Move::fetchMarketCards(vector<char> cardIndices, vector< vector<Card *>::iterator > & iterators_Vector, Field * field)
 {
 	// first check to ensure no repeats
 	vector<char>::iterator iter1;
@@ -222,7 +222,7 @@ void Move::fetchMarketCards(vector<char> cardIndices, vector< vector<Card *>::it
 
 }
 
-void Move::fetchSingleMarketCard(char cardIndex, vector< Card *>::iterator & iter)
+void Move::fetchSingleMarketCard(char cardIndex, vector< Card *>::iterator & iter, Field * field)
 {
 	////////////// to fetch the card //////////////////
 
