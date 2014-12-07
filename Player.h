@@ -42,15 +42,15 @@ public:
 	int countPts() const;
 	int countSeals() const { return seals.size(); };
 	void printHand() const;
-	virtual void makeMove() = 0; //decides which action to take on the turn, should be overwritten for human and AI players
+	virtual void makeMove() = 0 const; //decides which action to take on the turn, should be overwritten for human and AI players
     void resetForRound();
 
 public://protected:
 
-	void takeCamels(Move to_make); //option 1, take all the camels in the market
-	void takeCard(Move to_make); //option 2, take a single card from market
-	void exchange(Move to_make); //option 3, take multiple cards from market and exchange from hand and/or herd
-	void sellCards(Move to_make); //option 4, sell cards from the hand
+	void takeCamels(Move & to_make); //option 1, take all the camels in the market
+	void takeCard(Move & to_make); //option 2, take a single card from market
+	void exchange(Move & to_make); //option 3, take multiple cards from market and exchange from hand and/or herd
+	void sellCards(Move & to_make); //option 4, sell cards from the hand
 };
 
 //need overloaded operators (typecast, >> << for input/output, all the == stuff), exception handling, and test cases

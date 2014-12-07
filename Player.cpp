@@ -27,7 +27,7 @@ void Player::printHand() const {
 	cout << "Camels: " << herd.size() << '\n' << endl;
 }
 
-void Player::takeCamels(Move to_make) {
+void Player::takeCamels(Move & to_make) {
 
 	//assumes that the field has been checked by "move" object already... look for fieldCamels
 	//reverse iterator so that delete, the other iterators aren't messed up
@@ -39,14 +39,14 @@ void Player::takeCamels(Move to_make) {
 	}
 }
 
-void Player::takeCard(Move to_make) {
+void Player::takeCard(Move & to_make) {
 
 	//assumes that the field has been checked by "move" object already... look for takeSingle
 	hand.insert(*to_make.takeSingle); //add to hand
 	game_field->market.erase(to_make.takeSingle); //delete from market
 }
 
-void Player::exchange(Move to_make) {
+void Player::exchange(Move & to_make) {
 
 	//assumes that the field has been checked by "move" object already... look for takeMult and returnMult
 	//take cards first
@@ -71,7 +71,7 @@ void Player::exchange(Move to_make) {
 	}
 }
 
-void Player::sellCards(Move to_make) {
+void Player::sellCards(Move & to_make) {
 
 	//assumes that the field has been checked by "move" object already... look for sell
 	//sell cards by deleting them, meanwhile adding tokens
