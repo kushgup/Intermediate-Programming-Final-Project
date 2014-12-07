@@ -3,7 +3,6 @@ This file contains all the function definitions for the Human Player
 */
 
 #include "PlayerHuman.h"
-#include "ctype.h" // <ctype.h>
 
 void PlayerHuman::makeMove() const {
 

@@ -1,5 +1,5 @@
-#ifndef MOVE_H_INCLUDED
-#define MOVE_H_INCLUDED
+#ifndef _MOVE_H_INCLUDED
+#define _MOVE_H_INCLUDED
 
 #include <string>
 #include <vector>
@@ -10,9 +10,7 @@
 using std::vector;
 using std::string;
 
-
 class Move
-
 {
 
 public://private:
@@ -75,6 +73,5 @@ private:
 	);
 
 };
-
 
 #endif // MOVE_H_INCLUDED

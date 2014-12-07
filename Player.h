@@ -22,13 +22,13 @@ class Player {
 
 	friend class Game; // allows Game class to access hand and deal initial hand
 
-public://protected:
+protected:
 
 	string name; //store the name of the player
 	Field * game_field; //store a pointer to the game's field
 	Bank * game_bank; //store a pointer to the bank to take tokens when needed
 	OList<Card *> hand; //separate linked list of resource cards for the hand
-	vector<Card*> herd; //separate linked list of camels
+	vector<Card *> herd; //separate linked list of camels
 	vector<Token *> seals; //keep track of how many seals the player has
 	vector<Token *> tokens; //keep track of tokens collected
 
@@ -45,7 +45,7 @@ public:
 	virtual void makeMove() = 0 const; //decides which action to take on the turn, should be overwritten for human and AI players
     void resetForRound();
 
-public://protected:
+protected:
 
 	void takeCamels(Move & to_make); //option 1, take all the camels in the market
 	void takeCard(Move & to_make); //option 2, take a single card from market
@@ -53,6 +53,6 @@ public://protected:
 	void sellCards(Move & to_make); //option 4, sell cards from the hand
 };
 
-//need overloaded operators (typecast, >> << for input/output, all the == stuff), exception handling, and test cases
+//need exception handling + testing, overloaded operators (typecast, >> << for input/output, all the == stuff)
 
 #endif
