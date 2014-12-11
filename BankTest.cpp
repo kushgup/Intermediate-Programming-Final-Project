@@ -8,7 +8,7 @@
 using std::cout;
 using std::endl;
 
-int main(int argc, const char * argv[]) {
+int main() {
 
     Bank one = *new Bank();
     one.Bank::printBank();
