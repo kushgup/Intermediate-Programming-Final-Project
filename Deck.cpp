@@ -75,8 +75,7 @@ void Deck::shuffle()
     int num_cards = 52;
     //shuffle the deck by iterating 60 times, have a random number generator, swap cards in the deck
     int x, i;
-    //srand(time(NULL));
-    srand(11);
+    srand(time(NULL));
     for (i = 0; i < num_cards; i++) {
         x = rand() / (RAND_MAX / num_cards + 1);
         swap(i, x);

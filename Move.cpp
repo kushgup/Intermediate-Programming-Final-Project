@@ -13,15 +13,16 @@ Move::Move(Field * f): type("camels") // use of this constructor means: "camels"
 		}
 		iterMarket++;
 	}
-
+    
 	if(fieldCamels.size() == 0) // 0 camels
 	{
 		validMove = false;
-		// throw exception??
-		return;
 	}
 	else
 		validMove = true;
+    
+
+
 }
 
 Move::Move(OList<Card *> & handRef, vector<int> cardsToSell): type("sell") // use of this constructor means: "sell"

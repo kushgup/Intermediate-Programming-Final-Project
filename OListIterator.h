@@ -6,7 +6,7 @@
 template <class T>
 class OListIterator {
 
-public://private:
+private:
     Node<T> * position;
     //no "last" position since we are not defining any -- operators
 

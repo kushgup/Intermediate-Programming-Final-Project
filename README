@@ -11,3 +11,6 @@ $ make JaipurTest
 $ ./JaipurTest
 
 This file has a lot of our functions getting tested, but most complex functionality (even though it works) can't be done this way. Try it yourself!
+
+
+EJ: need to error catch if player inputs wrong value for move, i fixed the makefile and why are a bunch of the assertions in Jaipur test failing?

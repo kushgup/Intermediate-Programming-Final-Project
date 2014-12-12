@@ -13,10 +13,10 @@ using std::string;
 class Move
 {
 
-public://private:
+private:
 	friend class Player; // so that after validation, Player can look into Move object to get stored Card *
 
-public://private:
+private:
 
 	string type; // "camels" (take all camels) || "take" || "exchange" || "sell"
 	bool validMove;

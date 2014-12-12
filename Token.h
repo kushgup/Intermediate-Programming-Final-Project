@@ -8,7 +8,7 @@ using namespace std;
 
 class Token
 {
-public://private:
+private:
     int value;
     string TypeOfToken;
 

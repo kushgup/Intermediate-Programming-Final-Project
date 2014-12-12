@@ -1,7 +1,7 @@
 #include <iostream>
 #include "Game.h"
 
-int main(void) {
+int main() {
 
     Game g;
     g.playGame();

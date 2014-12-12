@@ -1,11 +1,16 @@
 CFLAGS = -std=c++11 -pedantic -Wall -Wextra -O -g
 CC = g++
 
+All: JaipurTest PlayerHumanTest BankTest Driver
+
+Driver: Driver.o Game.o Bank.o Deck.o Card.o Field.o Player.o Token.o PlayerHuman.o PlayerComp.o Move.o
+	$(CC) $(CFLAGS) -o Driver Driver.o Game.o Bank.o Deck.o Card.o Field.o Player.o Token.o PlayerHuman.o PlayerComp.o Move.o
+
 JaipurTest: JaipurTest.o Game.o PlayerHuman.o PlayerComp.o Player.o Bank.o Move.o Token.o Card.o Field.o Deck.o
 	$(CC) $(CFLAGS) -o JaipurTest JaipurTest.o Game.o PlayerHuman.o PlayerComp.o Player.o Bank.o Move.o Token.o Card.o Field.o Deck.o
 
-BankTest: BankTest.o Bank.o
-	$(CC) $(CFLAGS) -o BankTest BankTest.o Bank.o
+BankTest: BankTest.o Bank.o Field.o Card.o Token.o Deck.o
+	$(CC) $(CFLAGS) -o BankTest BankTest.o Bank.o Field.o Card.o Token.o Deck.o
 
 PlayerHumanTest: PlayerHumanTest.o PlayerHuman.o Player.o Bank.o Move.o Token.o Card.o Field.o Deck.o
 	$(CC) $(CFLAGS) -o PlayerHumanTest PlayerHumanTest.o PlayerHuman.o Player.o Bank.o Move.o Token.o Card.o Field.o Deck.o

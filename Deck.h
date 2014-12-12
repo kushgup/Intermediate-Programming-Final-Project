@@ -8,7 +8,7 @@
 
 class Deck
 {
-public://private:
+private:
     friend class Game;
 
     Card deckTobeshuffled[MAXCARDSINDECK]; // this seems to call Card() default constructor on all array elements automatically
