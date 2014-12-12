@@ -79,7 +79,7 @@ Move::Move(Field * f, OList<Card *> & handRef, vector<int> cardsToGive, vector<c
 	fetchMarketCards(cardsToTake, takeMult, f); // fill takeMult with iterators pointing to all cards being taken
 
 	// now, returnMult and takeMult vectors should contain iterators pointing to all the cards that the player wants to exchange
-	// we want to check that these cards can, indeed, be exchanged
+	// we want to check that these cards can indeed be exchanged
 	vector<	vector<Card *>::iterator >::iterator takeIter;
 	vector< OListIterator<Card *> >::iterator returnIter;
 	//////////// FINAL CHECKS //////////////

@@ -29,7 +29,7 @@ void Player::printHand() const {
 
 void Player::takeCamels(Move & to_make) {
 
-	//assumes that the field has been checked by "move" object already... look for fieldCamels
+	//assumes that the market has been checked by "move" object already... look for fieldCamels
 	//reverse iterator so that delete, the other iterators aren't messed up
 	vector<vector<Card *>::iterator>::reverse_iterator iter = to_make.fieldCamels.rbegin(), iter_end = to_make.fieldCamels.rend();
 	while(iter != iter_end) {
@@ -41,14 +41,14 @@ void Player::takeCamels(Move & to_make) {
 
 void Player::takeCard(Move & to_make) {
 
-	//assumes that the field has been checked by "move" object already... look for takeSingle
+	//assumes that the market & hand has been checked by "move" object already... look for takeSingle
 	hand.insert(*to_make.takeSingle); //add to hand
 	game_field->market.erase(to_make.takeSingle); //delete from market
 }
 
 void Player::exchange(Move & to_make) {
 
-	//assumes that the field has been checked by "move" object already... look for takeMult and returnMult
+	//assumes that the market, hand, and/or herd has been checked by "move" object already... look for takeMult and returnMult
 	//take cards first
 	vector<vector<Card *>::iterator>::reverse_iterator takeIter = to_make.takeMult.rbegin(), takeIter_end = to_make.takeMult.rend();
 	while(takeIter != takeIter_end) {
@@ -73,7 +73,7 @@ void Player::exchange(Move & to_make) {
 
 void Player::sellCards(Move & to_make) {
 
-	//assumes that the field has been checked by "move" object already... look for sell
+	//assumes that hand has been checked by "move" object already... look for sell
 	//sell cards by deleting them, meanwhile adding tokens
 	vector<OListIterator<Card *>>::iterator iter = to_make.sell.begin(), iter_end = to_make.sell.end();
 	string type_sell = (***iter).getIdentifier();
