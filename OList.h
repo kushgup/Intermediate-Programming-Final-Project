@@ -12,7 +12,7 @@ class Node {
     friend class OList<T>;
     friend class OListIterator<T>; //friend the iterator so it doesn't have to call getValue and getNext all the time
 
-public://private:
+private:
     T value;
     Node<T> * next;
 
@@ -28,7 +28,7 @@ public:
 template <class T>
 class OList {
 
-public://private:
+private:
     Node<T> * head;
 
 public:

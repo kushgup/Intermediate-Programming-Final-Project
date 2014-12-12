@@ -17,7 +17,7 @@
 
 class Field {
 
-public://private:
+private:
 
     friend class Move; // needed so that Move can access Game's field
     friend class Player; // needed so that Player can look into Game's field to move stuff
