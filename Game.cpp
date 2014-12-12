@@ -33,24 +33,21 @@ void Game::initPlayers() {
     //////////////// get number of human / AI players ////////////////
 
     int numPlayers = 2;
-    /*
+    
     cout << "Enter how many human players will be playing (0 - 2)" << endl;
     cin >> numPlayers;
     if (numPlayers < 0 || numPlayers > 2) {
             throw std::range_error("must be btw 0 and 2!");
     }
     // try catch potentially
-
+    
     int i = 0;
-    */
-    int i = 0;
-    string name = "Zebulon";
+    string name;
     while(numPlayers--) // create human players
     {
-        /*
+        
         cout << "Enter player name" << endl;
         cin >> name;
-        */
         players[i++] = new PlayerHuman(name, &field, &bank);
 
     }
@@ -105,14 +102,10 @@ bool Game::gameOver()
 
 void Game::playGame()
 {
-    int numRepsGame = 1; // testing
-    int numRepsRound = 1; // testing
-    //while(!gameOver())
-    while(numRepsGame--)
+    while(!gameOver())
     {
         cout << "Let's start the round of Jaipur" << endl;
-        //while (!roundIsOver()){
-        while(numRepsRound--) {
+        while (!roundIsOver()){
             printBoard();
             (*players[playerWinnerIndex]).makeMove();
             field.refillMarket();
