@@ -76,6 +76,7 @@ void Game::initPlayers() {
 }
 
 void Game::printBoard() {
+    cout << endl;
     bank.printBank();
     field.printField();
 }
@@ -90,11 +91,11 @@ bool Game::roundIsOver(){
 bool Game::gameOver()
 {
     if ((*players[0]).countSeals() == 2) {
-        //setWinner(0);
+        printGameWinner();
         return true;
     }
     if ((*players[1]).countSeals() == 2) {
-        //setWinner(1);
+        printGameWinner();
         return true;
     }
     return false;
@@ -115,6 +116,7 @@ void Game::playGame()
         }
         field.restoreDeck();
         bank.refillBank();
+        field.refillMarket();
 
         //update roundnumber and playerwinnerindex, compute who gets a seal
         calculateWinner(); // assign camel token and calculate who wins. Give seal to winner and update playerWinnerIndex
@@ -125,12 +127,29 @@ void Game::playGame()
         {
             players[i]->resetForRound();
         }
+        
+        //deal initial player hands for second and thrid rounds must happen after resetting the field and dealing it.
+        Card * temp;
+        for(int i = 0; i < 2; i++)
+        {
+            for(int j = 0; j < 5; j++)
+            {
+                temp = field.deck.dealCard();
+                if(temp->getIsCamel())
+                    // do shit
+                    (*players[i]).herd.push_back(temp);
+                else
+                    (*players[i]).hand.insert(temp);
+            }
+        }
+        
     }
 
 }
 
 void Game::calculateWinner() // assign camel token and calculate who wins. Give seal to winner and update playerWinnerIndex
 {
+    int Pwinner = 0;
     if((*players[0]).numCamels() > (*players[1]).numCamels() )
     {
         (*players[0]).tokens.push_back(bank.getCamelToken());
@@ -141,19 +160,84 @@ void Game::calculateWinner() // assign camel token and calculate who wins. Give 
     }
     else // tie for # of camels
     {
-        //PANDA CAMEL
+        if (players[0]->Player::hasPandaCamel())
+            (*players[0]).tokens.push_back(bank.getCamelToken());
+        
+        else if (players[1]->Player::hasPandaCamel())
+            (*players[1]).tokens.push_back(bank.getCamelToken());
+            
     }
+    
     if((*players[0]).countPts() > (*players[1]).countPts())
     {
         playerWinnerIndex = 0;
         players[0]->seals.push_back(bank.takeSeal());
+        Pwinner = 0;
     }
     else if((*players[1]).countPts() > (*players[0]).countPts()) {
         playerWinnerIndex = 1;
         players[1]->seals.push_back(bank.takeSeal());
+        Pwinner = 1;
     }
     else {
-        //TIE
+        srand(time(NULL));
+        int ej = rand() % 1;
+        if(ej == 0)
+        {
+            playerWinnerIndex = 0;
+            players[0]->seals.push_back(bank.takeSeal());
+            Pwinner = 0;
+        }
+        else
+        {
+            playerWinnerIndex = 1;
+            players[1]->seals.push_back(bank.takeSeal());
+            Pwinner = 1;
+        }
+    }
+    cout << players[0]->Player::getName() << ": " << players[0]->Player::countPts() << "\t" << players[1]->Player::getName() << ": " << players[1]->Player::countPts() << endl;
+    printRoundWinner(Pwinner);
+}
+
+void Game::printRoundWinner(int w)
+{
+    cout << players[w]->Player::getName();
+    cout << " won the round with: ";
+    cout << players[w]->Player::countPts();
+    cout << endl;
+}
+
+void Game::printGameWinner()
+{
+    int P0seals = players[0]->Player::countSeals();
+    int P1seals = players[1]->Player::countSeals();
+    
+    if (P0seals == 2){
+        cout << players[0]->Player::getName() << " won the game!!!" << endl;
+        if(P1seals == 1)
+            cout << "They had 2 seals and " << players[1]->Player::getName() << " only had 1 seal." << endl;
+        else
+            cout << "They had 2 seals and " << players[1]->Player::getName() << " had 0 seals." << endl;
+    }
+    
+    if (P1seals == 2){
+        cout << players[1]->Player::getName() << " won the game!!!" << endl;
+        if(P0seals == 1)
+            cout << "They had 2 seals and " << players[0]->Player::getName() << " only had 1 seal." << endl;
+        else
+            cout << "They had 2 seals and " << players[0]->Player::getName() << " had 0 seals." << endl;
     }
 
 }
+
+
+
+
+
+
+
+
+
+
+
+

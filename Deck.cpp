@@ -41,6 +41,7 @@ Deck::Deck()
         deckTobeshuffled[i] = Card("Diamonds");
     }
     shuffle();
+
     for(; i < 55; i++)
     {
         deckTobeshuffled[i] = Card("Camel");
@@ -49,6 +50,7 @@ Deck::Deck()
         swap(i - 52, i);
     }
 
+    //deckTobeshuffled[0].setPandaCamel();
     placeinDeck = 0;
 }
 

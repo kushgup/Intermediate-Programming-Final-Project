@@ -53,6 +53,7 @@ public:
     bool isGoodDepleted(string good) { return (MaxTokensForGoodsTs[good] == 0); };
     bool isBonusDepleted(int bonus) { return (MaxTokensForBonuses[bonus] == 0); };
     int isDepleted();
+    Token * temp0; //for when there arent enough tokens to be returned as are being sold.
 
 private:
     void shuffleBonus();

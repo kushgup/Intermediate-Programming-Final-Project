@@ -94,3 +94,18 @@ void Player::resetForRound() {
     herd.clear();
     tokens.clear();
 }
+
+bool Player::hasPandaCamel ()
+{
+    for (int i = 0; i < numCamels(); i++)
+    {
+        if(herd[i]->Card::getIsPandaCamel())
+            return true;
+    }
+    return false;
+}
+
+
+
+
+

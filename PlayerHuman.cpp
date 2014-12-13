@@ -38,6 +38,11 @@ void PlayerHuman::makeMove(){
             }
             catch (int e){
                 cout << "There are no camels to take" <<endl;
+                cout << endl;
+                cout << "a) take camels" << endl;
+                cout << "b) take single card" << endl;
+                cout << "c) exchange cards" << endl;
+                cout << "d) sell cards" << endl;
                 cout << "Select a move: ";
             }
             
@@ -144,12 +149,24 @@ void PlayerHuman::makeMove(){
             for( std::vector<int>::const_iterator i = to_sell.begin(); i != to_sell.end(); ++i)
                 std::cout << *i << ' ';
             cout << endl;
-
-			Move next(hand, to_sell);
-			if(next.isValid())
-                sellCards(next);
             
-            incorrectMoveOption = false;
+            try{
+                Move next(hand, to_sell);
+                if(next.isValid())
+                    sellCards(next);
+                else
+                    throw 20;
+                incorrectMoveOption = false;
+            }
+            catch (int e)
+            {
+                cout << "You can's sell those cards together!!!" <<endl;
+                cout << "a) take camels" << endl;
+                cout << "b) take single card" << endl;
+                cout << "c) exchange cards" << endl;
+                cout << "d) sell cards" << endl;
+                cout << "Select a move: ";
+            }
 		}
 
 /*
@@ -187,9 +204,13 @@ void PlayerHuman::makeMove(){
 
 		else
         {
-            cout << "you didn't do it properly!!" << endl; //this line should be replaced with exception handling
+            cout << "You didn't do it properly!!" << endl; //this line should be replaced with exception handling
+            cout << endl;
+            cout << "a) take camels" << endl;
+            cout << "b) take single card" << endl;
+            cout << "c) exchange cards" << endl;
+            cout << "d) sell cards" << endl;
             cout << "Select a move: ";
-
         }
 			//throw exc;
 	//} catch {

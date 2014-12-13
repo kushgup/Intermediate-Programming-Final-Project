@@ -44,6 +44,7 @@ public:
 	void printHand() const;
 	virtual void makeMove() = 0; //decides which action to take on the turn, should be overwritten for human and AI players
     void resetForRound(); //clear hand, herd, and tokens for a new round
+    bool hasPandaCamel();
 
 protected:
 

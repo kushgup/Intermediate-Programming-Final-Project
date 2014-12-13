@@ -230,17 +230,33 @@ Token * Bank::takeTokenFromGoodTs(string goodYourTaking) //Pop Top
         kindofGoodYourTaking = 5;
 
     int placeTakingFrom = MaxTokensForGoodsTs[goodYourTaking]-1;
-    MaxTokensForGoodsTs[goodYourTaking]--;
-
-    return &goodsTs[kindofGoodYourTaking][placeTakingFrom];
+    if (placeTakingFrom >= 0)
+    {
+        MaxTokensForGoodsTs[goodYourTaking]--;
+        return &goodsTs[kindofGoodYourTaking][placeTakingFrom];
+    }
+    else
+    {
+        temp0->Token::setType(goodYourTaking);
+        temp0->Token::setValue(0);
+        return temp0;
+    }
+   
 }
 
 Token * Bank::takeBonusToken(int BonusTaking) //Pop Top
 {
     int placeTakingFrom = MaxTokensForBonuses[BonusTaking];
-    Token * temp = &bonuses[BonusTaking-3][placeTakingFrom];
-    MaxTokensForBonuses[BonusTaking]--;
-    return temp;
+    if(placeTakingFrom >= 0){
+        Token * temp = &bonuses[BonusTaking-3][placeTakingFrom];
+        MaxTokensForBonuses[BonusTaking]--;
+        return temp;
+    }
+    else {
+        temp0->Token::setType("Bonus");
+        temp0->Token::setValue(2+BonusTaking);
+        return temp0;
+    }
 }
 
 Token * Bank::takeSeal()
