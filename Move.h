@@ -6,6 +6,7 @@
 #include "Card.h"
 #include "Field.h"
 #include "OListIterator.h"
+#include "Exceptions.h"
 
 using std::vector;
 using std::string;
@@ -19,7 +20,6 @@ private:
 private:
 
 	string type; // "camels" (take all camels) || "take" || "exchange" || "sell"
-	bool validMove;
 	int num_camels_exchanged;
 
 	// these members represent all the potential values that might need to get filled with respective cards

@@ -15,6 +15,21 @@ int Player::countPts() const {
 	return points;
 }
 
+bool Player::hasPandaCamel()
+{
+    for (int i = 0; i < numCamels(); i++)
+        if(herd[i]->Card::getIsPandaCamel())
+            return true;
+    return false;
+}
+
+void Player::resetForRound() {
+	
+    hand.clear();
+    herd.clear();
+    tokens.clear();
+}
+
 void Player::printHand() const {
 
 	cout << std::setfill('*') << std::setw(50) << endl;
@@ -87,25 +102,3 @@ void Player::sellCards(Move & to_make) {
 		iter++;
 	}
 }
-
-void Player::resetForRound() {
-	
-    hand.clear();
-    herd.clear();
-    tokens.clear();
-}
-
-bool Player::hasPandaCamel ()
-{
-    for (int i = 0; i < numCamels(); i++)
-    {
-        if(herd[i]->Card::getIsPandaCamel())
-            return true;
-    }
-    return false;
-}
-
-
-
-
-

@@ -36,10 +36,8 @@ void PlayerHuman::makeMove(){
                 /* WORK IN PROGRESS
                 */
                 Move next(game_field);
-                   if(next.isValid())
-                      takeCamels(next);
-                    else
-                        throw 20;
+                if(next.isValid())
+                    takeCamels(next);
     		}
 
     		else if(ch == 'b')
@@ -186,6 +184,10 @@ void PlayerHuman::makeMove(){
             cout << "Select a move: ";
 
             // keep incorrectMoveOption = true
+        }
+        catch(exception& e)
+        {
+            cout << e.what() << endl;
         }
     }
 }
