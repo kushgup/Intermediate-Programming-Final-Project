@@ -66,7 +66,7 @@ Move::Move(Field * f, OList<Card *> & handRef, vector<int> cardsToGive, vector<c
 	//////////// PRELIMINARY CHECKS //////////////
 	bool too_many_takes = (handRef.size() + cardsToTake.size() - cardsToGive.size()) > 7; 	// check that player isn't taking more than 7 cards into hand
 	bool equal_args = (num_camels + cardsToGive.size()) != cardsToTake.size(); 	// check that # camels + # cardsToGive == # cardsToTake
-	bool market_size = cardsToTake.size() <= 5; // check that player isn't giving market more than 5 cards 
+	bool market_size = cardsToGive.size() > 5; // check that player isn't giving market more than 5 cards 
 	bool herd_size = (int) herd.size() < num_camels; 	// check that player has # camels
 	bool hand_size = (int)handRef.size() < (int)cardsToGive.size(); 	// check that player has # cardsToGive ???
 

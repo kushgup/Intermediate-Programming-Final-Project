@@ -92,7 +92,7 @@ void PlayerHuman::makeMove(){
                 int in_hand;
                 cin >> in_hand;
                 while (in_hand != 9) {
-                    if(in_char >= 1 && in_char <= hand.size())
+                    if(in_hand >= 1 && in_hand <= hand.size())
                         hand_return.push_back(in_hand);
                     else
                         cout << "Invalid Character! Enter a number between '1' and '" << hand.size() << "' to select a Card" << endl; // exception?
