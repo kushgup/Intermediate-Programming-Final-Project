@@ -3,17 +3,17 @@ CC = g++
 
 All: JaipurTest PlayerHumanTest BankTest Driver
 
-Driver: Driver.o Game.o Bank.o Deck.o Card.o Field.o Player.o Token.o PlayerHuman.o PlayerComp.o Move.o
-	$(CC) $(CFLAGS) -o Driver Driver.o Game.o Bank.o Deck.o Card.o Field.o Player.o Token.o PlayerHuman.o PlayerComp.o Move.o
+Driver: Driver.o Game.o Bank.o Deck.o Card.o Field.o Player.o PlayerHuman.o PlayerComp.o Move.o
+	$(CC) $(CFLAGS) -o Driver Driver.o Game.o Bank.o Deck.o Card.o Field.o Player.o PlayerHuman.o PlayerComp.o Move.o
 
-JaipurTest: JaipurTest.o Game.o PlayerHuman.o PlayerComp.o Player.o Bank.o Move.o Token.o Card.o Field.o Deck.o
-	$(CC) $(CFLAGS) -o JaipurTest JaipurTest.o Game.o PlayerHuman.o PlayerComp.o Player.o Bank.o Move.o Token.o Card.o Field.o Deck.o
+JaipurTest: JaipurTest.o Game.o PlayerHuman.o PlayerComp.o Player.o Bank.o Move.o Card.o Field.o Deck.o
+	$(CC) $(CFLAGS) -o JaipurTest JaipurTest.o Game.o PlayerHuman.o PlayerComp.o Player.o Bank.o Move.o Card.o Field.o Deck.o
 
-BankTest: BankTest.o Bank.o Field.o Card.o Token.o Deck.o
-	$(CC) $(CFLAGS) -o BankTest BankTest.o Bank.o Field.o Card.o Token.o Deck.o
+BankTest: BankTest.o Bank.o Field.o Card.o Deck.o
+	$(CC) $(CFLAGS) -o BankTest BankTest.o Bank.o Field.o Card.o Deck.o
 
-PlayerHumanTest: PlayerHumanTest.o PlayerHuman.o Player.o Bank.o Move.o Token.o Card.o Field.o Deck.o
-	$(CC) $(CFLAGS) -o PlayerHumanTest PlayerHumanTest.o PlayerHuman.o Player.o Bank.o Move.o Token.o Card.o Field.o Deck.o
+PlayerHumanTest: PlayerHumanTest.o PlayerHuman.o Player.o Bank.o Move.o Card.o Field.o Deck.o
+	$(CC) $(CFLAGS) -o PlayerHumanTest PlayerHumanTest.o PlayerHuman.o Player.o Bank.o Move.o Card.o Field.o Deck.o
 
 BankTest.o: BankTest.cpp Bank.h Token.h
 	$(CC) $(CFLAGS) -c BankTest.cpp
@@ -57,11 +57,8 @@ PlayerComp.o: PlayerComp.cpp PlayerComp.h Player.h Bank.h Move.h Token.h Card.h 
 State.o: State.cpp State.h
 	$(CC) $(CFLAGS) -c State.cpp
 
-Token.o: Token.cpp Token.h
-	$(CC) $(CFLAGS) -c Token.cpp
-
 clean:
-	\rm *.o JaipurTest BankTest PlayerHumanTest
+	\rm *.o JaipurTest BankTest PlayerHumanTest Driver
 
 zip:
 	zip -l pg7.zip makefile README *.h *.cpp
