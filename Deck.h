@@ -21,7 +21,7 @@ public:
 
     void printDeck();
     void shuffle();
-    void restoreDeck(){placeinDeck = 0;};
+    void restoreDeck();
     void increasePlaceinDeck(){placeinDeck++;};
     Card * dealCard();
     int getPlaceInDeck() const { return placeinDeck; };

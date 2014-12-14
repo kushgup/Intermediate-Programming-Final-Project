@@ -119,3 +119,49 @@ Card * Deck::dealCard()
 
     // return &(deckForGame[placeinDeck++])
 }
+
+void Deck::restoreDeck()
+{
+    int i;
+    for(i = 0; i < 8; i++)
+    {
+        deckTobeshuffled[i] = Card("Camel");
+    }
+    for(; i < 18; i++)
+    {
+        deckTobeshuffled[i] = Card("Paper");
+    }
+    for(; i < 26; i++)
+    {
+        deckTobeshuffled[i] = Card("Spice");
+    }
+    for(; i < 34; i++)
+    {
+        deckTobeshuffled[i] = Card("Cloth");
+    }
+    for(; i < 40; i++)
+    {
+        deckTobeshuffled[i] = Card("Silver");
+    }
+    for(; i < 46; i++)
+    {
+        deckTobeshuffled[i] = Card("Gold");
+    }
+    for(; i < 52; i++)
+    {
+        deckTobeshuffled[i] = Card("Diamonds");
+    }
+    shuffle();
+    
+    for(; i < 55; i++)
+    {
+        deckTobeshuffled[i] = Card("Camel");
+        if(i == 52)
+            deckTobeshuffled[i].setPandaCamel();
+        swap(i - 52, i);
+    }
+    
+    //deckTobeshuffled[0].setPandaCamel();
+    placeinDeck = 0;
+}
+
