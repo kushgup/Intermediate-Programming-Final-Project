@@ -32,8 +32,8 @@ Bank::Bank()
         vector<Token>(NUM4S),
         vector<Token>(NUM5S)
     }};
-
-    for (int i = 0; i < NUMPAPER; i++)
+    int i;
+    for (i = 0; i < NUMPAPER; i++)
     {
         goodsTs[0][i] = Token (1, "Paper");
         if(i == 8)
@@ -220,14 +220,15 @@ Token * Bank::takeTokenFromGoodTs(string goodYourTaking) //Pop Top
     int kindofGoodYourTaking = 0; //inital is paper
     if(goodYourTaking == "Spice")
         kindofGoodYourTaking = 1;
-    if(goodYourTaking == "Cloth")
+    else if(goodYourTaking == "Cloth")
         kindofGoodYourTaking = 2;
-    if(goodYourTaking == "Silver")
+    else if(goodYourTaking == "Silver")
         kindofGoodYourTaking = 3;
-    if(goodYourTaking == "Gold")
+    else if(goodYourTaking == "Gold")
         kindofGoodYourTaking = 4;
-    if(goodYourTaking == "Diamonds")
+    else if(goodYourTaking == "Diamonds")
         kindofGoodYourTaking = 5;
+    // else throw error!
 
     int placeTakingFrom = MaxTokensForGoodsTs[goodYourTaking]-1;
     if (placeTakingFrom >= 0)

@@ -43,6 +43,8 @@ private:
 	void shuffleDeck();
 	void deal();
 	void calculateWinner();
+	void printGameWinner();
+	void printRoundWinner(int);
 
 };
 

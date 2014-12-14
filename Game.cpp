@@ -88,6 +88,29 @@ bool Game::roundIsOver(){
     return false;
 }
 
+void Game::printGameWinner()
+{
+    int P0seals = players[0]->Player::countSeals();
+    int P1seals = players[1]->Player::countSeals();
+    
+    if (P0seals == 2){
+        cout << players[0]->Player::getName() << " won the game!!!" << endl;
+        if(P1seals == 1)
+            cout << "They had 2 seals and " << players[1]->Player::getName() << " only had 1 seal." << endl;
+        else
+            cout << "They had 2 seals and " << players[1]->Player::getName() << " had 0 seals." << endl;
+    }
+    
+    if (P1seals == 2){
+        cout << players[1]->Player::getName() << " won the game!!!" << endl;
+        if(P0seals == 1)
+            cout << "They had 2 seals and " << players[0]->Player::getName() << " only had 1 seal." << endl;
+        else
+            cout << "They had 2 seals and " << players[0]->Player::getName() << " had 0 seals." << endl;
+    }
+
+}
+
 bool Game::gameOver()
 {
     if ((*players[0]).countSeals() == 2) {
@@ -147,6 +170,14 @@ void Game::playGame()
 
 }
 
+void Game::printRoundWinner(int w)
+{
+    cout << players[w]->Player::getName();
+    cout << " won the round with: ";
+    cout << players[w]->Player::countPts();
+    cout << endl;
+}
+
 void Game::calculateWinner() // assign camel token and calculate who wins. Give seal to winner and update playerWinnerIndex
 {
     int Pwinner = 0;
@@ -197,37 +228,6 @@ void Game::calculateWinner() // assign camel token and calculate who wins. Give 
     }
     cout << players[0]->Player::getName() << ": " << players[0]->Player::countPts() << "\t" << players[1]->Player::getName() << ": " << players[1]->Player::countPts() << endl;
     printRoundWinner(Pwinner);
-}
-
-void Game::printRoundWinner(int w)
-{
-    cout << players[w]->Player::getName();
-    cout << " won the round with: ";
-    cout << players[w]->Player::countPts();
-    cout << endl;
-}
-
-void Game::printGameWinner()
-{
-    int P0seals = players[0]->Player::countSeals();
-    int P1seals = players[1]->Player::countSeals();
-    
-    if (P0seals == 2){
-        cout << players[0]->Player::getName() << " won the game!!!" << endl;
-        if(P1seals == 1)
-            cout << "They had 2 seals and " << players[1]->Player::getName() << " only had 1 seal." << endl;
-        else
-            cout << "They had 2 seals and " << players[1]->Player::getName() << " had 0 seals." << endl;
-    }
-    
-    if (P1seals == 2){
-        cout << players[1]->Player::getName() << " won the game!!!" << endl;
-        if(P0seals == 1)
-            cout << "They had 2 seals and " << players[0]->Player::getName() << " only had 1 seal." << endl;
-        else
-            cout << "They had 2 seals and " << players[0]->Player::getName() << " had 0 seals." << endl;
-    }
-
 }
 
 
