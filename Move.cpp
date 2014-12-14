@@ -15,14 +15,7 @@ Move::Move(Field * f): type("camels") // use of this constructor means: "camels"
 	}
     
 	if(fieldCamels.size() == 0) // 0 camels
-	{
-		validMove = false;
-	}
-	else
-		validMove = true;
-    
-
-
+		throw noCamels(); 
 }
 
 Move::Move(OList<Card *> & handRef, vector<int> cardsToSell): type("sell") // use of this constructor means: "sell"
@@ -40,21 +33,15 @@ Move::Move(OList<Card *> & handRef, vector<int> cardsToSell): type("sell") // us
 	while(sellIter != sell.end())
 	{
 		if((*(*(*sellIter++))).Card::getIdentifier() != type)
-		{
-			validMove = false;
-			// throw exception?
-			return;
-		}
+			throw wrongSellType();
+
 	}
 	// check that if cards are precious, then num cards being sold >=2
 	sellIter = sell.begin();
 	if((***sellIter).Card::getPrecious())
 	{
-		if(sell.size() < 2){
-			validMove = false;
-			// throw exception?
-			return;
-		}
+		if(sell.size() < 2)
+			throw sellPrecious();
 	}
 
 	validMove = true;
