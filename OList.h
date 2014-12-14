@@ -41,7 +41,7 @@ public:
     T * get(int val) const;
     int count(T val) const;
     void insert(T val);
-    void insertPointer(T val)
+    void insertPointer(T val);
     void push_back(T val);
     void remove(T val);
     void uniquify();
