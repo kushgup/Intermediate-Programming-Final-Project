@@ -35,13 +35,11 @@ private:
 	/*********************************************************************************************/
 
 public:
-	Move(): type(""), validMove(false) {};
+	Move(): type("") {};
 	Move(Field * f); // use of this constructor means: "camels"
 	Move(OList<Card *> & handRef, vector<int>); // use of this constructor means: "sell"
 	Move(Field * f, OList<Card *> & handRef, vector<int>, vector<char>, int num_camels, vector<Card *> &); // use of this constructor means: "exchange"
 	Move(Field * f, OList<Card *> & handRef, char); // use of this constructor means: "take"
-
-	bool isValid() {return validMove;};
 
 private:
 	void fetchHandCards(

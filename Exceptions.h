@@ -47,10 +47,10 @@ class invalidExchangeParamsException: public exception
 public:
   virtual const char* what() const throw() {return 
   	"Invalid Arguments for Exchange Function. Make sure:
-  \n-You aren't taking more than 7 cards into Hand
-  \n-If you're giving camels to market, that your herd is adequate
-  \n-You don't give the market more than 5 cards
-  \n-The # cards you're taking = # cards you're giving"
+  \n-You are not taking more than 7 cards into Hand
+  \n-If you are giving camels to market, that your herd is adequate
+  \n-You do not give the market more than 5 cards
+  \n-The # cards you're taking = # cards you are giving"
   ;}
 };
 
