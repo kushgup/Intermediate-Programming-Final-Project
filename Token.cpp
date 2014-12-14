@@ -9,8 +9,3 @@
 #include "Token.h"
 #include <stdio.h>
 #include <iostream>
-
-void Token::printToken() const
-{
-    cout << TypeOfToken << ":" << value;
-}
