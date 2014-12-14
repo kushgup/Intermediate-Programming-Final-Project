@@ -72,6 +72,7 @@ Move::Move(Field * f, OList<Card *> & handRef, vector<int> cardsToGive, vector<c
 
 	if (too_many_takes || equal_args || market_size || herd_size || hand_size) {
 		validMove = false;
+		cout << "0" << endl; // DEBUGGING
 		//throw exceptions based on what was false
 		return;
 	}
@@ -89,6 +90,8 @@ Move::Move(Field * f, OList<Card *> & handRef, vector<int> cardsToGive, vector<c
 		for(takeIter = takeMult.begin(); takeIter != takeMult.end(); takeIter++) {			
 			if( (***returnIter).Card::getIdentifier() == (***takeIter).Card::getIdentifier() ) {
 				validMove = false;
+				cout << "1" << endl; // DEBUGGING
+
 				// throw exception?? -- cannot exchange same type of card
 				return;
 			}
@@ -99,6 +102,8 @@ Move::Move(Field * f, OList<Card *> & handRef, vector<int> cardsToGive, vector<c
 	for(takeIter = takeMult.begin(); takeIter != takeMult.end(); takeIter++) {
 		if( (***takeIter).Card::getIsCamel() ) {
 			validMove = false;
+			cout << "2" << endl; // DEBUGGING
+
 			// throw exception?? -- cannot exchange and take camels	
 			return;		
 		}
