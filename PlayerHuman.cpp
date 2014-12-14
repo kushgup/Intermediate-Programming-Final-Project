@@ -6,8 +6,6 @@ This file contains all the function definitions for the Human Player
 #include <exception>
 #include <limits>
 #include <string>
-using namespace std;
-
 
 void PlayerHuman::makeMove(){
 
@@ -60,8 +58,7 @@ void PlayerHuman::makeMove(){
                         cout << "That isn't a card you can take" << endl;
                         cout << "Which card to take? ";
                         cin >> ch;
-                    }
-                        
+                    }     
                 }
     			Move next(game_field, hand, ch);
     			if(next.isValid())
@@ -76,7 +73,6 @@ void PlayerHuman::makeMove(){
     			int num_camels = 0;
 
                 cout << "-Exchange in market (q to finish): " << endl;
-                cout.flush();
                 char in_char;
                 cin >> in_char;
                 while (in_char != 'q') {
@@ -88,16 +84,27 @@ void PlayerHuman::makeMove(){
                 }
 
                 cout << "-Exchange in hand (9 to finish): " << endl;
-                cout.flush();
                 int in_hand;
                 cin >> in_hand;
                 while (in_hand != 9) {
-                    if(in_char >= 1 && in_char <= hand.size())
+                    if(in_hand >= 1 && in_hand <= hand.size())
                         hand_return.push_back(in_hand);
                     else
                         cout << "Invalid Character! Enter a number between '1' and '" << hand.size() << "' to select a Card" << endl; // exception?
                     cin >> in_hand;
                 }
+
+                //order the vector of chars in mkt_take to make sure that the end iterators won't get messed up
+			    char temp;
+			    vector<char>::iterator i = mkt_take.end() - 1, j = mkt_take.begin();
+			    while (i != j) {
+			        if(*(i - 1) > *i) {
+			            temp = *(i - 1);
+			            *(i - 1) = *i;
+			            *i = temp;
+			        }
+			        i--;
+			    }
 
     			Move next(game_field, hand, hand_return, mkt_take, num_camels, herd);
     			if(next.isValid())
@@ -111,7 +118,6 @@ void PlayerHuman::makeMove(){
     			vector<int> to_sell;
 
                 cout << "-Cards in hand to sell (9 to finish): " << endl;
-                cout.flush();
                 int in_hand;
                 int numCardsinHand = this->Player::handSize();
                 cin >> in_hand;
@@ -183,36 +189,3 @@ void PlayerHuman::makeMove(){
         }
     }
 }
-
-    /*
-            else if(ch == 'c')
-            {
-                vector<char> mkt_take;
-                vector<int> hand_return;
-                int num_camels = 0;
-                while(cin >> ch && ch != 'q')
-                {
-                    if(isdigit(ch))
-                        hand_return.push_back((int) ch);
-                    else if(ch >= 'A' && ch <= 'z')
-                        mkt_take.push_back(ch);
-                    else
-                        if(ch == '?')
-                            num_camels++;
-                }
-                Move next(game_field, hand, hand_return, mkt_take, num_camels, herd);
-                if(next.isValid())
-                    exchange(next);
-            }
-
-            else if(ch == 'd')
-            {
-                vector<int> to_sell;
-                while(cin >> ch && ch != 'q') {
-                    to_sell.push_back((int) ch);
-                }
-                Move next(game_field, hand, to_sell);
-                if(next.isValid())
-                    sellCards(next);
-            }
-    */
