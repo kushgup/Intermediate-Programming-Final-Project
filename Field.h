@@ -7,6 +7,8 @@
 #include <vector>
 #include <stack>
 
+using std::vector;
+
 class Field {
 
 private:
