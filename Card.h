@@ -23,9 +23,9 @@ public:
 
     string getIdentifier() const { return identifier; };
     bool getIsCamel() const { return isCamel; };
-    int getRank() const { return rank;};
+    int getRank() const { return rank; };
     void setPandaCamel() { PandaCamel = true; };
-    bool getPrecious() const { return isPrecious;};
+    bool getPrecious() const { return isPrecious; };
     bool getIsPandaCamel() const { return PandaCamel; };
     void printCard() const { cout << this->identifier; };
     

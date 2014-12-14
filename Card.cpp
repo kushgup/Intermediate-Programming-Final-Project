@@ -22,5 +22,4 @@ Card::Card(string Id): identifier(Id), isCamel(false), PandaCamel(false), isPrec
         rank = 2;
     else if(Id == "Paper")
         rank = 1;
-
 }
