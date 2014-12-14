@@ -50,7 +50,7 @@ public:
   \n-You are not taking more than 7 cards into Hand
   \n-If you are giving camels to market, that your herd is adequate
   \n-You do not give the market more than 5 cards
-  \n-The # cards you're taking = # cards you are giving"
+  \n-The # cards you are taking = # cards you are giving"
   ;}
 };
 
