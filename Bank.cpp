@@ -356,7 +356,7 @@ void Bank::shuffleBonus()
 
 void Bank::swap (int a, int b, int c)
 {
-    Token temp = bonuses[c][a]
+    Token temp = bonuses[c][a];
     bonuses[c][a]=bonuses[c][b];
     bonuses[c][b] = temp;
 }
