@@ -10,18 +10,18 @@ class Token
 {
 private:
     int value;
-    string TypeOfToken;
+    string type;
 
 public:
-    Token(): value(0), TypeOfToken("NoType") {};
-    Token(string str): TypeOfToken(str) {};
-    Token(int v, string str): value(v), TypeOfToken(str) {};
+    Token(): value(0), type("NoType") { };
+    Token(string str): type(str) { };
+    Token(int v, string str): value(v), type(str) { };
     //~Token();
-    void setValue(int);
-    void setType(string);
-    int getValue() const;
-    string getType() const;
-    void printToken() const;
+    void setValue(int x): value(x) { };
+    void setType(string y): type(y) { };
+    int getValue() const { return value; };
+    string getType() const { return type; };
+    void printToken() const { cout << TypeOfToken << ":" << value; };
 
 };
 

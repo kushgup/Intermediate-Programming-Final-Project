@@ -22,8 +22,7 @@ Game::Game(): roundNum(1), playerWinnerIndex(0) {
 Game::Game(Game& other) {
 
 }
-*/
-/*
+
 Game::~Game() {
 
 }
@@ -229,15 +228,3 @@ void Game::calculateWinner() // assign camel token and calculate who wins. Give 
     cout << players[0]->Player::getName() << ": " << players[0]->Player::countPts() << "\t" << players[1]->Player::getName() << ": " << players[1]->Player::countPts() << endl;
     printRoundWinner(Pwinner);
 }
-
-
-
-
-
-
-
-
-
-
-
-

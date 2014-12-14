@@ -10,30 +10,7 @@
 #include <stdio.h>
 #include <iostream>
 
-void Token::setType(string y)
-{
-    TypeOfToken = y;
-}
-
-void Token::setValue(int x)
-{
-    value = x;
-}
-
-int Token::getValue() const
-{
-    return value;
-}
-
-string Token::getType() const
-{
-    return TypeOfToken;
-}
-
 void Token::printToken() const
 {
     cout << TypeOfToken << ":" << value;
 }
-
-
-

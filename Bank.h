@@ -1,11 +1,10 @@
 #ifndef __pg7b__Bank__
 #define __pg7b__Bank__
 
-#include <stdio.h>
-#include "Token.h"
 #include <array>
 #include <vector>
 #include <map>
+#include <iostream>
 #define NUMPAPER 9
 #define NUMSPICE 7
 #define NUMCLOTH 7
@@ -18,11 +17,33 @@
 
 using std::array;
 using std::vector;
+using std::string;
+
+class Token
+{
+
+private:
+    int value;
+    string type;
+
+public:
+    Token(): value(0), type("NoType") { };
+    Token(string str): type(str) { };
+    Token(int v, string str): value(v), type(str) { };
+    //~Token();
+    void setValue(int x): value(x) { };
+    void setType(string y): type(y) { };
+    int getValue() const { return value; };
+    string getType() const { return type; };
+    void printToken() const { cout << TypeOfToken << ":" << value; };
+
+};
 
 class Bank
 {
     array <vector<Token>, 6> goodsTs;
     array <vector<Token>, 3> bonuses;
+    string types[6];
 
     Token seals [3];
     int numofSealsLeft;
@@ -57,9 +78,7 @@ public:
 
 private:
     void shuffleBonus();
-    void swap3(int, int);
-    void swap4(int, int);
-    void swap5(int, int);
+    void swap(int, int, int);
 
 };
 

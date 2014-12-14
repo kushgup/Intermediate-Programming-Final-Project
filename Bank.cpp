@@ -1,7 +1,6 @@
 #include "Bank.h"
 #include <stdlib.h>
 #include <time.h>
-#include "Token.h"
 using namespace std;
 #define NUMPAPER 9
 #define NUMSPICE 7
@@ -32,6 +31,9 @@ Bank::Bank()
         vector<Token>(NUM4S),
         vector<Token>(NUM5S)
     }};
+
+    types[0] = "Paper", types[1]= "Spice", types[2] = "Cloth", types[3] = "Silver", types[4] = "Gold", types[5] = "Diamonds";
+
     int i;
     for (i = 0; i < NUMPAPER; i++)
     {
@@ -148,7 +150,7 @@ Bank::Bank()
     MaxTokensForBonuses[4] = NUM4S;
     MaxTokensForBonuses[5] = NUM5S;
 
-    this->shuffleBonus();
+    shuffleBonus();
 }
 
 Bank::Bank(Bank & other)
@@ -275,7 +277,7 @@ Token * Bank::getCamelToken()
 void Bank::printBank()
 {
     cout << "Bank **********************************************" << endl;
-    for(int i=0; i< 6 ;i++)
+    for(int i = 0; i < 6 ; i++)
     {
         string mapiter = "Paper";
         if(i == 1)
@@ -333,46 +335,30 @@ void Bank::shuffleBonus()
 {
     //srand(time(NULL));
 
-    for (int i = 0; i < 7; i++)
+    int i;
+    for (i = 0; i < 7; i++)
     {
         int b3 = rand() % 7;
-        swap3(i, b3);
+        swap(i, b3, 0);
     }
-    for (int i = 0; i < 6; i++)
+    for (i = 0; i < 6; i++)
     {
         int b4 = rand() % 6;
-        swap4(i, b4);
+        swap(i, b4, 0);
     }
-    for (int i = 0; i < 5; i++)
+    for (i = 0; i < 5; i++)
     {
         int b5 = rand() % 5;
-        swap5(i, b5);
+        swap(i, b5, 0);
     }
 
 }
 
-void Bank::swap3 (int a, int b)
+void Bank::swap (int a, int b, int c)
 {
-    Token temp = bonuses[0][a];
-    bonuses[0][a]=bonuses[0][b];
-    bonuses[0][b] = temp;
-
-}
-
-void Bank::swap4 (int a, int b)
-{
-    Token temp = bonuses[1][a];
-    bonuses[1][a]=bonuses[1][b];
-    bonuses[1][b] = temp;
-
-}
-
-void Bank::swap5 (int a, int b)
-{
-    Token temp = bonuses[2][a];
-    bonuses[2][a]=bonuses[2][b];
-    bonuses[2][b] = temp;
-
+    Token temp = bonuses[c][a]
+    bonuses[c][a]=bonuses[c][b];
+    bonuses[c][b] = temp;
 }
 
 void Bank::refillBank()
