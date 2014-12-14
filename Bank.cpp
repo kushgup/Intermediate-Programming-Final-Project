@@ -45,7 +45,7 @@ Bank::Bank()
 
     }
 
-    for (int i = 0; i < NUMSPICE; i++)
+    for (i = 0; i < NUMSPICE; i++)
     {
         goodsTs[1][i] = Token ("Spice");
         if(i == 6)
@@ -58,7 +58,7 @@ Bank::Bank()
             goodsTs[1][i].setValue(1);
     }
 
-    for (int i = 0; i < NUMCLOTH; i++)
+    for (i = 0; i < NUMCLOTH; i++)
     {
         goodsTs[2][i] = Token ("Cloth");
         if(i == 6)
@@ -71,13 +71,13 @@ Bank::Bank()
             goodsTs[2][i].setValue(1);
     }
 
-    for (int i = 0; i < NUMSILVER; i++)
+    for (i = 0; i < NUMSILVER; i++)
     {
         goodsTs[3][i] = Token (5, "Silver");
 
     }
 
-    for (int i = 0; i < NUMGOLD; i++)
+    for (i = 0; i < NUMGOLD; i++)
     {
         goodsTs[4][i] = Token ("Gold");
         if(i <= 2)
@@ -86,7 +86,7 @@ Bank::Bank()
             goodsTs[4][i].setValue(6);
     }
 
-    for (int i = 0; i < NUMDIAMONDS; i++)
+    for (i = 0; i < NUMDIAMONDS; i++)
     {
         goodsTs[5][i] = Token ("Diamonds");
         if(i <= 2)
@@ -95,7 +95,7 @@ Bank::Bank()
             goodsTs[5][i].setValue(7);
     }
 
-    for (int i = 0; i < NUM3S; i++)
+    for (i = 0; i < NUM3S; i++)
     {
         bonuses[0][i] = Token ("Bonus3");
         if (i < 2)
@@ -106,7 +106,7 @@ Bank::Bank()
             bonuses[0][i].setValue(2);
     }
 
-    for (int i = 0; i < NUM4S; i++)
+    for (i = 0; i < NUM4S; i++)
     {
         bonuses[1][i] = Token ("Bonus4");
         if (i < 2)
@@ -117,7 +117,7 @@ Bank::Bank()
             bonuses[1][i].setValue(5);
     }
 
-    for (int i = 0; i < NUM5S; i++)
+    for (i = 0; i < NUM5S; i++)
     {
         bonuses[2][i] = Token ("Bonus5");
         if (i < 2)
@@ -128,7 +128,7 @@ Bank::Bank()
             bonuses[2][i].setValue(9);
     }
 
-    for (int i = 0; i < 3; i++)
+    for (i = 0; i < 3; i++)
     {
         seals[i] = Token(100, "Seal");
 
