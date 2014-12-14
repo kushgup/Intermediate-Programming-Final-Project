@@ -1,7 +1,7 @@
 #include "Bank.h"
 #include <stdlib.h>
 #include <time.h>
-using namespace std;
+
 #define NUMPAPER 9
 #define NUMSPICE 7
 #define NUMCLOTH 7

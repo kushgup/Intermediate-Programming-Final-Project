@@ -1,7 +1,6 @@
 #include "Card.h"
 #include <stdio.h>
 #include <iostream>
-using namespace std;
 
 Card::Card(string Id): identifier(Id), isCamel(false), PandaCamel(false), isPrecious(false), rank(0)
 {
@@ -23,74 +22,4 @@ Card::Card(string Id): identifier(Id), isCamel(false), PandaCamel(false), isPrec
         rank = 2;
     else if(Id == "Paper")
         rank = 1;
-
-}
-
-Card::Card(Card & other)
-{
-    identifier = other.identifier;
-    isCamel = other.isCamel;
-    PandaCamel = other.PandaCamel;
-    isPrecious = other.isPrecious;
-    rank = other.rank;
-}
-/*
-Card::~Card()
-{
-    delete this;
-}
-*/
-string Card::getIdentifier() const
-{
-    return this->identifier;
-}
-
-bool Card::getIsCamel() const
-{
-    return isCamel;
-}
-
-bool Card::getIsPandaCamel() const
-{
-    return PandaCamel;
-}
-
-void Card::setPandaCamel()
-{
-    this->PandaCamel = true;
-}
-
-void Card::printCard() const
-{
-    cout << this->identifier;
-}
-
-bool Card::operator== (const Card & other)
-{
-    return this->rank == other.getRank();
-}
-
-bool Card::operator > (const Card & other)
-{
-    return this->getRank() > other.getRank();
-}
-
-bool Card::operator >= (const Card & other)
-{
-    return this->getRank() >= other.getRank();
-}
-
-bool Card::operator <= (const Card & other)
-{
-    return this->getRank() <= other.getRank();
-}
-
-bool Card::operator < (const Card & other)
-{
-    return this->getRank() < other.getRank();
-}
-
-bool Card::operator != (const Card & other)
-{
-    return this->getRank() != other.getRank();
 }

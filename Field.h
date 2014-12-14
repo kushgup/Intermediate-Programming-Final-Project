@@ -1,19 +1,11 @@
-//
-//  Field.h
-//  pg7b
-//
-//  Created by Edmund Connor on 11/25/14.
-//  Copyright (c) 2014 Edmund Connor. All rights reserved.
-//
+#ifndef __pg7__Field__
+#define __pg7__Field__
 
-#ifndef __pg7b__Field__
-#define __pg7b__Field__
-
+#include "Deck.h"
+#include "Card.h"
 #include <stdio.h>
 #include <vector>
 #include <stack>
-#include "Deck.h"
-#include "Card.h"
 
 class Field {
 
@@ -31,8 +23,8 @@ public:
     Field();
 
     void printField();
-    void refillMarket();
     Deck * getDeck() { return &deck; };
+    void refillMarket() { while(market.size() < 5) market.push_back(deck.dealCard()); };
     void restoreDeck() { deck.restoreDeck(); };
 
 };

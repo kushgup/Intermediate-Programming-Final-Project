@@ -13,7 +13,7 @@ class PlayerHuman: public Player {
 
 public:
 
-	PlayerHuman(string nm, Field * fd, Bank * bk): Player::Player(nm, fd, bk) { }
+	PlayerHuman(string nm, Field * fd, Bank * bk): Player(nm, fd, bk) { }
 
 	void makeMove(); //decides which action to take on the turn
 };

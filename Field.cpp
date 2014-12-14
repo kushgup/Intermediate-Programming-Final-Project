@@ -1,25 +1,13 @@
 #include "Field.h"
-#include <stdio.h>
+#include <cstdio>
 #include <iostream>
-#include "Deck.h"
-#include "Card.h"
 
 using std::cout;
 using std::endl;
 
 Field::Field()
 {
-    for (int i=0; i<5; i++)
-    {
-        market.push_back(deck.dealCard());
-    }
-
-}
-
-void Field::refillMarket()
-{
-    while(market.size() < 5)
-        market.push_back(deck.dealCard());
+    refillMarket();
 }
 
 void Field::printField()
@@ -46,5 +34,4 @@ void Field::printField()
     }
     cout << endl;
     cout << endl;
-
 }

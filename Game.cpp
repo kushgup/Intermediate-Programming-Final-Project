@@ -164,7 +164,6 @@ void Game::playGame()
                     (*players[i]).hand.insert(temp);
             }
         }
-        
     }
 
 }
