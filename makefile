@@ -1,10 +1,8 @@
 CFLAGS = -std=c++11 -pedantic -Wall -Wextra -O -g
 CC = g++
 
-All: Driver JaipurTest BankTest
-
-Driver: Driver.o Game.o Bank.o Deck.o Card.o Field.o Player.o PlayerHuman.o PlayerComp.o Move.o
-	$(CC) $(CFLAGS) -o Driver Driver.o Game.o Bank.o Deck.o Card.o Field.o Player.o PlayerHuman.o PlayerComp.o Move.o
+JaipurMain: JaipurMain.o Game.o Bank.o Deck.o Card.o Field.o Player.o PlayerHuman.o PlayerComp.o Move.o
+	$(CC) $(CFLAGS) -o JaipurMain JaipurMain.o Game.o Bank.o Deck.o Card.o Field.o Player.o PlayerHuman.o PlayerComp.o Move.o
 
 JaipurTest: JaipurTest.o Game.o PlayerHuman.o PlayerComp.o Player.o Bank.o Move.o Card.o Field.o Deck.o
 	$(CC) $(CFLAGS) -o JaipurTest JaipurTest.o Game.o PlayerHuman.o PlayerComp.o Player.o Bank.o Move.o Card.o Field.o Deck.o
@@ -24,14 +22,14 @@ Card.o: Card.cpp Card.h
 Deck.o: Deck.cpp Deck.h Card.h
 	$(CC) $(CFLAGS) -c Deck.cpp
 
-Driver.o: Driver.cpp Bank.h Card.h Deck.h Field.h Game.h Move.h OList.h OListIterator.h Player.h PlayerComp.h PlayerHuman.h State.h Token.h Exceptions.h
-	$(CC) $(CFLAGS) -c Driver.cpp
-
 Field.o: Field.cpp Field.h Card.h Deck.h
 	$(CC) $(CFLAGS) -c Field.cpp
 
 Game.o: Game.cpp Game.h State.h PlayerComp.h PlayerHuman.h Player.h Bank.h Move.h Token.h Card.h Field.h OListIterator.h OList.h Deck.h Exceptions.h
 	$(CC) $(CFLAGS) -c Game.cpp
+
+JaipurMain.o: JaipurMain.cpp Bank.h Card.h Deck.h Field.h Game.h Move.h OList.h OListIterator.h Player.h PlayerComp.h PlayerHuman.h State.h Token.h Exceptions.h
+	$(CC) $(CFLAGS) -c JaipurMain.cpp
 
 JaipurTest.o: JaipurTest.cpp Game.h State.h PlayerComp.h PlayerHuman.h Player.h Bank.h Move.h Token.h Card.h Field.h OListIterator.h OList.h Deck.h Exceptions.h
 	$(CC) $(CFLAGS) -c JaipurTest.cpp
