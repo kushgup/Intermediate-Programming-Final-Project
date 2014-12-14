@@ -44,11 +44,9 @@ void Game::initPlayers() {
     string name;
     while(numPlayers--) // create human players
     {
-        
         cout << "Enter player name" << endl;
         cin >> name;
         players[i++] = new PlayerHuman(name, &field, &bank);
-
     }
     while(i < 2) // create remaining AI players
     {
@@ -66,10 +64,9 @@ void Game::initPlayers() {
         {
             temp = field.deck.dealCard();
             if(temp->getIsCamel())
-                // do shit
-                (*players[i]).herd.push_back(temp);
+                players[i]->herd.push_back(temp);
             else
-                (*players[i]).hand.insert(temp);
+                players[i]->hand.insert(temp);
         }
     }
 }
@@ -146,9 +143,7 @@ void Game::playGame()
 
         // empty player hands and reset
         for(int i = 0; i < 2; i++)
-        {
             players[i]->resetForRound();
-        }
         
         //deal initial player hands for second and thrid rounds must happen after resetting the field and dealing it.
         Card * temp;
@@ -165,7 +160,6 @@ void Game::playGame()
             }
         }
     }
-
 }
 
 void Game::printRoundWinner(int w)
