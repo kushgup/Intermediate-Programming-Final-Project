@@ -26,7 +26,7 @@ void PlayerHuman::makeMove(){
         {
             cin >> str;
             if( str.length() > 1)
-                throw inputTooLongException();
+                throw inputTooLongException(); 
             ch = str.at(0);
 
             if(!(ch >= 'a' && ch <= 'd'))
