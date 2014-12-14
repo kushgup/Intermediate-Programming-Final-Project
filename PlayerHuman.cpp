@@ -15,8 +15,28 @@ void PlayerHuman::makeMove(){
 	cout << "c) exchange cards" << endl;
 	cout << "d) sell cards" << endl;
 	cout << "Select a move: ";
+
 	string str;
     char ch;
+
+    bool invalidInput = true;
+    while(invalidInput)
+    {
+        try
+        {
+            cin >> str;
+            if( str.length() > 1)
+                throw inputTooLongException();
+            ch = str.at(0);
+
+            if(!(ch >= 'a' && ch <= 'd'))
+                throw invalidInitialSelectionException();
+        }
+        catch(exception& e)
+        {
+            cout << e.what() << endl;
+        }
+    }
 
 	//big try catch block to do exception handling
 	//try {
@@ -26,23 +46,16 @@ void PlayerHuman::makeMove(){
     {
         try
         {
-            cin >> str;
-            if( str.length() > 1) throw 15;
-            ch = str.at(0);
-
-    		if(ch == 'a')
+    		if(ch == 'a') // THIS IS DONE!
     		{
-
-                /* WORK IN PROGRESS
-                */
+                cout << "Taking Camels..." << endl;
                 Move next(game_field);
-                if(next.isValid())
-                    takeCamels(next);
+                takeCamels(next);
     		}
 
     		else if(ch == 'b')
     		{
-    			cout << "Which card to take? ";
+    			cout << "Taking a Card... Which card to take?";
     			cin >> ch;
                 bool tookAValidCard = true;
                 while (tookAValidCard)
@@ -59,8 +72,7 @@ void PlayerHuman::makeMove(){
                     }     
                 }
     			Move next(game_field, hand, ch);
-    			if(next.isValid())
-                    takeCard(next);
+                takeCard(next);
                 incorrectMoveOption = false;
     		}
 
@@ -105,8 +117,7 @@ void PlayerHuman::makeMove(){
 			    }
 
     			Move next(game_field, hand, hand_return, mkt_take, num_camels, herd);
-    			if(next.isValid())
-                    exchange(next);
+                exchange(next);
                 incorrectMoveOption = false;
     		}
 
@@ -152,8 +163,7 @@ void PlayerHuman::makeMove(){
                 
                 try{
                     Move next(hand, to_sell);
-                    if(next.isValid())
-                        sellCards(next);
+                    sellCards(next);
                     else
                         throw 20;
                     incorrectMoveOption = false;
@@ -169,9 +179,6 @@ void PlayerHuman::makeMove(){
                 }
     		}
 
-    		else throw 20;
-
-            incorrectMoveOption = false;
         }
         catch(int e)
         {
