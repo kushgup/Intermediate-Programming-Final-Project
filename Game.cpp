@@ -50,9 +50,8 @@ void Game::initPlayers() {
     }
     while(i < 2) // create remaining AI players
     {
-        //char ch = i;
-        //string str = ch;
-        name = "AI Player";// + str;
+        string str = to_string(i);
+        name = "AI Player" + str;
         players[i++] = new PlayerComp(name, &field, &bank);
     }
 

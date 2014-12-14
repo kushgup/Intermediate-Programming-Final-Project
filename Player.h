@@ -54,6 +54,4 @@ protected:
 	void sellCards(Move & to_make); //option 4, sell cards from the hand
 };
 
-//need exception handling + testing, overloaded operators (typecast, >> << for input/output, all the == stuff)
-
 #endif

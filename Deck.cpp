@@ -106,7 +106,7 @@ void Deck::printDeck()
             cout << "\t\t";
         }
     }
-    cout << endl;
+    cout << "(" << MAXCARDSINDECK - placeinDeck << ")" << endl;
 }
 
 Card * Deck::dealCard()
