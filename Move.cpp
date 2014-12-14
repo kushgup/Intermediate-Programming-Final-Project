@@ -15,7 +15,7 @@ Move::Move(Field * f): type("camels") // use of this constructor means: "camels"
 	}
     
 	if(fieldCamels.size() == 0) // 0 camels
-		throw noCamels(); 
+		throw noCamelsException(); 
 }
 
 Move::Move(OList<Card *> & handRef, vector<int> cardsToSell): type("sell") // use of this constructor means: "sell"
@@ -33,7 +33,7 @@ Move::Move(OList<Card *> & handRef, vector<int> cardsToSell): type("sell") // us
 	while(sellIter != sell.end())
 	{
 		if((*(*(*sellIter++))).Card::getIdentifier() != type)
-			throw wrongSellType();
+			throw wrongSellTypeException();
 
 	}
 	// check that if cards are precious, then num cards being sold >=2
@@ -41,10 +41,9 @@ Move::Move(OList<Card *> & handRef, vector<int> cardsToSell): type("sell") // us
 	if((***sellIter).Card::getPrecious())
 	{
 		if(sell.size() < 2)
-			throw sellPrecious();
+			throw sellPreciousException();
 	}
 
-	validMove = true;
 }
 
 // use of this constructor means: "exchange"
@@ -53,16 +52,12 @@ Move::Move(Field * f, OList<Card *> & handRef, vector<int> cardsToGive, vector<c
 	//////////// PRELIMINARY CHECKS //////////////
 	bool too_many_takes = (handRef.size() + cardsToTake.size() - cardsToGive.size()) > 7; 	// check that player isn't taking more than 7 cards into hand
 	bool equal_args = (num_camels + cardsToGive.size()) != cardsToTake.size(); 	// check that # camels + # cardsToGive == # cardsToTake
-	bool market_size = cardsToGive.size() > 5; // check that player isn't giving market more than 5 cards 
+	bool market_size = (cardsToGive.size() + num_camels) > 5; // check that player isn't giving market more than 5 cards 
 	bool herd_size = (int) herd.size() < num_camels; 	// check that player has # camels
 	bool hand_size = (int)handRef.size() < (int)cardsToGive.size(); 	// check that player has # cardsToGive ???
 
-	if (too_many_takes || equal_args || market_size || herd_size || hand_size) {
-		validMove = false;
-		cout << "0" << endl; // DEBUGGING
-		//throw exceptions based on what was false
-		return;
-	}
+	if (too_many_takes || equal_args || market_size || herd_size || hand_size)
+		throw invalidExchangeParamsException();
 
 	fetchHandCards(cardsToGive, handRef, returnMult); // fill returnMult with iterators pointing to all cards being given
 	fetchMarketCards(cardsToTake, takeMult, f); // fill takeMult with iterators pointing to all cards being taken
@@ -75,28 +70,16 @@ Move::Move(Field * f, OList<Card *> & handRef, vector<int> cardsToGive, vector<c
 	// check that same type card isn't being given and taken
 	for(returnIter = returnMult.begin(); returnIter != returnMult.end(); returnIter++) {
 		for(takeIter = takeMult.begin(); takeIter != takeMult.end(); takeIter++) {			
-			if( (***returnIter).Card::getIdentifier() == (***takeIter).Card::getIdentifier() ) {
-				validMove = false;
-				cout << "1" << endl; // DEBUGGING
-
-				// throw exception?? -- cannot exchange same type of card
-				return;
-			}
+			if( (***returnIter).Card::getIdentifier() == (***takeIter).Card::getIdentifier() )
+				throw tradingSameException();
 		}
 	}
 	/* check that cards being taken don't include mixture of camels and goods
 		Do this by ensuring that none of the taken cards are camels */
 	for(takeIter = takeMult.begin(); takeIter != takeMult.end(); takeIter++) {
-		if( (***takeIter).Card::getIsCamel() ) {
-			validMove = false;
-			cout << "2" << endl; // DEBUGGING
-
-			// throw exception?? -- cannot exchange and take camels	
-			return;		
-		}
+		if( (***takeIter).Card::getIsCamel() )
+			throw exchangeTakingCamelsException();
 	}
-
-	validMove = true;
 }
 
 Move::Move(Field * f, OList<Card *> & handRef, char index): type("take") // use of this constructor means: "take"
@@ -104,24 +87,15 @@ Move::Move(Field * f, OList<Card *> & handRef, char index): type("take") // use 
 	////////// preliminary testing ////////////////
 	// shouldn't have 7 cards in hand already
 	if(handRef.size() >= 7)
-	{
-		validMove = false;
-		// throw exception?? -- hand already full
-		return;	
-	}
+		throw takeMoreThanSevenException();
 
 	fetchSingleMarketCard(index, takeSingle, f);
 
 	////////// final testing //////////////////////
 	// shouldn't be a camel
 	if((**takeSingle).Card::getIsCamel())
-	{
-		validMove = false;
-		// throw exception?? -- cannot take a single camel
-		return;		
-	}
+		throw takeSingleCamelException();
 
-	validMove = true;
 }
 
 void Move::fetchHandCards(vector<int> cardIndices, OList<Card *> & handRef, vector< OListIterator<Card *> > & iterators_Vector)
@@ -134,11 +108,7 @@ void Move::fetchHandCards(vector<int> cardIndices, OList<Card *> & handRef, vect
 		for(iter2 = iter1 + 1; iter2 != cardIndices.end(); iter2++)
 		{
 			if(*iter1 == *iter2)
-			{
-				validMove = false;
-				// throw exception??
-				return;
-			}
+				throw repeatedCardsException();
 		}
 	}
 
@@ -179,11 +149,7 @@ void Move::fetchMarketCards(vector<char> cardIndices, vector< vector<Card *>::it
 		for(iter2 = iter1 + 1; iter2 != cardIndices.end(); iter2++)
 		{
 			if(*iter1 == *iter2)
-			{
-				validMove = false;
-				// throw exception?? --- outOfRange
-				return;
-			}
+				throw repeatedCardsException();
 		}
 	}
 
