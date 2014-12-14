@@ -1,5 +1,7 @@
 #include <exception>
 
+using std::exception;
+
 class inputTooLongException: public exception
 {
 public:
