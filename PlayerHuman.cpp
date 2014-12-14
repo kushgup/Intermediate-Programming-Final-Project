@@ -164,8 +164,6 @@ void PlayerHuman::makeMove(){
                 try{
                     Move next(hand, to_sell);
                     sellCards(next);
-                    else
-                        throw 20;
                     incorrectMoveOption = false;
                 }
                 catch (int e)
