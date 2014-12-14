@@ -34,8 +34,7 @@ void Player::printHand() const {
 
 	cout << std::setfill('*') << std::setw(50) << endl;
 	//cout << std::setfill(' ');
-	cout << '\n' << name << '\n'; ///TODO
-	cout.flush();//replaces endl without newline
+	cout << '\n' << name << "'s hand:" << endl;
 	int i = 1;
 	for(OListIterator<Card*> iter = hand.begin(); iter != hand.end(); iter++)
 		cout << i++ << ") " << (**iter).getIdentifier() << endl;
