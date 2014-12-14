@@ -1,15 +1,14 @@
-
-#ifndef __pg7b__Card__
-#define __pg7b__Card__
+#ifndef __pg7__Card__
+#define __pg7__Card__
 
 #include <stdio.h>
 #include <iostream>
-using namespace std;
+
+using std::string;
 
 class Card
 {
 private:
-    friend class Deck; // TAKE THIS OUT. FOR TESTING ONLY
 
     string identifier;
     bool isCamel;
@@ -20,22 +19,22 @@ private:
 public:
     Card(): identifier("NA"), isCamel(false), PandaCamel(false), isPrecious(false), rank(0) {};
     Card(string id);
-    Card(Card &);
-    //~Card();
-    string getIdentifier() const;
-    void setIdentifier(string);
-    bool getIsCamel() const;
-    int getRank() const {return rank;};
-    void setPandaCamel();
-    bool getPrecious(){return isPrecious;};
-    bool getIsPandaCamel() const;
-    void printCard() const;
-    bool operator== (const Card&);
-    bool operator> (const Card&);
-    bool operator>= (const Card&);
-    bool operator< (const Card&);
-    bool operator<= (const Card&);
-    bool operator!= (const Card&);
+    Card(Card & other): identifier(other.identifier), isCamel(other.isCamel), PandaCamel(other.PandaCamel), isPrecious(other.isPrecious), rank(other.rank) { };
+
+    string getIdentifier() const { return identifier; };
+    bool getIsCamel() const { return isCamel; };
+    int getRank() const { return rank;};
+    void setPandaCamel() { PandaCamel = true; };
+    bool getPrecious() const { return isPrecious;};
+    bool getIsPandaCamel() const { return PandaCamel; };
+    void printCard() const { cout << this->identifier; };
+    
+    bool operator< (const Card & other) const { return this->getRank() < other.getRank(); };
+    bool operator> (const Card & other) const { return this->getRank() > other.getRank(); };
+    bool operator== (const Card & other) const { return this->getRank() == other.getRank(); };
+    bool operator!= (const Card & other) const { return this->getRank() != other.getRank(); };
+    bool operator>= (const Card & other) const { return this->getRank() >= other.getRank(); };
+    bool operator<= (const Card & other) const { return this->getRank() >= other.getRank(); };
 
 };
 
