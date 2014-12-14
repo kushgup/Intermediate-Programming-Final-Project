@@ -42,7 +42,6 @@ void PlayerHuman::makeMove(){
                       takeCamels(next);
                     else
                         throw 20;
-                
     		}
 
     		else if(ch == 'b')
@@ -94,10 +93,9 @@ void PlayerHuman::makeMove(){
                 cin >> in_hand;
                 while (in_hand != 9) {
                     if(in_char >= 1 && in_char <= hand.size())
-                        mkt_take.push_back(in_char);
+                        hand_return.push_back(in_hand);
                     else
                         cout << "Invalid Character! Enter a number between '1' and '" << hand.size() << "' to select a Card" << endl; // exception?
-                    hand_return.push_back(in_hand);
                     cin >> in_hand;
                 }
 
