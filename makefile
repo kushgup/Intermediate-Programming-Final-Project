@@ -53,7 +53,7 @@ State.o: State.cpp State.h
 	$(CC) $(CFLAGS) -c State.cpp
 
 clean:
-	\rm *.o JaipurTest BankTest Driver
+	\rm *.o JaipurMain JaipurTest BankTest
 
 zip:
 	zip -l pg7.zip makefile README *.h *.cpp
