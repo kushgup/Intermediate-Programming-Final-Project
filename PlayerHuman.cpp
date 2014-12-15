@@ -65,7 +65,7 @@ void PlayerHuman::makeMove(){
                 if(card_ch != 'a' && card_ch != 'b' && card_ch != 'c' && card_ch != 'd' && card_ch != 'e')
                     throw invalidInputforMarketException();
 
-    			Move next(game_field, hand, ch);
+    			Move next(game_field, hand, card_ch);
                 takeCard(next);
                 incorrectMoveOption = false;
     		}
