@@ -78,7 +78,7 @@ void PlayerHuman::makeMove(){
     			vector<int> hand_return;
                 int num_camels = 0;
 
-                cout << "-Exchange in market (q to finish): " << endl;
+                cout << "-Exchange in market (ENTER between entries; q to finish): " << endl;
                 char in_char;
                 cin >> in_char;
                 while (in_char != 'q') {
@@ -89,7 +89,7 @@ void PlayerHuman::makeMove(){
                     cin >> in_char;
                 }
 
-                cout << "-Exchange in hand (9 to finish): " << endl;
+                cout << "-Exchange in hand (ENTER between entries; 9 to finish): " << endl;
                 int in_hand;
                 cin >> in_hand;
                 while (in_hand != 9) {
@@ -106,16 +106,19 @@ void PlayerHuman::makeMove(){
                     throw invalidNumCamelsToGive();
 
                 //order the vector of chars in mkt_take to make sure that the end iterators won't get messed up
-			    char temp;
-			    vector<char>::iterator i = mkt_take.end() - 1, j = mkt_take.begin();
-			    while (i != j) {
-			        if(*(i - 1) > *i) {
-			            temp = *(i - 1);
-			            *(i - 1) = *i;
-			            *i = temp;
-			        }
-			        i--;
-			    }
+                if(mkt_take.size() > 1) // idiot proofing our code
+                {
+    			    char temp;
+    			    vector<char>::iterator i = mkt_take.end() - 1, j = mkt_take.begin();
+    			    while (i != j) {
+    			        if(*(i - 1) > *i) {
+    			            temp = *(i - 1);
+    			            *(i - 1) = *i;
+    			            *i = temp;
+    			        }
+    			        i--;
+    			    }
+                }
 
     			Move next(game_field, hand, hand_return, mkt_take, num_camels, herd);
                 exchange(next);
