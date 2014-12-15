@@ -33,5 +33,4 @@ void Field::printField() const
         let++;
     }
     cout << endl;
-    cout << endl;
 }

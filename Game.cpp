@@ -78,7 +78,7 @@ void Game::printBoard(){
 
 bool Game::roundIsOver(){
 
-    if( (field.deck.getPlaceInDeck()) == 52 || bank.isDepleted() >= 3) //check if deck is empty
+    if( (field.deck.getPlaceInDeck()) == 55 || bank.isDepleted() >= 3) //check if deck is empty
         return true;
     return false;
 }
@@ -123,7 +123,11 @@ void Game::playGame()
 {
     while(!gameOver())
     {
+        cout << '\n' << '\n' << endl;
+        cout << "/////////////////////////////////////////////////////////////////////////////" << endl;
         cout << "Let's start the round of Jaipur" << endl;
+        cout << "/////////////////////////////////////////////////////////////////////////////" << '\n' << endl;
+
         while (!roundIsOver()){
             printBoard();
             (*players[playerWinnerIndex]).makeMove();
@@ -163,6 +167,8 @@ void Game::playGame()
 
 void Game::printRoundWinner(int w) const
 {
+    cout << endl;
+    cout << "Round is over!" << endl;
     cout << players[w]->getName();
     cout << " won the round with: ";
     cout << players[w]->countPts();
@@ -192,12 +198,12 @@ void Game::calculateWinner() // assign camel token and calculate who wins. Give 
 
     if((*players[0]).countPts() > (*players[1]).countPts())
     {
-        playerWinnerIndex = 0;
+        playerWinnerIndex = 1;
         players[0]->seals.push_back(bank.takeSeal());
         Pwinner = 0;
     }
     else if((*players[1]).countPts() > (*players[0]).countPts()) {
-        playerWinnerIndex = 1;
+        playerWinnerIndex = 0;
         players[1]->seals.push_back(bank.takeSeal());
         Pwinner = 1;
     }
