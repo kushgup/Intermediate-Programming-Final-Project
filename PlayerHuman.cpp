@@ -16,9 +16,9 @@ void PlayerHuman::makeMove(){
 	cout << "d) sell cards" << endl;
 	cout << "Select a move: ";
 
+    //~~~~~~~~~~~~ Selecting Move Properly ~~~~~~~~~~~~~~//
 	string str;
     char ch;
-
     bool invalidInput = true;
     while(invalidInput)
     {
@@ -31,6 +31,8 @@ void PlayerHuman::makeMove(){
 
             if(!(ch >= 'a' && ch <= 'd'))
                 throw invalidInitialSelectionException();
+
+            invalidInput = false;
         }
         catch(exception& e)
         {
@@ -41,6 +43,8 @@ void PlayerHuman::makeMove(){
 	//big try catch block to do exception handling
 	//try {
 		//have text-based GUI and construct move objects, then call individual functions checking valid first
+
+    //~~~~~~~~~~~~ Executing Move ~~~~~~~~~~~~~~//
     bool incorrectMoveOption = true;
     while (incorrectMoveOption)
     {
@@ -51,26 +55,19 @@ void PlayerHuman::makeMove(){
                 cout << "Taking Camels..." << endl;
                 Move next(game_field);
                 takeCamels(next);
+                incorrectMoveOption = false;
     		}
 
-    		else if(ch == 'b')
+    		else if(ch == 'b') // THIS IS DONE!
     		{
-    			cout << "Taking a Card... Which card to take?";
-    			cin >> ch;
-                bool tookAValidCard = true;
-                while (tookAValidCard)
-                {
-                    if(ch == 'a' || ch == 'b' || ch == 'c' || ch == 'd' || ch == 'e')
-                    {
-                        tookAValidCard = false;
-                    }
-                    else
-                    {
-                        cout << "That isn't a card you can take" << endl;
-                        cout << "Which card to take? ";
-                        cin >> ch;
-                    }     
-                }
+    			cout << "Taking a Card... Which card to take?" << endl;
+
+                // get char corresponding to Market card. If invalid, throw exception 
+                char card_ch;
+    			cin >> card_ch;
+                if(card_ch != 'a' && card_ch != 'b' && card_ch != 'c' && card_ch != 'd' && card_ch != 'e')
+                    throw invalidInputforMarketException();
+
     			Move next(game_field, hand, ch);
                 takeCard(next);
                 incorrectMoveOption = false;
@@ -78,18 +75,20 @@ void PlayerHuman::makeMove(){
 
     		else if(ch == 'c')
     		{
+                cout << "Exchanging Now..." << endl;
+
     			vector<char> mkt_take;
     			vector<int> hand_return;
-    			int num_camels = 0;
+                int num_camels = 0;
 
                 cout << "-Exchange in market (q to finish): " << endl;
                 char in_char;
                 cin >> in_char;
                 while (in_char != 'q') {
-                    if(in_char >= 'a' && in_char <= 'e')
-                        mkt_take.push_back(in_char);
-                    else
-                        cout << "Invalid Character! Enter a character between 'a' and 'e' to select a Card" << endl; // exception?
+                    if(!(in_char >= 'a' && in_char <= 'e'))
+                        throw invalidInputforMarketException();
+
+                    mkt_take.push_back(in_char);
                     cin >> in_char;
                 }
 
@@ -97,12 +96,17 @@ void PlayerHuman::makeMove(){
                 int in_hand;
                 cin >> in_hand;
                 while (in_hand != 9) {
-                    if(in_hand >= 1 && in_hand <= hand.size())
-                        hand_return.push_back(in_hand);
-                    else
-                        cout << "Invalid Character! Enter a number between '1' and '" << hand.size() << "' to select a Card" << endl; // exception?
+                    if(!(in_hand >= 1 && in_hand <= hand.size()))
+                        throw invalidInputforHandException();
+
+                    hand_return.push_back(in_hand);
                     cin >> in_hand;
                 }
+
+                cout << "How many Camels from Herd to Give" << endl;
+                cin >> num_camels;
+                if( num_camels < 0 || num_camels > herd.size())
+                    throw invalidNumCamelsToGive();
 
                 //order the vector of chars in mkt_take to make sure that the end iterators won't get messed up
 			    char temp;
@@ -123,13 +127,14 @@ void PlayerHuman::makeMove(){
 
     		else if(ch == 'd')
     		{
-    			cout << "Selected d" << endl;
+    			cout << "Selling Cards!" << endl;
     			vector<int> to_sell;
 
                 cout << "-Cards in hand to sell (9 to finish): " << endl;
                 int in_hand;
-                int numCardsinHand = this->Player::handSize();
                 cin >> in_hand;
+                /* What is this.... ?
+                int numCardsinHand = this->Player::handSize();
                 while(std::cin.fail())
                 {
                     cin.clear();
@@ -137,17 +142,17 @@ void PlayerHuman::makeMove(){
                     cout << "Bad entry.  Enter a NUMBER: ";
                     cin >> in_hand;
                 }
+                */
                 while (in_hand != 9)
                 {
-                    if (in_hand > 0 && in_hand <= numCardsinHand)
-                    {
-                        to_sell.push_back(in_hand);
-                    }
-                    else
-                    {
-                        cout << "You can't sell that card! pick another or press 9 to finish: ";
-                    }
+                    if(!(in_hand >= 1 && in_hand <= hand.size()))
+                        throw invalidInputforHandException();
+
+                    to_sell.push_back(in_hand);
+
                     cin >> in_hand;
+
+                    /*
                     while(std::cin.fail())
                     {
                         cin.clear();
@@ -155,40 +160,20 @@ void PlayerHuman::makeMove(){
                         cout << "Bad entry.  Enter a NUMBER: ";
                         cin >> in_hand;
                     }
+                    */
                 }
 
+                /* Delete this??
                 for( std::vector<int>::const_iterator i = to_sell.begin(); i != to_sell.end(); ++i)
                     std::cout << *i << ' ';
                 cout << endl;
+                */
                 
-                try{
-                    Move next(hand, to_sell);
-                    sellCards(next);
-                    incorrectMoveOption = false;
-                }
-                catch (int e)
-                {
-                    cout << "You can's sell those cards together!!!" <<endl;
-                    cout << "a) take camels" << endl;
-                    cout << "b) take single card" << endl;
-                    cout << "c) exchange cards" << endl;
-                    cout << "d) sell cards" << endl;
-                    cout << "Select a move: ";
-                }
+                Move next(hand, to_sell);
+                sellCards(next);
+                incorrectMoveOption = false;
     		}
 
-        }
-        catch(int e)
-        {
-            cout << "You didn't do it properly!!" << endl;
-            cout << endl;
-            cout << "a) take camels" << endl;
-            cout << "b) take single card" << endl;
-            cout << "c) exchange cards" << endl;
-            cout << "d) sell cards" << endl;
-            cout << "Select a move: ";
-
-            // keep incorrectMoveOption = true
         }
         catch(exception& e)
         {

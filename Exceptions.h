@@ -8,6 +8,12 @@ public:
   virtual const char* what() const throw() {return "Invalid Input! Please Enter Only 1 Character!";}
 };
 
+class invalidNumCamelsToGive: public exception
+{
+public:
+  virtual const char* what() const throw() {return "Giving an invalid number of Camels! Give between 0 camels and the # in your herd!";}
+};
+
 class invalidInitialSelectionException: public exception
 {
 public:
