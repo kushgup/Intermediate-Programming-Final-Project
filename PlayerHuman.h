@@ -14,7 +14,7 @@ class PlayerHuman: public Player {
 public:
 
 	PlayerHuman(string nm, Field * fd, Bank * bk): Player(nm, fd, bk) { }
-	~PlayerHuman();
+	~PlayerHuman() { };
 
 	void makeMove(); //decides which action to take on the turn
 };

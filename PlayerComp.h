@@ -8,7 +8,7 @@ class PlayerComp: public Player {
 public:
 
     PlayerComp(string nm, Field * fd, Bank * bk): Player::Player(nm, fd, bk) { }
-    ~PlayerComp();
+    ~PlayerComp() { };
     
     void makeMove();
 };
