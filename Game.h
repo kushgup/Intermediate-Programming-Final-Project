@@ -9,7 +9,7 @@
 #include <cstdlib> // recently added
 #include "Card.h"
 
-#define numPlayers 2
+#define num_players 2
 
 class Player;
 class PlayerComp;

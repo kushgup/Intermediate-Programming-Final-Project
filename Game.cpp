@@ -25,7 +25,7 @@ Game::Game(Game& other) {
 
 Game::~Game() {
 
-    for (int i = 0; i < numPlayers; i++)
+    for (int i = 0; i < num_players; i++)
         delete players[i];
 }
 
