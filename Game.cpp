@@ -70,13 +70,13 @@ void Game::initPlayers() {
     }
 }
 
-void Game::printBoard() const {
+void Game::printBoard(){
     cout << endl;
     bank.printBank();
     field.printField();
 }
 
-bool Game::roundIsOver() const {
+bool Game::roundIsOver(){
 
     if((55 - field.deck.getPlaceInDeck()) == 0 || bank.isDepleted() >= 3) //check if deck is empty
         return true;

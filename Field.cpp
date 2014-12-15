@@ -10,7 +10,7 @@ Field::Field()
     refillMarket();
 }
 
-void Field::printField()
+void Field::printField() const
 {
     deck.printDeck();
     cout << endl;

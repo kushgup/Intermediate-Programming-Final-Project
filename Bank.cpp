@@ -380,23 +380,17 @@ void Bank::refillBank()
 int Bank::isDepleted()
 {
     int depletedTokens = 0;
-    if(isGoodDepleted("Paper")) {
+    if(isGoodDepleted("Paper"))
         depletedTokens++;
-    }
-    if(isGoodDepleted("Spice")) {
+    if(isGoodDepleted("Spice"))
         depletedTokens++;
-    }
-    if(isGoodDepleted("Cloth")) {
+    if(isGoodDepleted("Cloth"))
         depletedTokens++;
-    }
-    if(isGoodDepleted("Silver")) {
+    if(isGoodDepleted("Silver"))
         depletedTokens++;
-    }
-    if(isGoodDepleted("Gold")) {
+    if(isGoodDepleted("Gold"))
         depletedTokens++;
-    }
-    if(isGoodDepleted("Diamonds")) {
+    if(isGoodDepleted("Diamonds"))
         depletedTokens++;
-    }
     return depletedTokens;
 }

@@ -24,7 +24,7 @@ public:
 
     Field();
 
-    void printField();
+    void printField() const;
     Deck * getDeck() { return &deck; };
     void refillMarket() { while(market.size() < 5) market.push_back(deck.dealCard()); };
     void restoreDeck() { deck.restoreDeck(); };

@@ -105,7 +105,7 @@ void PlayerHuman::makeMove(){
 
                 cout << "How many Camels from Herd to Give" << endl;
                 cin >> num_camels;
-                if( num_camels < 0 || num_camels > herd.size())
+                if( num_camels < 0 || num_camels > (int) herd.size())
                     throw invalidNumCamelsToGive();
 
                 //order the vector of chars in mkt_take to make sure that the end iterators won't get messed up

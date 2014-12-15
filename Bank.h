@@ -27,7 +27,7 @@ class Bank
     array <vector<Token>, 3> bonuses;
     string types[6];
 
-    Token seals [3];
+    Token seals[3];
     int numofSealsLeft;
     Token camelToken;
 
@@ -53,8 +53,8 @@ public:
     Token * getCamelToken();
     void printBank();
     void refillBank();
-    bool isGoodDepleted(string good) { return (MaxTokensForGoodsTs[good] == 0); };
-    bool isBonusDepleted(int bonus) { return (MaxTokensForBonuses[bonus] == 0); };
+    bool isGoodDepleted(string good) { return MaxTokensForGoodsTs[good] == 0; };
+    bool isBonusDepleted(int bonus) { return MaxTokensForBonuses[bonus] == 0; };
     int isDepleted();
     Token * temp0; //for when there arent enough tokens to be returned as are being sold.
 

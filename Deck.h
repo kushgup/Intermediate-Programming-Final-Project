@@ -19,7 +19,7 @@ public:
     Deck();
     //~Deck();
 
-    void printDeck();
+    void printDeck() const;
     void shuffle();
     void restoreDeck();
     void increasePlaceinDeck(){placeinDeck++;};

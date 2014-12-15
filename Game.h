@@ -35,10 +35,10 @@ public:
 
 private:
 
-    void printBoard() const;
+    void printBoard();
 	int getRoundNum() const { return roundNum; };
 //	Player & setWinner(int x) { return players[x]; } ;
-	bool roundIsOver() const;
+	bool roundIsOver();
 	bool gameOver() const;
 	void shuffleDeck();
 	void deal();

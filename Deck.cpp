@@ -93,7 +93,7 @@ void Deck::swap(int a, int b)
     deckTobeshuffled[b] = temp;
 }
 
-void Deck::printDeck()
+void Deck::printDeck() const
 {
     cout << "Deck:\t\t";
     string blackSquare = "\u25A0";
