@@ -4,12 +4,12 @@
 #include "Bank.h"
 #include "Deck.h"
 #include "Field.h"
+#include "Game.h"
 
 using std::cout;
 using std::endl;
 
 int main() {
-
     Bank one = *new Bank();
     one.Bank::printBank();
     Field two = *new Field();

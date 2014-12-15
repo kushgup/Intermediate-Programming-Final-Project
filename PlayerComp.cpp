@@ -18,44 +18,43 @@ void PlayerComp::makeMove() {
             vector<int> to_sell;
             int randomPick = rand()% 3;
             
-            if (hSize == 6){
+            if (hSize == 6) //SELL
+            {
                 int handCard;
                 handCard = (rand() % hSize) + 1;
-                Move next(game_field, hand, handCard);
+                Move next(hand, to_sell);
                 sellCards(next);
                 incorrectMove = false;
             }
-            else if (hSize == 1)
+            else if (hSize == 1)    //TAKE ONE CARD
             {
                 int MarketCard;
                 MarketCard = rand() % 5;
                 char TakeCard = 'a' + MarketCard;
-                to_sell.push_back(TakeCard);
-                Move next(hand, to_sell);
+                Move next(game_field, hand, TakeCard);
                 takeCard(next);
                 incorrectMove = false;
             }
-            else if (randomPick == 0)
+            else if (randomPick == 0) // TAKE CAMEL
             {
                 Move next(game_field);
                 takeCamels(next);
                 incorrectMove = false;
             }
-            else if (randomPick == 1)
+            else if (randomPick == 1) //SELL
             {
                 int handCard;
                 handCard = (rand() % hSize) + 1;
-                Move next(game_field, hand, handCard);
+                Move next(hand, to_sell);
                 sellCards(next);
                 incorrectMove = false;
             }
-            else
+            else        //TAKE ONE CARD
             {
                 int MarketCard;
                 MarketCard = rand() % 5;
                 char TakeCard = 'a' + MarketCard;
-                to_sell.push_back(TakeCard);
-                Move next(hand, to_sell);
+                Move next(game_field, hand, TakeCard);
                 takeCard(next);
                 incorrectMove = false;
             }
