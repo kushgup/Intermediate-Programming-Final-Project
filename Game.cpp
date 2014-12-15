@@ -132,7 +132,7 @@ void Game::playGame()
             (*players[(playerWinnerIndex + 1) % 2]).makeMove();
             field.refillMarket();
         }
-        field.restoreDeck();
+        field.resetForRound();
         bank.refillBank();
         field.refillMarket();
 
@@ -152,10 +152,9 @@ void Game::playGame()
             {
                 temp = field.deck.dealCard();
                 if(temp->getIsCamel())
-                    // do shit
-                    (*players[i]).herd.push_back(temp);
+                    players[i]->herd.push_back(temp);
                 else
-                    (*players[i]).hand.insertPointer(temp);
+                    players[i]->hand.insertPointer(temp);
             }
         }
     }

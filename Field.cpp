@@ -34,3 +34,9 @@ void Field::printField() const
     }
     cout << endl;
 }
+
+void Field::resetForRound() {
+
+    deck = Deck();
+    market.clear();
+}
