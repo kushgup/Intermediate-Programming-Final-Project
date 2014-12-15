@@ -6,6 +6,7 @@ This file contains all the function definitions for the Human Player
 #include <exception>
 #include <limits>
 #include <string>
+#include <iostream>
 
 void PlayerHuman::makeMove(){
 
@@ -58,6 +59,7 @@ void PlayerHuman::makeMove(){
     		else if(ch == 'b') // THIS IS DONE!
     		{
     			cout << "Taking a Card... Which card to take?" << endl;
+                cout << "Only enter Letters between 'a' -> 'e'" << endl;
 
                 // get char corresponding to Market card. If invalid, throw exception 
                 char card_ch;
@@ -78,7 +80,7 @@ void PlayerHuman::makeMove(){
     			vector<int> hand_return;
                 int num_camels = 0;
 
-                cout << "-Exchange in market (ENTER between entries; q to finish): " << endl;
+                cout << "-Exchange in market (Only enter Letters between 'a' -> 'e'; ENTER between entries; q to finish): " << endl;
                 char in_char;
                 cin >> in_char;
                 while (in_char != 'q') {
@@ -89,7 +91,7 @@ void PlayerHuman::makeMove(){
                     cin >> in_char;
                 }
 
-                cout << "-Exchange in hand (ENTER between entries; 9 to finish): " << endl;
+                cout << "-Exchange in hand (Only enter Numbers between '1' and '" << hand.size() << "'; ENTER between entries; 9 to finish): " << endl;
                 int in_hand;
                 cin >> in_hand;
                 while (in_hand != 9) {
@@ -130,7 +132,7 @@ void PlayerHuman::makeMove(){
     			cout << "Selling Cards!" << endl;
     			vector<int> to_sell;
 
-                cout << "-Cards in hand to sell (9 to finish): " << endl;
+                cout << "-Cards in hand to sell (only enter Numbers; ENTER between entries; 9 to finish): " << endl;
                 int in_hand;
                 cin >> in_hand;
 
@@ -153,6 +155,8 @@ void PlayerHuman::makeMove(){
         catch(exception& e)
         {
             cout << e.what() << endl;
+            cin.clear();
+            cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
         }
     }
 }

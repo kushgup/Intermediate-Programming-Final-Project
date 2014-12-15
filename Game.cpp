@@ -123,7 +123,11 @@ void Game::playGame()
 {
     while(!gameOver())
     {
+        cout << '\n' << '\n' << endl;
+        cout << "/////////////////////////////////////////////////////////////////////////////" << endl;
         cout << "Let's start the round of Jaipur" << endl;
+        cout << "/////////////////////////////////////////////////////////////////////////////" << '\n' << endl;
+
         while (!roundIsOver()){
             printBoard();
             (*players[playerWinnerIndex]).makeMove();
