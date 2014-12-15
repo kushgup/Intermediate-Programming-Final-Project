@@ -66,8 +66,7 @@ void Game::initPlayers() {
             if(temp->getIsCamel())
                 players[i]->herd.push_back(temp);
             else
-                players[i]->hand.insert(temp);
-                //players[i]->hand.insertPointer(temp);
+                players[i]->hand.insertPointer(temp);
         }
     }
 }

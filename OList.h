@@ -41,7 +41,6 @@ public:
     T * get(int val) const;
     int count(T val) const;
     void insert(T val);
-    void insert(T * val);
     void insertPointer(T val);
     void push_back(T val);
     void remove(T val);
@@ -140,29 +139,6 @@ void OList<T>::insert(T val) {
     //case 2, middle of the list
     Node<T> *prev = NULL, *curr = head;
     while(curr && curr->value < val) {
-        prev = curr;
-        curr = curr->next;
-    }
-    prev->next = new Node<T>(val, curr);
-}
-
-template <class T>
-void OList<T>::insert(T * val) {
-    
-    if(!head) {
-        head = new Node<T>(val, NULL);
-        return;
-    }
-    //insert where it should be using the < or > operator
-    //case 1, insert before head
-    if(*(head->value) >= *val) {
-        head = new Node<T>(val, head);
-        return;
-    }
-
-    //case 2, middle of the list
-    Node<T> *prev = NULL, *curr = head;
-    while(curr && *(curr->value) < *val) {
         prev = curr;
         curr = curr->next;
     }

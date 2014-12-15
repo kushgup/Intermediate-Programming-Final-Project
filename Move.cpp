@@ -50,7 +50,7 @@ Move::Move(OList<Card *> & handRef, vector<int> cardsToSell): type("sell") // us
 Move::Move(Field * f, OList<Card *> & handRef, vector<int> cardsToGive, vector<char> cardsToTake, int num_camels, vector<Card *> & herd): type("exchange"), num_camels_exchanged(num_camels) 
 {
 	//////////// PRELIMINARY CHECKS //////////////
-	if((handRef.size() + num_camels) > 1)
+	if((cardsToGive.size() + num_camels) <= 1)
 		throw notEnoughToExchangeException(); // check that player is exchanging more than 1 card
 	
 	if((handRef.size() + cardsToTake.size() - cardsToGive.size()) > 7)
