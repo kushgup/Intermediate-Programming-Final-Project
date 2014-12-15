@@ -51,7 +51,7 @@ Deck::Deck()
     }
 
     //deckTobeshuffled[0].setPandaCamel();
-    placeinDeck = 0;
+    placeinDeck = 1;
 }
 
 /*

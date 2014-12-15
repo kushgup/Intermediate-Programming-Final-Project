@@ -78,7 +78,7 @@ void Game::printBoard(){
 
 bool Game::roundIsOver(){
 
-    if( (field.deck.getPlaceInDeck()) == 52 || bank.isDepleted() >= 3) //check if deck is empty
+    if( (field.deck.getPlaceInDeck()) == 55 || bank.isDepleted() >= 3) //check if deck is empty
         return true;
     return false;
 }
