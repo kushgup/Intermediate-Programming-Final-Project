@@ -249,7 +249,7 @@ Token * Bank::takeTokenFromGoodTs(string goodYourTaking) //Pop Top
 
 Token * Bank::takeBonusToken(int BonusTaking) //Pop Top
 {
-    int placeTakingFrom = MaxTokensForBonuses[BonusTaking];
+    int placeTakingFrom = MaxTokensForBonuses[BonusTaking]-1;
     if(placeTakingFrom >= 0){
         Token * temp = &bonuses[BonusTaking-3][placeTakingFrom];
         MaxTokensForBonuses[BonusTaking]--;
@@ -333,7 +333,7 @@ void Bank::printBank()
 
 void Bank::shuffleBonus()
 {
-    //srand(time(NULL));
+    srand(time(NULL));
 
     int i;
     for (i = 0; i < 7; i++)
@@ -344,14 +344,15 @@ void Bank::shuffleBonus()
     for (i = 0; i < 6; i++)
     {
         int b4 = rand() % 6;
-        swap(i, b4, 0);
+        swap(i, b4, 1);
     }
+    /*
     for (i = 0; i < 5; i++)
     {
-        int b5 = rand() % 5;
-        swap(i, b5, 0);
+        int b5 = rand() % 4;
+        swap(i, b5, 2);
     }
-
+*/
 }
 
 void Bank::swap (int a, int b, int c)
