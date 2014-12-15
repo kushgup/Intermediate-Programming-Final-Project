@@ -35,6 +35,7 @@ protected:
 public:
 
 	Player(string nm, Field * fd, Bank * bk): name(nm), game_field(fd), game_bank(bk) { }
+	virtual ~Player();
 
 	string getName() const { return name; };
 	int handSize() const { return hand.size(); };
