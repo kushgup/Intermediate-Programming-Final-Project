@@ -133,16 +133,7 @@ void PlayerHuman::makeMove(){
                 cout << "-Cards in hand to sell (9 to finish): " << endl;
                 int in_hand;
                 cin >> in_hand;
-                /* What is this.... ?
-                int numCardsinHand = this->Player::handSize();
-                while(std::cin.fail())
-                {
-                    cin.clear();
-                    cin.ignore(numeric_limits<streamsize>::max(),'\n');
-                    cout << "Bad entry.  Enter a NUMBER: ";
-                    cin >> in_hand;
-                }
-                */
+
                 while (in_hand != 9)
                 {
                     if(!(in_hand >= 1 && in_hand <= hand.size()))
@@ -151,23 +142,7 @@ void PlayerHuman::makeMove(){
                     to_sell.push_back(in_hand);
 
                     cin >> in_hand;
-
-                    /*
-                    while(std::cin.fail())
-                    {
-                        cin.clear();
-                        cin.ignore(numeric_limits<streamsize>::max(),'\n');
-                        cout << "Bad entry.  Enter a NUMBER: ";
-                        cin >> in_hand;
-                    }
-                    */
                 }
-
-                /* Delete this??
-                for( std::vector<int>::const_iterator i = to_sell.begin(); i != to_sell.end(); ++i)
-                    std::cout << *i << ' ';
-                cout << endl;
-                */
                 
                 Move next(hand, to_sell);
                 sellCards(next);

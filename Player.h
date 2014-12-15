@@ -43,9 +43,9 @@ public:
 	int countPts() const;
 	int countSeals() const { return seals.size(); };
 	void printHand() const; //print name, hand, camel and point info
+	void resetForRound(); //clear hand, herd, and tokens for a new round
+    bool hasPandaCamel(); //for tiebreakers
 	virtual void makeMove() = 0; //decides which action to take on the turn, should be overwritten for human and AI players
-    void resetForRound(); //clear hand, herd, and tokens for a new round
-    bool hasPandaCamel();
 
 protected:
 
