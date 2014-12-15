@@ -50,11 +50,40 @@ public:
   virtual const char* what() const throw() {return "For 'Precious Goods' (Diamonds, Silver, Gold), Must Sell at Least 2!";}
 };
 
-class invalidExchangeParamsException: public exception
+class invalidHandSizeException: public exception
 {
 public:
-  virtual const char* what() const throw() {return 
-  	"Invalid Arguments for Exchange Function. Make sure:  \n-You are not taking more than 7 cards into Hand  \n-If you are giving camels to market, that your herd is adequate  \n-You do not give the market more than 5 cards  \n-The # cards you are taking = # cards you are giving  \n-You are exchanging at least 2+ cards with the market";}
+  virtual const char* what() const throw() {return "Make sure you have enough cards in your hand to exchange!";}
+};
+
+class equalExchangeException: public exception
+{
+public:
+  virtual const char* what() const throw() {return "Make sure that for an exchange, you are Giving and Taking from market the same # of cards!";}
+};
+
+class givingMarketTooManyException: public exception
+{
+public:
+  virtual const char* what() const throw() {return "Make sure you do not give the market more than 5 cards!";}
+};
+
+class herdNotBigEnoughException: public exception
+{
+public:
+  virtual const char* what() const throw() {return "Make sure that if you are giving camels to market, your herd is adequate!";}
+};
+
+class takingTooManyCardsException: public exception
+{
+public:
+  virtual const char* what() const throw() {return "Make sure you are not taking more than 7 cards into Hand!";}
+};
+
+class notEnoughToExchangeException: public exception
+{
+public:
+  virtual const char* what() const throw() {return "Make sure you are exchanging at least 2+ cards with the market!";}
 };
 
 class tradingSameException: public exception
