@@ -164,4 +164,3 @@ void Deck::restoreDeck()
     //deckTobeshuffled[0].setPandaCamel();
     placeinDeck = 0;
 }
-
