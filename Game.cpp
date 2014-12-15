@@ -24,6 +24,7 @@ Game::Game(Game& other) {
 } */
 
 Game::~Game() {
+    ///CREATES WARNING.. need to create virtual destructor
     for (int i = 0; i < num_players; i++)
         delete players[i];
 }
