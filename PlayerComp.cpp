@@ -22,6 +22,7 @@ void PlayerComp::makeMove() {
             {
                 int handCard;
                 handCard = (rand() % hSize) + 1;
+                to_sell.push_back(handCard);
                 Move next(hand, to_sell);
                 sellCards(next);
                 incorrectMove = false;
@@ -45,6 +46,7 @@ void PlayerComp::makeMove() {
             {
                 int handCard;
                 handCard = (rand() % hSize) + 1;
+                to_sell.push_back(handCard);
                 Move next(hand, to_sell);
                 sellCards(next);
                 incorrectMove = false;
