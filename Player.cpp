@@ -56,7 +56,7 @@ void Player::takeCamels(Move & to_make) {
 void Player::takeCard(Move & to_make) {
 
 	//assumes that the market & hand has been checked by "move" object already... look for takeSingle
-	hand.insert(*to_make.takeSingle); //add to hand
+	hand.insertPointer(*to_make.takeSingle); //add to hand
 	game_field->market.erase(to_make.takeSingle); //delete from market
 }
 
@@ -66,7 +66,7 @@ void Player::exchange(Move & to_make) {
 	//take cards first
 	vector<vector<Card *>::iterator>::reverse_iterator takeIter = to_make.takeMult.rbegin(), takeIter_end = to_make.takeMult.rend();
 	while(takeIter != takeIter_end) {
-		hand.insert(**takeIter); //add to hand
+		hand.insertPointer(**takeIter); //add to hand
 		game_field->market.erase(*takeIter); //delete from market
 		takeIter++; //update the iterator through the vector of iterators
 	}
