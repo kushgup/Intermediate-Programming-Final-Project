@@ -1,6 +1,6 @@
 #include "Bank.h"
-#include <stdlib.h>
-#include <time.h>
+#include <cstdlib>
+#include <ctime>
 
 #define NUMPAPER 9
 #define NUMSPICE 7

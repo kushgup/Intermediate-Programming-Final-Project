@@ -1,8 +1,8 @@
 #ifndef __pg7b__Deck__
 #define __pg7b__Deck__
 
-#include <stdio.h>
 #include "Card.h"
+#include <cstdio>
 
 #define MAXCARDSINDECK 55
 
@@ -27,7 +27,7 @@ public:
 
 private:
     void swap (int, int);
-    
+
 };
 
 #endif /* defined(__pg7b__Deck__) */

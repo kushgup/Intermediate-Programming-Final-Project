@@ -1,13 +1,11 @@
 #ifndef _GAME_H
 #define _GAME_H
 
-#include "State.h"
 #include "PlayerComp.h"
 #include "PlayerHuman.h"
-#include <iostream> // recently added
-#include <cstdio> // recently added
-#include <cstdlib> // recently added
-#include "Card.h"
+#include <iostream>
+#include <cstdio>
+#include <cstdlib>
 
 #define num_players 2
 

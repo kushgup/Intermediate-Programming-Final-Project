@@ -27,10 +27,10 @@ Deck.o: Deck.cpp Deck.h Card.h
 Field.o: Field.cpp Field.h Card.h Deck.h
 	$(CC) $(CFLAGS) -c Field.cpp
 
-Game.o: Game.cpp Game.h State.h PlayerComp.h PlayerHuman.h Player.h Bank.h Move.h Token.h Card.h Field.h OListIterator.h OList.h Deck.h Exceptions.h
+Game.o: Game.cpp Game.h PlayerComp.h PlayerHuman.h Player.h Bank.h Move.h Token.h Card.h Field.h OListIterator.h OList.h Deck.h Exceptions.h
 	$(CC) $(CFLAGS) -c Game.cpp
 
-JaipurMain.o: JaipurMain.cpp Bank.h Card.h Deck.h Field.h Game.h Move.h OList.h OListIterator.h Player.h PlayerComp.h PlayerHuman.h State.h Token.h Exceptions.h
+JaipurMain.o: JaipurMain.cpp Bank.h Card.h Deck.h Field.h Game.h Move.h OList.h OListIterator.h Player.h PlayerComp.h PlayerHuman.h Token.h Exceptions.h
 	$(CC) $(CFLAGS) -c JaipurMain.cpp
 
 Move.o: Move.cpp Move.h Card.h Field.h Deck.h OListIterator.h OList.h Exceptions.h
@@ -47,9 +47,6 @@ PlayerHuman.o: PlayerHuman.cpp PlayerHuman.h Player.h Bank.h Move.h Token.h Card
 
 PlayerComp.o: PlayerComp.cpp PlayerComp.h Player.h Bank.h Move.h Token.h Card.h Field.h OListIterator.h OList.h Deck.h Exceptions.h
 	$(CC) $(CFLAGS) -c PlayerComp.cpp
-
-State.o: State.cpp State.h
-	$(CC) $(CFLAGS) -c State.cpp
 
 clean:
 	\rm *.o All JaipurMain BankTest PlayerHumanTest
