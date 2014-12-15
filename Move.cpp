@@ -50,15 +50,23 @@ Move::Move(OList<Card *> & handRef, vector<int> cardsToSell): type("sell") // us
 Move::Move(Field * f, OList<Card *> & handRef, vector<int> cardsToGive, vector<char> cardsToTake, int num_camels, vector<Card *> & herd): type("exchange"), num_camels_exchanged(num_camels) 
 {
 	//////////// PRELIMINARY CHECKS //////////////
-	bool enough_cards = (handRef.size() + num_camels) > 1;
-	bool too_many_takes = (handRef.size() + cardsToTake.size() - cardsToGive.size()) > 7; 	// check that player isn't taking more than 7 cards into hand
-	bool equal_args = (num_camels + cardsToGive.size()) != cardsToTake.size(); 	// check that # camels + # cardsToGive == # cardsToTake
-	bool market_size = (cardsToGive.size() + num_camels) > 5; // check that player isn't giving market more than 5 cards 
-	bool herd_size = (int) herd.size() < num_camels; 	// check that player has # camels
-	bool hand_size = (int)handRef.size() < (int)cardsToGive.size(); 	// check that player has # cardsToGive ???
+	if((handRef.size() + num_camels) > 1)
+		throw notEnoughToExchangeException(); // check that player is exchanging more than 1 card
+	
+	if((handRef.size() + cardsToTake.size() - cardsToGive.size()) > 7)
+		throw takingTooManyCardsException(); 	// check that player isn't taking more than 7 cards into hand
+	
+	if((num_camels + cardsToGive.size()) != cardsToTake.size())
+		throw equalExchangeException(); 	// check that # camels + # cardsToGive == # cardsToTake
+	
+	if((cardsToGive.size() + num_camels) > 5)
+		throw givingMarketTooManyException(); // check that player isn't giving market more than 5 cards 
 
-	if (enough_cards || too_many_takes || equal_args || market_size || herd_size || hand_size)
-		throw invalidExchangeParamsException();
+	if((int) herd.size() < num_camels)
+		throw herdNotBigEnoughException(); 	// check that player has # camels
+
+	if((int)handRef.size() < (int)cardsToGive.size())
+		throw invalidHandSizeException(); 	// check that player has # cardsToGive ???
 
 	fetchHandCards(cardsToGive, handRef, returnMult); // fill returnMult with iterators pointing to all cards being given
 	fetchMarketCards(cardsToTake, takeMult, f); // fill takeMult with iterators pointing to all cards being taken
