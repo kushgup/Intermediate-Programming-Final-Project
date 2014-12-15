@@ -10,44 +10,41 @@ This file contains all the function definitions for the Human Player
 void PlayerHuman::makeMove(){
 
 	printHand();
-	cout << "a) take camels" << endl;
-	cout << "b) take single card" << endl;
-	cout << "c) exchange cards" << endl;
-	cout << "d) sell cards" << endl;
-	cout << "Select a move: ";
-
-    //~~~~~~~~~~~~ Selecting Move Properly ~~~~~~~~~~~~~~//
-	string str;
-    char ch;
-    bool invalidInput = true;
-    while(invalidInput)
-    {
-        try
-        {
-            cin >> str;
-            if( str.length() > 1)
-                throw inputTooLongException(); 
-            ch = str.at(0);
-
-            if(!(ch >= 'a' && ch <= 'd'))
-                throw invalidInitialSelectionException();
-
-            invalidInput = false;
-        }
-        catch(exception& e)
-        {
-            cout << e.what() << endl;
-        }
-    }
-
-	//big try catch block to do exception handling
-	//try {
-		//have text-based GUI and construct move objects, then call individual functions checking valid first
-
-    //~~~~~~~~~~~~ Executing Move ~~~~~~~~~~~~~~//
+    
     bool incorrectMoveOption = true;
     while (incorrectMoveOption)
     {
+        cout << "a) take camels" << endl;
+        cout << "b) take single card" << endl;
+        cout << "c) exchange cards" << endl;
+        cout << "d) sell cards" << endl;
+        cout << "Select a move: ";
+
+        //~~~~~~~~~~~~ Selecting Move Properly ~~~~~~~~~~~~~~//
+        string str;
+        char ch;
+        bool invalidInput = true;
+        while(invalidInput)
+        {
+            try
+            {
+                cin >> str;
+                if( str.length() > 1)
+                    throw inputTooLongException();
+                ch = str.at(0);
+
+                if(!(ch >= 'a' && ch <= 'd'))
+                    throw invalidInitialSelectionException();
+
+                invalidInput = false;
+            }
+            catch(exception& e)
+            {
+                cout << e.what() << endl;
+            }
+        }
+
+        //~~~~~~~~~~~~ Executing Move ~~~~~~~~~~~~~~//
         try
         {
     		if(ch == 'a') // THIS IS DONE!
