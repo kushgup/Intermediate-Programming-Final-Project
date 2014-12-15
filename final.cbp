@@ -46,6 +46,7 @@
 		<Unit filename="Field.h" />
 		<Unit filename="Game.cpp" />
 		<Unit filename="Game.h" />
+		<Unit filename="JaipurTest.cpp" />
 		<Unit filename="Move.cpp" />
 		<Unit filename="Move.h" />
 		<Unit filename="OList.h" />
@@ -60,7 +61,9 @@
 		<Unit filename="State.h" />
 		<Unit filename="Token.cpp" />
 		<Unit filename="Token.h" />
-		<Unit filename="driver.cpp" />
+		<Unit filename="driver.cpp">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
 		<Extensions>
 			<code_completion />
 			<envvars />
