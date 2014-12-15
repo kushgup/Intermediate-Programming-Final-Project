@@ -30,7 +30,7 @@ public:
 
     Game(); //default constructor
     //Game(Game &); //copy constructor
-    //~Game();
+    ~Game();
 
 	void playGame(); // move to private area eventually...
 	void initPlayers();
