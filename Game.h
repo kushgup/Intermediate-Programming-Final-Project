@@ -39,7 +39,6 @@ private:
 
     void printBoard();
 	int getRoundNum() const { return roundNum; };
-//	Player & setWinner(int x) { return players[x]; } ;
 	bool roundIsOver();
 	bool gameOver() const;
 	void shuffleDeck();

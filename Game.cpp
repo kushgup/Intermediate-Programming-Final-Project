@@ -85,34 +85,30 @@ bool Game::roundIsOver(){
 
 void Game::printGameWinner() const
 {
-    int P0seals = players[0]->Player::countSeals();
-    int P1seals = players[1]->Player::countSeals();
+    int P0seals = players[0]->countSeals();
+    int P1seals = players[1]->countSeals();
 
     if (P0seals == 2){
-        cout << players[0]->Player::getName() << " won the game!!!" << endl;
+        cout << players[0]->getName() << " won the game!!!" << endl;
         if(P1seals == 1)
-            cout << "They had 2 seals and " << players[1]->Player::getName() << " only had 1 seal." << endl;
+            cout << "They had 2 seals and " << players[1]->getName() << " only had 1 seal." << endl;
         else
-            cout << "They had 2 seals and " << players[1]->Player::getName() << " had 0 seals." << endl;
+            cout << "They had 2 seals and " << players[1]->getName() << " had 0 seals." << endl;
     }
 
     if (P1seals == 2){
-        cout << players[1]->Player::getName() << " won the game!!!" << endl;
+        cout << players[1]->getName() << " won the game!!!" << endl;
         if(P0seals == 1)
-            cout << "They had 2 seals and " << players[0]->Player::getName() << " only had 1 seal." << endl;
+            cout << "They had 2 seals and " << players[0]->getName() << " only had 1 seal." << endl;
         else
-            cout << "They had 2 seals and " << players[0]->Player::getName() << " had 0 seals." << endl;
+            cout << "They had 2 seals and " << players[0]->getName() << " had 0 seals." << endl;
     }
 
 }
 
 bool Game::gameOver() const
 {
-    if ((*players[0]).countSeals() == 2) {
-        printGameWinner();
-        return true;
-    }
-    if ((*players[1]).countSeals() == 2) {
+    if (players[0]->countSeals() == 2 || players[1]->countSeals() == 2) {
         printGameWinner();
         return true;
     }
@@ -148,7 +144,7 @@ void Game::playGame()
         for(int i = 0; i < 2; i++)
             players[i]->resetForRound();
 
-        //deal initial player hands for second and thrid rounds must happen after resetting the field and dealing it.
+        //deal initial player hands for second and third rounds must happen after resetting the field and dealing it.
         Card * temp;
         for(int i = 0; i < 2; i++)
         {
@@ -159,7 +155,7 @@ void Game::playGame()
                     // do shit
                     (*players[i]).herd.push_back(temp);
                 else
-                    (*players[i]).hand.insert(temp);
+                    (*players[i]).hand.insertPointer(temp);
             }
         }
     }

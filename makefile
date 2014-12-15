@@ -6,8 +6,8 @@ All: JaipurMain PlayerHumanTest BankTest
 JaipurMain: JaipurMain.o Game.o Bank.o Deck.o Card.o Field.o Player.o PlayerHuman.o PlayerComp.o Move.o
 	$(CC) $(CFLAGS) -o JaipurMain JaipurMain.o Game.o Bank.o Deck.o Card.o Field.o Player.o PlayerHuman.o PlayerComp.o Move.o
 
-PlayerHumanTest: PlayerHumanTest.o PlayerHuman.o PlayerComp.o Player.o Bank.o Move.o Card.o Field.o Deck.o Token.o
-	$(CC) $(CFLAGS) -o PlayerHumanTest PlayerHumanTest.o PlayerHuman.o PlayerComp.o Player.o Bank.o Move.o Card.o Field.o Deck.o Token.o
+PlayerHumanTest: PlayerHumanTest.o PlayerHuman.o PlayerComp.o Player.o Bank.o Move.o Card.o Field.o Deck.o
+	$(CC) $(CFLAGS) -o PlayerHumanTest PlayerHumanTest.o PlayerHuman.o PlayerComp.o Player.o Bank.o Move.o Card.o Field.o Deck.o
 
 BankTest: BankTest.o Bank.o Field.o Card.o Deck.o
 	$(CC) $(CFLAGS) -o BankTest BankTest.o Bank.o Field.o Card.o Deck.o
@@ -52,7 +52,7 @@ State.o: State.cpp State.h
 	$(CC) $(CFLAGS) -c State.cpp
 
 clean:
-	\rm *.o JaipurMain JaipurTest BankTest
+	\rm *.o All JaipurMain BankTest PlayerHumanTest
 
 zip:
 	zip -l pg7.zip makefile README *.h *.cpp

@@ -21,15 +21,13 @@ public:
 
     void printDeck() const;
     void shuffle();
-    void restoreDeck();
     void increasePlaceinDeck(){placeinDeck++;};
     Card * dealCard();
     int getPlaceInDeck() const { return placeinDeck; };
 
-public://private:
-
+private:
     void swap (int, int);
-
+    
 };
 
 #endif /* defined(__pg7b__Deck__) */
