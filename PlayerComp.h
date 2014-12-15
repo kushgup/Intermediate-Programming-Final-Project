@@ -13,5 +13,4 @@ public:
     void makeMove();
 };
 
-
 #endif // PLAYERCOMP_H_INCLUDED
