@@ -70,20 +70,20 @@ void Game::initPlayers() {
     }
 }
 
-void Game::printBoard() {
+void Game::printBoard() const {
     cout << endl;
     bank.printBank();
     field.printField();
 }
 
-bool Game::roundIsOver(){
+bool Game::roundIsOver() const {
 
     if((55 - field.deck.getPlaceInDeck()) == 0 || bank.isDepleted() >= 3) //check if deck is empty
         return true;
     return false;
 }
 
-void Game::printGameWinner()
+void Game::printGameWinner() const
 {
     int P0seals = players[0]->Player::countSeals();
     int P1seals = players[1]->Player::countSeals();
@@ -106,7 +106,7 @@ void Game::printGameWinner()
 
 }
 
-bool Game::gameOver()
+bool Game::gameOver() const
 {
     if ((*players[0]).countSeals() == 2) {
         printGameWinner();
@@ -161,11 +161,11 @@ void Game::playGame()
     }
 }
 
-void Game::printRoundWinner(int w)
+void Game::printRoundWinner(int w) const
 {
-    cout << players[w]->Player::getName();
+    cout << players[w]->getName();
     cout << " won the round with: ";
-    cout << players[w]->Player::countPts();
+    cout << players[w]->countPts();
     cout << endl;
 }
 
@@ -182,10 +182,10 @@ void Game::calculateWinner() // assign camel token and calculate who wins. Give 
     }
     else // tie for # of camels
     {
-        if (players[0]->Player::hasPandaCamel())
+        if (players[0]->hasPandaCamel())
             (*players[0]).tokens.push_back(bank.getCamelToken());
         
-        else if (players[1]->Player::hasPandaCamel())
+        else if (players[1]->hasPandaCamel())
             (*players[1]).tokens.push_back(bank.getCamelToken());
             
     }
@@ -217,6 +217,6 @@ void Game::calculateWinner() // assign camel token and calculate who wins. Give 
             Pwinner = 1;
         }
     }
-    cout << players[0]->Player::getName() << ": " << players[0]->Player::countPts() << "\t" << players[1]->Player::getName() << ": " << players[1]->Player::countPts() << endl;
+    cout << players[0]->getName() << ": " << players[0]->countPts() << "\t" << players[1]->getName() << ": " << players[1]->countPts() << endl;
     printRoundWinner(Pwinner);
 }
