@@ -9,7 +9,7 @@
 #include <cstdlib> // recently added
 #include "Card.h"
 
-#define numPlayers;
+#define numPlayers 2
 
 class Player;
 class PlayerComp;
@@ -21,7 +21,7 @@ private:
 
 	Field field; // default constructor gets called automatically upon game objection creation
 	Bank bank; // default constructor gets called automatically upon game objection creation
-	Player* players[2];
+	Player* players[numPlayers];
 	int roundNum;
 	int playerWinnerIndex; //keep track of starting player
 	//State gameState;
