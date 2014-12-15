@@ -21,12 +21,13 @@ Game::Game(): roundNum(1), playerWinnerIndex(0) {
 /*
 Game::Game(Game& other) {
 
-}
+} */
 
 Game::~Game() {
 
+    for (int i = 0; i < numPlayers; i++)
+        delete players[i];
 }
-*/
 
 void Game::initPlayers() {
     //////////////// get number of human / AI players ////////////////

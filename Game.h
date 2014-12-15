@@ -9,6 +9,8 @@
 #include <cstdlib> // recently added
 #include "Card.h"
 
+#define numPlayers;
+
 class Player;
 class PlayerComp;
 class PlayerHuman;
