@@ -34,7 +34,7 @@ void Player::printHand() const {
 
 	cout << std::setfill('*') << std::setw(50) << endl;
 	//cout << std::setfill(' ');
-	cout << '\n' << name << "'s hand:" << endl;
+	cout << '\n' << name << "'s turn. You have " << countPts() << " points. Your hand:" << endl;
 	int i = 1;
 	for(OListIterator<Card*> iter = hand.begin(); iter != hand.end(); iter++)
 		cout << i++ << ") " << (**iter).getIdentifier() << endl;

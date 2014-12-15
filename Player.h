@@ -42,7 +42,7 @@ public:
 	int numCamels() const { return herd.size(); };
 	int countPts() const;
 	int countSeals() const { return seals.size(); };
-	void printHand() const;
+	void printHand() const; //print name, hand, camel and point info
 	virtual void makeMove() = 0; //decides which action to take on the turn, should be overwritten for human and AI players
     void resetForRound(); //clear hand, herd, and tokens for a new round
     bool hasPandaCamel();
