@@ -42,7 +42,6 @@ public:
     int count(T val) const;
     void insert(T val);
     void insertPointer(T val);
-    void push_back(T val);
     void remove(T val);
     void uniquify();
     bool isSorted();
@@ -166,16 +165,6 @@ void OList<T>::insertPointer(T val) {
         curr = curr->next;
     }
     prev->next = new Node<T>(val, curr);
-}
-
-template <class T>
-void OList<T>::push_back(T val) {
-
-    //insert at the end
-    Node<T> *curr = head;
-    while(curr->next)
-        curr = curr->next;
-    curr->next = new Node<T>(val, NULL);
 }
 
 template <class T>

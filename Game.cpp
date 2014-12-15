@@ -24,7 +24,7 @@ Game::Game(Game& other) {
 } */
 
 Game::~Game() {
-
+    ///CREATES WARNING.. need to create virtual destructor
     for (int i = 0; i < num_players; i++)
         delete players[i];
 }
@@ -33,14 +33,14 @@ void Game::initPlayers() {
     //////////////// get number of human / AI players ////////////////
 
     int numPlayers = 2;
-    
+
     cout << "Enter how many human players will be playing (0 - 2)" << endl;
     cin >> numPlayers;
     if (numPlayers < 0 || numPlayers > 2) {
             throw std::range_error("must be btw 0 and 2!");
     }
     // try catch potentially
-    
+
     int i = 0;
     string name;
     while(numPlayers--) // create human players
@@ -51,9 +51,9 @@ void Game::initPlayers() {
     }
     while(i < 2) // create remaining AI players
     {
-        string str = to_string(i);
-        name = "AI Player" + str;
-        players[i++] = new PlayerComp(name, &field, &bank);
+        string str = "Dumb-Bob";//std::to_string(i);
+        //name = "AI Player" + str;
+        players[i++] = new PlayerComp(str, &field, &bank);
     }
 
     //deal initial player hands
@@ -88,7 +88,7 @@ void Game::printGameWinner() const
 {
     int P0seals = players[0]->Player::countSeals();
     int P1seals = players[1]->Player::countSeals();
-    
+
     if (P0seals == 2){
         cout << players[0]->Player::getName() << " won the game!!!" << endl;
         if(P1seals == 1)
@@ -96,7 +96,7 @@ void Game::printGameWinner() const
         else
             cout << "They had 2 seals and " << players[1]->Player::getName() << " had 0 seals." << endl;
     }
-    
+
     if (P1seals == 2){
         cout << players[1]->Player::getName() << " won the game!!!" << endl;
         if(P0seals == 1)
@@ -144,7 +144,7 @@ void Game::playGame()
         // empty player hands and reset
         for(int i = 0; i < 2; i++)
             players[i]->resetForRound();
-        
+
         //deal initial player hands for second and thrid rounds must happen after resetting the field and dealing it.
         Card * temp;
         for(int i = 0; i < 2; i++)
@@ -185,12 +185,12 @@ void Game::calculateWinner() // assign camel token and calculate who wins. Give 
     {
         if (players[0]->hasPandaCamel())
             (*players[0]).tokens.push_back(bank.getCamelToken());
-        
+
         else if (players[1]->hasPandaCamel())
             (*players[1]).tokens.push_back(bank.getCamelToken());
-            
+
     }
-    
+
     if((*players[0]).countPts() > (*players[1]).countPts())
     {
         playerWinnerIndex = 0;
